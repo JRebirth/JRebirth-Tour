@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.jrebirth.org/Presentation" xsi:schemaLocation="http://www.jrebirth.org/Presentation Presentation.xsd">
+
+	<title>JRebirth Application Framework</title>
+	<date>28/11/2013</date>
+	<event>JUGChennay Event</event>
+	<place>Chennai</place>
+
+	<speakers>
+		<speaker firstName="Guruprasad" lastName="Shenoy" email="@jrebirth.org"/>
+	</speakers>
+
+	<slides defaultModelClass="org.jrebirth.presentation.jaf.ui.slides.basic.BasicModel">
+
+		<slide style="place" modelClass="org.jrebirth.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		</slide>
+
+		<slide style="intro" modelClass="org.jrebirth.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
+			<title>JRebirth\n\tApplication\n\t\tFramework</title>
+		</slide>
+
+
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
+			<title>Build efficiently JavaFX applications !</title>
+		</slide>
+
+
+		<slide style="dogfooding" modelClass="org.jrebirth.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<title>DogFooding.Mode = On</title>
+		</slide>
+
+		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
+			<title>Key Features</title>
+			<content>
+				<item>Provide excellent SoC</item>
+				<item>Avoid Memory Leak</item>
+				<item>Automagically manage thread &amp; Async tasks</item>
+				<item>Manage all resources</item>
+				<item>Lightweight (lower than 100kb with Pack200)</item>
+				<item>Free &amp; Open Source (Apache v2)</item>
+			</content>
+		</slide>
+
+
+		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
+			<title>A custom tailored pattern\n\nwCS - Mvc</title>
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>wCS - Mvc Pattern</title>
+			<content>
+				<item></item>
+				<item image="slides/pattern/JRebirthPattern.png" />
+			</content>
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Command Layer</title>
+			<content>
+				<title></title>
+				<item></item>
+			</content>
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Service Layer</title>
+			<content>
+				<title></title>
+				<item></item>
+			</content>
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Model Layer</title>
+			<content>
+				<item></item>
+			</content>
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Resources Management</title>
+			<content>
+				<item>Parameters</item>
+				<item>Fonts</item>
+				<item>Colors</item>
+				<item>Images</item>
+				<item>StyleSheets</item>
+				<item>FXML files</item>
+			</content>
+			
+			<content>
+			<title>Benefits</title>
+				<item>Only hold a lightweight object</item>
+				<item>Release heavy-weight resource if memory size is constrained</item>
+			</content>
+			
+						<content>
+			<title>Sample</title>
+				<item>Declaration</item>
+				<item></item>
+				<item>Usage</item>
+				<item></item>
+				
+			</content>
+		</slide>
+
+
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<content>
+				<item image="splash/Thanks.png" />
+			</content>
+		</slide>
+
+		<!-- Des Questions -->
+		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel"> <title>Avez-vous des\nquestions ?</title> </slide> -->
+
+		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<content>
+				<item image="splash/Q_and_A.png" />
+			</content>
+		</slide>
+
+
+	</slides>
+
+</presentation>
