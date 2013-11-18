@@ -81,8 +81,8 @@ import org.jrebirth.presentation.jaf.resources.JpFonts;
 import org.jrebirth.presentation.jaf.resources.JpImages;
 import org.jrebirth.presentation.model.SlideContent;
 import org.jrebirth.presentation.model.SlideItem;
-import org.jrebirth.presentation.resource.PrezColors;
-import org.jrebirth.presentation.resource.PrezFonts;
+import org.jrebirth.presentation.resources.PrezColors;
+import org.jrebirth.presentation.resources.PrezFonts;
 import org.jrebirth.presentation.ui.base.AbstractSlideView;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
@@ -477,7 +477,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                 .layoutY(700)
                 // .scaleX(0.6)
                 // .scaleY(0.6)
-                .image(JpImages.PLACE_LOGO.get())
+                .image(JpImages.JREBIRTH_LOGO.get())
                 .build();
 
         final Polyline pl = PolylineBuilder.create()

@@ -40,7 +40,7 @@ public final class IntroModel extends AbstractSlideModel<IntroModel, IntroView, 
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep) {
+    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
         // Nothing to do yet
     }
 

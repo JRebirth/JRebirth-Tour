@@ -29,9 +29,9 @@ import org.jrebirth.core.resource.image.LocalImage;
 public interface JpImages {
 
     /** The background image used by place slide. */
-    ImageItem PLACE_BG = create(new LocalImage("intro", "ToulouseJug", ImageExtension.JPG));
+    ImageItem PLACE_BG = create(new LocalImage("intro", "Ramakrishna_Mutt_Chennai", ImageExtension.JPG));
 
     /** The place logo displayed into each slide. */
-    ImageItem PLACE_LOGO = create(new LocalImage("PlaceLogo", ImageExtension.PNG));
+    ImageItem JREBIRTH_LOGO = create(new LocalImage("JRebirth_Title_Mini", ImageExtension.PNG));
 
 }

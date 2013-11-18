@@ -7,7 +7,7 @@
 	<place>Chennai</place>
 
 	<speakers>
-		<speaker firstName="Guruprasad" lastName="Shenoy" email="@jrebirth.org"/>
+		<speaker firstName="Guruprasad" lastName="Shenoy" email="@jrebirth.org" />
 	</speakers>
 
 	<slides defaultModelClass="org.jrebirth.presentation.jaf.ui.slides.basic.BasicModel">
@@ -43,43 +43,168 @@
 
 
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
-			<title>A custom tailored pattern\n\nwCS - Mvc</title>
+			<title>A custom tailored pattern</title>
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
-			<title>wCS - Mvc Pattern</title>
-			<content>
-				<item></item>
+
+			<title>wCS - Mvc pattern</title>
+
+			<content name="Overview">
 				<item image="slides/pattern/JRebirthPattern.png" />
+				<item level="1">wave Command Service</item>
+				<item level="1">Model view controller</item>
 			</content>
+
+			<content name="Components">
+				<title>Main Components</title>
+				<item>Application, GlobalFacade, Notifier</item>
+				<item></item>
+				<item>CommandFacade &amp; Commands</item>
+				<item></item>
+				<item>ServiceFacade &amp; Services</item>
+				<item></item>
+				<item>UiFacade &amp; Models [View [, Controller]]</item>
+				<item></item>
+				<item>Wave</item>
+			</content>
+
+			<content name="Threads">
+				<title>Main Thread</title>
+				<item>JAT</item>
+				<item level="1">JavaFX Graphical Thread</item>
+				<item></item>
+				<item>JIT</item>
+				<item level="1">JRebirth Internal Thread</item>
+				<item level="1">Used to manage Waves and subscriptions</item>
+				<item></item>
+				<item>JTP &amp; PHTP</item>
+				<item level="1">JRebirth Thread Pool and High Priority Thread Pool</item>
+				<item level="1">Used to run long tasks</item>
+			</content>
+
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+
 			<title>Command Layer</title>
-			<content>
-				<title></title>
-				<item></item>
+
+			<content name="Overview">
+				<title>Principle</title>
+				<item>It's a reusable and trashable task</item>
+				<item>Can be Stateless (by defaults)</item>
+				<item>... or Statefull (according to your usage)</item>
 			</content>
+
+			<content name="Command Type">
+				<title>Type</title>
+				<item>There are 2 command types:</item>
+				<item></item>
+				<item>SimpleCommand</item>
+				<item level="1">Run atomically</item>
+				<item></item>
+				<item>MultiCommand</item>
+				<item level="1">Run several commands sequentially</item>
+				<item level="1">Run several commands in parallel</item>
+			</content>
+
+			<content name="Runnable">
+				<title>How to run</title>
+				<item>Each command can be run in </item>
+				<item>a dedicated Thread:</item>
+				<item level="1">Into JAT to update the UI</item>
+				<item level="1">Into JIT to do some custom tasks</item>
+				<item level="1">Into JTP to do all long tasks</item>
+				<item></item>
+				<item>Running Thread chosen according to:</item>
+				<item level="1">Command Class Hierarchy</item>
+				<item level="1">@RunInto annotation used</item>
+			</content>
+
+			<content name="Simple">
+				<title>Simple Command Sample</title>
+				<item>TODO html code</item>
+			</content>
+
+			<content name="Multi">
+				<title>Multi Command Sample</title>
+				<item>TODO html code</item>
+			</content>
+
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+
 			<title>Service Layer</title>
-			<content>
-				<title></title>
+
+			<content name="Overview">
+				<title>Principle</title>
+				<item>Services are used to handle long task</item>
+				<item>with asynchronous callback</item>
 				<item></item>
+				<item>A service is composed by on </item>
+				<item>or several ServiceTask</item>
 			</content>
+			
+			<content name="Management">
+				<title>Task Management</title>
+				<item>Follow Task progression:</item>
+				<item>update progress bar into JAT</item>
+				<item>update message into JAT</item>
+				<item></item>
+				<item>A service is composed by one</item>
+				<item>or several ServiceTask</item>
+			</content>
+			
+			<content name="Workflow">
+				<title>Workflow</title>
+				<item>A serviceTask is triggered</item>
+				<item>by a Wave or a direct call</item>
+				<item></item>
+				<item>Send a Wave that hold returned value</item>
+				<item>asynchronously</item>
+			</content>
+
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+
 			<title>Model Layer</title>
-			<content>
-				<item></item>
+
+			<content name="Principle">
+				<item>Model is the JRebirth Component</item>
+				<item>View &amp; Controller are optional</item>
+				<item>and are automatically built</item>
 			</content>
+			
+			<content name="Model">
+				<item>Can communicate with other Components</item>
+				<item>Automatically process Wave into JAT</item>
+			</content>
+			
+			<content name="View">
+				<item>Used to populate the root node</item>
+				<item>Can call model method (use package modifier)</item>
+				<item>Can use annotation on field </item>
+				<item>to attach Event Handler</item>
+				<item>Add Custom Component lifecycle</item>
+				<item level="1">Show</item>
+				<item level="1">Hide</item>
+			</content>
+			
+			<content name="Controller">
+				<item>3 Kind of event handling:</item>
+				<item level="1">Adapter + Handler</item>
+				<item level="1">linkCommand, linkUi, linkService</item>
+				<item level="1">With View Annotation</item>
+			</content>
+
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<title>Resources Management</title>
-			<content>
+
+			<content name="Type">
 				<item>Parameters</item>
 				<item>Fonts</item>
 				<item>Colors</item>
@@ -87,23 +212,66 @@
 				<item>StyleSheets</item>
 				<item>FXML files</item>
 			</content>
-			
-			<content>
-			<title>Benefits</title>
+
+			<content name="Benefits">
+				<title>Benefits</title>
 				<item>Only hold a lightweight object</item>
 				<item>Release heavy-weight resource if memory size is constrained</item>
 			</content>
-			
-						<content>
-			<title>Sample</title>
+
+			<content name="Sample">
+				<title>Sample</title>
 				<item>Declaration</item>
 				<item></item>
 				<item>Usage</item>
 				<item></item>
-				
+
+			</content>
+
+		</slide>
+		
+		
+		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
+			<title>Previously On ...</title>
+			<content>
+				<item>EclipseDay</item>
+				<item level="1" link="true">www.jrebirth.org/eclipseday</item>
+				<item>Breizhcamp</item>
+				<item level="1" link="true">www.jrebirth.org/breizhcamp</item>
+				<item>ToulouseJUG Lightning Talk</item>
+				<item level="1" link="true">www.jrebirth.org/lightningtalk</item>
+				<item>EclipseCON JavaFX Workshop</item>
+				<item level="1" link="true">www.jrebirth.org/eclipsecon</item>
 			</content>
 		</slide>
 
+		<!-- Read source -->
+		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
+			<title>Explore it !</title>
+			<content>
+				<item>Source available on GitHub</item>
+				<item link="true">https://github.com/JRebirth</item>
+				<item></item>
+				<item>Built with Maven</item>
+			</content>
+		</slide>
+		
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Useful links</title>
+
+			<content name="">
+			<item>All documentation</item>
+				<item link="true">blog.jrebirth.org</item>
+				<item link="true">www.jrebirth.org</item>
+				<item></item>
+				<item>Software Factory</item>
+				<item level="1">Often offline</item>
+				<item link="true">ci.jrebirth.org</item>
+				<item link="true">quality.jrebirth.org</item>
+				<item link="true">repo.jrebirth.org</item>
+			</content>
+		</slide>
+		
 
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<content>
@@ -111,13 +279,13 @@
 			</content>
 		</slide>
 
-		<!-- Des Questions -->
-		<!-- <slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel"> <title>Avez-vous des\nquestions ?</title> </slide> -->
 
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+
 			<content>
 				<item image="splash/Q_and_A.png" />
 			</content>
+
 		</slide>
 
 

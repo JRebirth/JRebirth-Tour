@@ -40,8 +40,8 @@ public class BasicModel extends AbstractSlideModel<BasicModel, BasicView, SlideS
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep) {
-
+    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
+        getView().showSlideStep(slideStep, forward);
     }
 
     /**

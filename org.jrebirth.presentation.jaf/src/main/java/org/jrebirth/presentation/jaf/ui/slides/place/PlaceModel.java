@@ -40,7 +40,7 @@ public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, 
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep) {
+    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
         // Nothing to do yet
     }
 

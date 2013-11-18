@@ -9,7 +9,7 @@
 <listEntry value="storepass=lightme"/>
 <listEntry value="keypass=lightme"/>
 </listAttribute>
-<stringAttribute key="M2_RUNTIME" value="E:\JREBIRTH\TOOLS\apache-maven-3.1.0"/>
+<stringAttribute key="M2_RUNTIME" value="C:\Users\NG1E2B8\Desktop\UsbKey\JRebirth\TOOLS\apache-maven-3.1.0"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
 <booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>

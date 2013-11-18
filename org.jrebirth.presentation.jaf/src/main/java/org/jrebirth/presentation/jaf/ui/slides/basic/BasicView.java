@@ -81,8 +81,8 @@ import org.jrebirth.presentation.jaf.resources.JpFonts;
 import org.jrebirth.presentation.jaf.resources.JpImages;
 import org.jrebirth.presentation.model.SlideContent;
 import org.jrebirth.presentation.model.SlideItem;
-import org.jrebirth.presentation.resource.PrezColors;
-import org.jrebirth.presentation.resource.PrezFonts;
+import org.jrebirth.presentation.resources.PrezColors;
+import org.jrebirth.presentation.resources.PrezFonts;
 import org.jrebirth.presentation.ui.base.AbstractSlideView;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
@@ -282,6 +282,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     @Override
     public void reload() {
 
+        primaryTitle.snapshot(null, null);
         // MUST be refactored with property binding
 
         // this.pageLabel.setText(String.valueOf(getModel().getSlideNumber()));
@@ -341,7 +342,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                         .delay(Duration.millis(200))
                         .keyFrames(
                                 new KeyFrame(Duration.millis(0), new KeyValue(this.topRectangle.widthProperty(), 0)),
-                                new KeyFrame(Duration.millis(600), new KeyValue(this.topRectangle.widthProperty(), 300))
+                                new KeyFrame(Duration.millis(600), new KeyValue(this.topRectangle.widthProperty(), 50 + this.primaryTitle.getLayoutBounds().getWidth()))
                         )
                         .build(),
 
@@ -362,7 +363,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                         .node(this.placeLogo)
                         .delay(Duration.millis(1200))
                         .duration(Duration.millis(300))
-                        .toX(-400)
+                        .toX(-470)
                         .build(),
 
                 TranslateTransitionBuilder.create()
@@ -472,10 +473,10 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                 // .layoutX(680.0)
                 // .layoutY(-14.0)
                 .layoutX(1200)
-                .layoutY(700)
-                // .scaleX(0.6)
-                // .scaleY(0.6)
-                .image(JpImages.PLACE_LOGO.get())
+                .layoutY(675)
+                .scaleX(0.6)
+                .scaleY(0.6)
+                .image(JpImages.JREBIRTH_LOGO.get())
                 .build();
 
         final Polyline pl = PolylineBuilder.create()
@@ -566,9 +567,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         // // .style("-fx-background-color:#CCCCCC")
         // .build();
 
-        headerPane.getChildren().addAll(this.topRectangle, this.bottomRectangle,
+        headerPane.getChildren().addAll(this.topRectangle,
                 this.bigPokemon, this.smallPokemon,
-                this.primaryTitle, this.placeLogo, this.secondaryTitle,
+                this.primaryTitle, this.placeLogo, this.bottomRectangle, this.secondaryTitle,
                 pl, this.pageLabel,
                 this.prezTitle);
 
@@ -666,7 +667,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
             this.secondaryTitle.setText(slideContent.getTitle());
         }
 
-        this.prezTitle.setText("JavaFX 2.2\n What's Up ?");
+        this.prezTitle.setText("JRebirth AF");
 
         final VBox vbox = new VBox();
         // vbox.getStyleClass().add("content");
@@ -760,8 +761,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * Show the slide step store which match with xml file.
      * 
      * @param slideStep the slide step to show
+     * @param forward the flow direction
      */
-    public void showSlideStep(final SlideStep slideStep) {
+    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
 
         if (this.subSlides.size() >= getModel().getStepPosition() || this.subSlides.get(getModel().getStepPosition()) == null) {
             addSubSlide(buildDefaultContent(getModel().getContent(slideStep)));
@@ -769,7 +771,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
 
         if (this.currentSubSlide != null && nextSlide != null) {
-            performStepAnimation(nextSlide);
+            performStepAnimation(nextSlide, forward);
         } else {
             // No Animation
             this.currentSubSlide = nextSlide;
@@ -782,13 +784,13 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * 
      * @param node the node
      */
-    protected void showCustomSlideStep(final Node node) {
+    protected void showCustomSlideStep(final Node node, final boolean forward) {
 
         addSubSlide(node);
         final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
         if (this.currentSubSlide != null && nextSlide != null) {
 
-            performStepAnimation(nextSlide);
+            performStepAnimation(nextSlide, forward);
         } else {
             // No Animation
             this.currentSubSlide = nextSlide;
@@ -799,8 +801,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * TODO To complete.
      * 
      * @param nextSlide the next slide
+     * @param forward the flow direction
      */
-    private void performStepAnimation(final Node nextSlide) {
+    private void performStepAnimation(final Node nextSlide, final boolean forward) {
 
         setSlideLocked(true);
         this.subSlideTransition = ParallelTransitionBuilder.create()
@@ -820,8 +823,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                 .children(
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY(0)
-                                                .toY(-700)
+                                                .fromY((forward) ? 0 : 0)
+                                                .toY((forward) ? -700 : 700)
                                                 // .fromZ(-10)
                                                 .build(),
                                         TimelineBuilder.create()
@@ -844,8 +847,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                 .build(),
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY(700)
-                                                .toY(0)
+                                                .fromY((forward) ? 700 : -700)
+                                                .toY((forward) ? 0 : 0)
                                                 // .fromZ(-10)
                                                 .build()
                                 )
