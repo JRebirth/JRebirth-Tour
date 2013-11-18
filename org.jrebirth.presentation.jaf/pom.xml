@@ -72,6 +72,16 @@
 				<includes>
 					<include>**/*.*</include>
 				</includes>
+				<excludes>
+					<exclude>**/*.ttf</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<filtering>false</filtering>
+				<directory>${basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*.ttf</include>
+				</includes>
 			</resource>
 		</resources>
 

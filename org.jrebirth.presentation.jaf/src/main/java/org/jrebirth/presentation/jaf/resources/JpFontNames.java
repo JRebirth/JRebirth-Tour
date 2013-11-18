@@ -27,6 +27,8 @@ public enum JpFontNames implements FontName {
     /** . */
     DINk,
 
+    bewildet,
+
     /** . */
     Report_1942,
 

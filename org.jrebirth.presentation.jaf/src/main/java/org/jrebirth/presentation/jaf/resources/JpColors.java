@@ -17,10 +17,10 @@
  */
 package org.jrebirth.presentation.jaf.resources;
 
-import static org.jrebirth.core.resource.Resources.create;
-
 import org.jrebirth.core.resource.color.ColorItem;
 import org.jrebirth.core.resource.color.WebColor;
+
+import static org.jrebirth.core.resource.Resources.create;
 
 /**
  * The JpColors interface providing all colors.
@@ -29,5 +29,8 @@ public interface JpColors {
 
     /** The slide title color. */
     ColorItem SLIDE_TITLE = create(new WebColor("0088D3", 1.0));
+
+    /** The slide title color. */
+    ColorItem PREZ_TITLE = create(new WebColor("0088D3", 0.1));
 
 }

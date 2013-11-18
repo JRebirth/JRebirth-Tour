@@ -17,10 +17,10 @@
  */
 package org.jrebirth.presentation.jaf.resources;
 
-import static org.jrebirth.core.resource.Resources.create;
-
 import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.resource.font.RealFont;
+
+import static org.jrebirth.core.resource.Resources.create;
 
 /**
  * The JpFonts interface providing all fonts.
@@ -30,8 +30,14 @@ public interface JpFonts {
     /** The splash font. */
     FontItem PAGE = create(new RealFont(JpFontNames.DINk, 24));
 
+    /** The splash font. */
+    FontItem SPLASH = create(new RealFont(JpFontNames.bewildet, 32));
+
     /** The typewriter font. */
     FontItem TYPEWRITER = create(new RealFont(JpFontNames.MIZIKE, 72));
+
+    /** The dog splash. */
+    FontItem DOG_SPLASH = create(new RealFont(JpFontNames.whiterabbit, 20));
 
     /** The slide title font. */
     FontItem SLIDE_TITLE = create(new RealFont(JpFontNames.Harabara, 45));
@@ -39,13 +45,7 @@ public interface JpFonts {
     /** The slide item. */
     FontItem SLIDE_ITEM = create(new RealFont(JpFontNames.Neuton_Cursive, 10));
 
-    /** The dog splash. */
-    FontItem DOG_SPLASH = create(new RealFont(JpFontNames.whiterabbit, 20));
-
-    /** The wazaa splash. */
-    FontItem WAZAA_SPLASH = create(new RealFont(JpFontNames.Turtles, 20));
-
     /** The prez title. */
-    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 26));
+    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 88));
 
 }

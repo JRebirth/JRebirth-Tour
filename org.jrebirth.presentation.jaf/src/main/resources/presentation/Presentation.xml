@@ -21,7 +21,7 @@
 
 
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
-			<title>Build efficiently JavaFX applications !</title>
+			<title>Build efficiently\nJavaFX applications !</title>
 		</slide>
 
 
@@ -43,7 +43,7 @@
 
 
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
-			<title>A custom tailored pattern</title>
+			<title>A custom-tailored\npattern</title>
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
@@ -52,25 +52,44 @@
 
 			<content name="Overview">
 				<item image="slides/pattern/JRebirthPattern.png" />
-				<item level="1">wave Command Service</item>
-				<item level="1">Model view controller</item>
+				<item level="1">Wave Command Service</item>
+				<item level="1">Model View Controller</item>
 			</content>
 
 			<content name="Components">
-				<title>Main Components</title>
+				<title>JRebirth Parts</title>
+
 				<item>Application, GlobalFacade, Notifier</item>
-				<item></item>
+				<item level="1">JRebirth Core Classes</item>
 				<item>CommandFacade &amp; Commands</item>
-				<item></item>
+				<item level="1">Manage reusable tasks</item>
 				<item>ServiceFacade &amp; Services</item>
-				<item></item>
+				<item level="1">Perform your long tasks</item>
 				<item>UiFacade &amp; Models [View [, Controller]]</item>
-				<item></item>
+				<item level="1">Display your User Interface</item>
 				<item>Wave</item>
+				<item level="1">Let Component communicate between them</item>
+
+			</content>
+
+			<content name="Components">
+
+				<title>JRebirth Components</title>
+
+				<item>3 kinds of Component:</item>
+				<item level="1">Command</item>
+				<item level="1">Service</item>
+				<item level="1">Model</item>
+				<item></item>
+				<item>Easy to build</item>
+				<item>Easy to bind</item>
+				<item>Can communicate asynchronously</item>
+				<item>Loosely coupled, avoid memory leak</item>
 			</content>
 
 			<content name="Threads">
-				<title>Main Thread</title>
+				<title>JRebirth Threads</title>
+
 				<item>JAT</item>
 				<item level="1">JavaFX Graphical Thread</item>
 				<item></item>
@@ -91,13 +110,16 @@
 
 			<content name="Overview">
 				<title>Principle</title>
-				<item>It's a reusable and trashable task</item>
+				<item>is a JRebirth Component</item>
+				<item>Reusable</item>
+				<item>... and disposable task</item>
 				<item>Can be Stateless (by defaults)</item>
-				<item>... or Statefull (according to your usage)</item>
+				<item>... or Stateful (according to your usage)</item>
 			</content>
 
 			<content name="Command Type">
 				<title>Type</title>
+
 				<item>There are 2 command types:</item>
 				<item></item>
 				<item>SimpleCommand</item>
@@ -110,6 +132,7 @@
 
 			<content name="Runnable">
 				<title>How to run</title>
+
 				<item>Each command can be run in </item>
 				<item>a dedicated Thread:</item>
 				<item level="1">Into JAT to update the UI</item>
@@ -137,17 +160,20 @@
 
 			<title>Service Layer</title>
 
-			<content name="Overview">
+			<content name="Principle">
 				<title>Principle</title>
+
+				<item>is a JRebirth Component</item>
 				<item>Services are used to handle long task</item>
 				<item>with asynchronous callback</item>
 				<item></item>
 				<item>A service is composed by on </item>
 				<item>or several ServiceTask</item>
 			</content>
-			
+
 			<content name="Management">
 				<title>Task Management</title>
+
 				<item>Follow Task progression:</item>
 				<item>update progress bar into JAT</item>
 				<item>update message into JAT</item>
@@ -155,9 +181,10 @@
 				<item>A service is composed by one</item>
 				<item>or several ServiceTask</item>
 			</content>
-			
+
 			<content name="Workflow">
 				<title>Workflow</title>
+
 				<item>A serviceTask is triggered</item>
 				<item>by a Wave or a direct call</item>
 				<item></item>
@@ -172,17 +199,24 @@
 			<title>Model Layer</title>
 
 			<content name="Principle">
+				<title>Principle</title>
+
 				<item>Model is the JRebirth Component</item>
 				<item>View &amp; Controller are optional</item>
 				<item>and are automatically built</item>
 			</content>
-			
+
 			<content name="Model">
+				<title>Model</title>
+
+				<item>is a JRebirth Component</item>
 				<item>Can communicate with other Components</item>
 				<item>Automatically process Wave into JAT</item>
 			</content>
-			
+
 			<content name="View">
+				<title>View</title>
+
 				<item>Used to populate the root node</item>
 				<item>Can call model method (use package modifier)</item>
 				<item>Can use annotation on field </item>
@@ -191,8 +225,9 @@
 				<item level="1">Show</item>
 				<item level="1">Hide</item>
 			</content>
-			
+
 			<content name="Controller">
+				<title>Controller</title>
 				<item>3 Kind of event handling:</item>
 				<item level="1">Adapter + Handler</item>
 				<item level="1">linkCommand, linkUi, linkService</item>
@@ -204,7 +239,9 @@
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<title>Resources Management</title>
 
-			<content name="Type">
+			<content name="Types">
+				<title>Resource Types</title>
+
 				<item>Parameters</item>
 				<item>Fonts</item>
 				<item>Colors</item>
@@ -215,12 +252,14 @@
 
 			<content name="Benefits">
 				<title>Benefits</title>
+
 				<item>Only hold a lightweight object</item>
 				<item>Release heavy-weight resource if memory size is constrained</item>
 			</content>
 
 			<content name="Sample">
 				<title>Sample</title>
+
 				<item>Declaration</item>
 				<item></item>
 				<item>Usage</item>
@@ -229,8 +268,8 @@
 			</content>
 
 		</slide>
-		
-		
+
+
 		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
 			<title>Previously On ...</title>
 			<content>
@@ -247,7 +286,7 @@
 
 		<!-- Read source -->
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
-			<title>Explore it !</title>
+			<title>Get Involved !</title>
 			<content>
 				<item>Source available on GitHub</item>
 				<item link="true">https://github.com/JRebirth</item>
@@ -255,12 +294,12 @@
 				<item>Built with Maven</item>
 			</content>
 		</slide>
-		
+
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<title>Useful links</title>
 
 			<content name="">
-			<item>All documentation</item>
+				<item>All documentation</item>
 				<item link="true">blog.jrebirth.org</item>
 				<item link="true">www.jrebirth.org</item>
 				<item></item>
@@ -271,7 +310,7 @@
 				<item link="true">repo.jrebirth.org</item>
 			</content>
 		</slide>
-		
+
 
 		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<content>

@@ -77,6 +77,7 @@ import javafx.util.Duration;
 import org.jrebirth.core.exception.CoreException;
 import org.jrebirth.core.resource.Resources;
 import org.jrebirth.core.resource.image.LocalImage;
+import org.jrebirth.presentation.jaf.resources.JpColors;
 import org.jrebirth.presentation.jaf.resources.JpFonts;
 import org.jrebirth.presentation.jaf.resources.JpImages;
 import org.jrebirth.presentation.model.SlideContent;
@@ -109,7 +110,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     /** The pane that hold the content. */
     private StackPane slideContent;
 
-    /** The list of nodes taht reprensent each subslide. */
+    /** The list of nodes that represent each subslide. */
     private final List<Node> subSlides = new ArrayList<>();
 
     /** The current subslide node displayed. */
@@ -442,11 +443,11 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         this.secondaryTitle = LabelBuilder.create()
                 // .styleClass("slideTitle")
                 .font(PrezFonts.SLIDE_SUB_TITLE.get())
-                .textFill(PrezColors.SLIDE_TITLE.get())
+                .textFill(PrezColors.SUB_TITLE.get())
                 // .scaleX(1.5)
                 // .scaleY(1.5)
                 .layoutX(450)
-                .layoutY(14)
+                .layoutY(78)
                 .minWidth(450)
                 // .style("-fx-background-color:#E53B20")
                 .alignment(Pos.CENTER_RIGHT)
@@ -456,7 +457,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         this.prezTitle = LabelBuilder.create()
                 // .styleClass("slideTitle")
                 .font(JpFonts.PREZ_TITLE.get())
-                .textFill(Color.LIGHTGRAY)
+                .textFill(JpColors.PREZ_TITLE.get())
                 // .scaleX(1.5)
                 // .scaleY(1.5)
                 // .layoutX(545)

@@ -51,7 +51,8 @@ public final class JRebirthPresentation extends DefaultApplication<StackPane> {
      * @param args the command line arguments
      */
     public static void main(final String... args) {
-        preloadAndLaunch(args);
+        // preloadAndLaunch(args);
+        launchNow(args);
     }
 
     /**
@@ -117,10 +118,13 @@ public final class JRebirthPresentation extends DefaultApplication<StackPane> {
     protected List<FontItem> getFontToPreload() {
 
         return Arrays.asList(new FontItem[] {
+                JpFonts.PAGE,
+                JpFonts.SPLASH,
                 JpFonts.TYPEWRITER,
                 JpFonts.DOG_SPLASH,
-                JpFonts.WAZAA_SPLASH,
-                JpFonts.SLIDE_ITEM
+                JpFonts.SLIDE_TITLE,
+                JpFonts.SLIDE_ITEM,
+                JpFonts.PREZ_TITLE
         });
     }
 

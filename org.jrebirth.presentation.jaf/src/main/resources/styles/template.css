@@ -17,7 +17,7 @@
 
 .intro .introTitle {
 	-fx-font : 100px "mizike";
-	-fx-fill: #CCCCCC;
+	-fx-fill: #FF0000;
 }
 
 .header{
@@ -123,10 +123,9 @@ VBox.me{
 }
 
 .splashText{
-	-fx-fill : #CCCCCC; /*#A0DCFF ;*/
+	-fx-fill : #FFFFFF; /*#A0DCFF ;*/
 	-fx-text-alignment : center;
-	-fx-font: 100px  "Turtles";
-	/* -fx-padding : 10px;*/
+	-fx-font: 66px  "Bewilder Thick BRK";
 }
 
 /** Do You see */
