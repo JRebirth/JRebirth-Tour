@@ -47,6 +47,9 @@ public enum JpFontNames implements FontName {
     /** The Turtles. */
     Turtles,
 
+    /** BorisBlackBloxx. */
+    BorisBlackBloxx,
+
     /** . */
     Neuton_Cursive;
 

@@ -17,18 +17,19 @@
  */
 package org.jrebirth.presentation.jaf.resources;
 
+import static org.jrebirth.core.resource.Resources.create;
+
 import org.jrebirth.core.resource.font.FontItem;
 import org.jrebirth.core.resource.font.RealFont;
-
-import static org.jrebirth.core.resource.Resources.create;
+import org.jrebirth.presentation.resources.PrezFontNames;
 
 /**
  * The JpFonts interface providing all fonts.
  */
 public interface JpFonts {
 
-    /** The splash font. */
-    FontItem PAGE = create(new RealFont(JpFontNames.DINk, 24));
+    /** The page number font. */
+    FontItem PAGE = create(new RealFont(PrezFontNames.BorisBlackBloxx, 36));
 
     /** The splash font. */
     FontItem SPLASH = create(new RealFont(JpFontNames.bewildet, 32));
