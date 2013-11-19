@@ -31,7 +31,7 @@ public interface JpImages {
     /** The background image used by place slide. */
     ImageItem PLACE_BG = create(new LocalImage("intro", "Ramakrishna_Mutt_Chennai", ImageExtension.JPG));
 
-    /** The place logo displayed into each slide. */
+    /** The logo displayed into each slide. */
     ImageItem JREBIRTH_LOGO = create(new LocalImage("JRebirth_Title_Mini", ImageExtension.PNG));
 
 }

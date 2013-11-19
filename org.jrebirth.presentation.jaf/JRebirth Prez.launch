@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/org.jrebirth.presentation.jaf/src/main/java/org/jrebirth/presentation/jaf/JRebirthPresentation.java"/>
+<listEntry value="/org.jrebirth.presentation.jaf/src/main/java/org/jrebirth/presentation/jaf/JRebirthTour.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
@@ -14,7 +14,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
 <booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="false"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jrebirth.presentation.jaf.JRebirthPresentation"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jrebirth.presentation.jaf.JRebirthTour"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.jrebirth.presentation.jaf"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:org.jrebirth.presentation.jaf/src/main/resources}"/>

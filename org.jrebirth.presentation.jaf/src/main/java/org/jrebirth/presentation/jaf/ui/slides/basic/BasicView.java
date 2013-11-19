@@ -20,6 +20,7 @@ package org.jrebirth.presentation.jaf.ui.slides.basic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.FadeTransitionBuilder;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.ParallelTransition;
@@ -70,6 +71,8 @@ import javafx.scene.shape.SVGPathBuilder;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextBuilder;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.RotateBuilder;
 import javafx.scene.web.WebView;
 import javafx.scene.web.WebViewBuilder;
 import javafx.util.Duration;
@@ -131,6 +134,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     /** The bottom rectangle. */
     private Rectangle bottomRectangle;
 
+    /** The line revelator rectangle. */
+    private Rectangle revelator;
+
     /** The small pokemon. */
     private SVGPath smallPokemon;
 
@@ -144,7 +150,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     private Label prezTitle;
 
     /** The place logo. */
-    private ImageView placeLogo;
+    private ImageView logo;
 
     /**
      * Default Constructor.
@@ -263,7 +269,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     public void hide() {
 
         this.primaryTitle.setTranslateX(3000);
-        this.placeLogo.setTranslateX(1200);
+        this.logo.setTranslateX(1200);
 
         this.smallPokemon.setScaleX(0);
         this.smallPokemon.setScaleY(0);
@@ -360,8 +366,26 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                 )
                         )
                         .build(),
+                TimelineBuilder.create()
+                        .delay(Duration.millis(600))
+                        .keyFrames(
+                                new KeyFrame(Duration.millis(0),
+                                        new KeyValue(this.revelator.widthProperty(), 0)
+                                ),
+                                new KeyFrame(Duration.millis(1000),
+                                        new KeyValue(this.revelator.widthProperty(), 400)
+                                )
+                        )
+                        .build(),
+                FadeTransitionBuilder.create()
+                        .delay(Duration.millis(600))
+                        .duration(Duration.millis(1000))
+                        .node(prezTitle)
+                        .fromValue(0).toValue(1)
+                        .build(),
+
                 TranslateTransitionBuilder.create()
-                        .node(this.placeLogo)
+                        .node(this.logo)
                         .delay(Duration.millis(1200))
                         .duration(Duration.millis(300))
                         .toX(-470)
@@ -465,14 +489,13 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                 .layoutX(480)
                 .layoutY(14.0)
                 .minWidth(450)
+                .opacity(0.0)
                 // .style("-fx-background-color:#E53B20")
                 .alignment(Pos.CENTER_RIGHT)
                 .textAlignment(TextAlignment.RIGHT)
                 .build();
 
-        this.placeLogo = ImageViewBuilder.create()
-                // .layoutX(680.0)
-                // .layoutY(-14.0)
+        this.logo = ImageViewBuilder.create()
                 .layoutX(1200)
                 .layoutY(675)
                 .scaleX(0.6)
@@ -485,6 +508,31 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                 .stroke(Color.web("F79508"))
                 .points(684.0, 12.0, 946.0, 12.0, 946.0, 107.0)
                 .build();
+
+        this.revelator = RectangleBuilder.create()
+                .layoutX(946.0)
+                .layoutY(107.0)
+                .width(0.0) // 60.0
+                .height(200.0)
+                .fill(Color.YELLOW)
+                .transforms(RotateBuilder.create().angle(200).axis(Rotate.Z_AXIS).build())
+                .build();
+
+        // Rectangle r = RectangleBuilder.create()
+        // .layoutX(946.0)
+        // .layoutY(107.0)
+        // .width(400.0) // 60.0
+        // .height(200.0)
+        // .fill(Color.YELLOW)
+        // .transforms(RotateBuilder.create().angle(200).axis(Rotate.Z_AXIS).build())
+        // .build();
+
+        pl.setClip(revelator);
+
+        // Group line = new Group();
+        // line.setBlendMode(BlendMode.OVERLAY);
+        // line.getChildren().add(pl);
+        // line.getChildren().add(revelator);
 
         this.topRectangle = RectangleBuilder.create()
                 .layoutX(95.0)
@@ -556,7 +604,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                 .layoutX(970)
                 .layoutY(18.0)
                 .text(String.valueOf(getModel().getSlide().getPage()))
-                .font(PrezFonts.PAGE.get())
+                .font(JpFonts.PAGE.get())
                 .textFill(Color.WHITE)
                 .rotate(90.0)
                 .build();
@@ -570,7 +618,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
         headerPane.getChildren().addAll(this.topRectangle,
                 this.bigPokemon, this.smallPokemon,
-                this.primaryTitle, this.placeLogo, this.bottomRectangle, this.secondaryTitle,
+                this.primaryTitle, this.logo, this.bottomRectangle, this.secondaryTitle,
                 pl, this.pageLabel,
                 this.prezTitle);
 

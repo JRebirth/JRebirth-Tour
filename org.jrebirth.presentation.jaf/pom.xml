@@ -14,8 +14,8 @@
 		<deployUrl>http://apps.jrebirth.org</deployUrl>
 		<deployPath>${project.artifactId}/${project.version}</deployPath>
 
-		<jnlpFilename>JRebirth.jnlp</jnlpFilename>
-		<appClass>org.jrebirth.presentation.jaf.JRebirthPresentation</appClass>
+		<jnlpFilename>JRebirthTour.jnlp</jnlpFilename>
+		<appClass>org.jrebirth.presentation.jaf.JRebirthTour</appClass>
 
 		<appletWidth>1024</appletWidth>
 		<appletHeight>768</appletHeight>

@@ -12,6 +12,19 @@
 
 	<slides defaultModelClass="org.jrebirth.presentation.jaf.ui.slides.basic.BasicModel">
 
+		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
+			<title>Key Features</title>
+			<content>
+				<item>Provide excellent SoC</item>
+				<item>Avoid Memory Leak</item>
+				<item>Automagically manage thread &amp; Async tasks</item>
+				<item>Manage all resources</item>
+				<item>Lightweight (lower than 100kb with Pack200)</item>
+				<item>Free &amp; Open Source (Apache v2)
+				</item>
+			</content>
+		</slide>
+
 		<slide style="place" modelClass="org.jrebirth.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 		</slide>
 
@@ -19,11 +32,9 @@
 			<title>JRebirth\n\tApplication\n\t\tFramework</title>
 		</slide>
 
-
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
 			<title>Build efficiently\nJavaFX applications !</title>
 		</slide>
-
 
 		<slide style="dogfooding" modelClass="org.jrebirth.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>DogFooding.Mode = On</title>
@@ -37,10 +48,10 @@
 				<item>Automagically manage thread &amp; Async tasks</item>
 				<item>Manage all resources</item>
 				<item>Lightweight (lower than 100kb with Pack200)</item>
-				<item>Free &amp; Open Source (Apache v2)</item>
+				<item>Free &amp; Open Source (Apache v2)
+				</item>
 			</content>
 		</slide>
-
 
 		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
 			<title>A custom-tailored\npattern</title>
@@ -51,6 +62,7 @@
 			<title>wCS - Mvc pattern</title>
 
 			<content name="Overview">
+				<title>Overview</title>
 				<item image="slides/pattern/JRebirthPattern.png" />
 				<item level="1">Wave Command Service</item>
 				<item level="1">Model View Controller</item>
@@ -80,11 +92,13 @@
 				<item level="1">Command</item>
 				<item level="1">Service</item>
 				<item level="1">Model</item>
-				<item></item>
-				<item>Easy to build</item>
-				<item>Easy to bind</item>
+				<item>Easy to build &amp; bind</item>
 				<item>Can communicate asynchronously</item>
 				<item>Loosely coupled, avoid memory leak</item>
+				<item>Interact thanks to convenient methods:</item>
+				<item level="1">callCommand</item>
+				<item level="1">returnData</item>
+				<item level="1">attachUi</item>
 			</content>
 
 			<content name="Threads">
@@ -110,9 +124,11 @@
 
 			<content name="Overview">
 				<title>Principle</title>
-				<item>is a JRebirth Component</item>
+				<item>Command are JRebirth Components</item>
+				<item></item>
 				<item>Reusable</item>
-				<item>... and disposable task</item>
+				<item>... and disposable</item>
+				<item></item>
 				<item>Can be Stateless (by defaults)</item>
 				<item>... or Stateful (according to your usage)</item>
 			</content>
@@ -139,19 +155,72 @@
 				<item level="1">Into JIT to do some custom tasks</item>
 				<item level="1">Into JTP to do all long tasks</item>
 				<item></item>
-				<item>Running Thread chosen according to:</item>
+				<item>Running Thread is chosen according to:</item>
 				<item level="1">Command Class Hierarchy</item>
 				<item level="1">@RunInto annotation used</item>
 			</content>
 
 			<content name="Simple">
 				<title>Simple Command Sample</title>
-				<item>TODO html code</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>public&nbsp;final&nbsp;class&nbsp;</b></font><font color="#000000">DestroyBallCommand&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultUICommand&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">execute</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">JRebirthEvent&nbsp;event&nbsp;=&nbsp;wave.get</font><font color="#000000">(</font><font color="#000000">EditorWaves.EVENT</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">BallModel&nbsp;targetBallModel&nbsp;=&nbsp;getModel</font><font color="#000000">(</font><font color="#000000">BallModel.class,&nbsp;event</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">targetBallModel.hide</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">getModel</font><font color="#000000">(</font><font color="#000000">EditorModel.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">.unregisterBall</font><font color="#000000">(</font><font color="#000000">targetBallModel</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">}</font></code>   
+   </td>
+   </tr>
+</table>
+</div>
+				]]>
+				</item>
+				<item>Run into JAT</item>
+				<item>Handle 2 Models</item>
 			</content>
 
 			<content name="Multi">
-				<title>Multi Command Sample</title>
-				<item>TODO html code</item>
+				<title>MultiCommand Sample</title>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">ShowModelCommand&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultMultiBeanCommand&lt;DisplayModelWaveBean&gt;&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">addSubCommand</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">addCommandClass</font><font color="#000000">(</font><font color="#000000">PrepareModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">addCommandClass</font><font color="#000000">(</font><font color="#000000">AttachModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">}</font></code>  
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
+				<item>Run into JIT (default behaviour)</item>
+				<item>Run sequentially sub commands (default behaviour)</item>
 			</content>
 
 		</slide>
@@ -163,35 +232,147 @@
 			<content name="Principle">
 				<title>Principle</title>
 
-				<item>is a JRebirth Component</item>
-				<item>Services are used to handle long task</item>
-				<item>with asynchronous callback</item>
+				<item>Services are JRebirth Components</item>
 				<item></item>
-				<item>A service is composed by on </item>
-				<item>or several ServiceTask</item>
-			</content>
-
-			<content name="Management">
-				<title>Task Management</title>
-
-				<item>Follow Task progression:</item>
-				<item>update progress bar into JAT</item>
-				<item>update message into JAT</item>
+				<item>Services are used to handle long task</item>
+				<item level="1">with asynchronous callback</item>
+				<item level="1">with or without any state</item>
 				<item></item>
 				<item>A service is composed by one</item>
 				<item>or several ServiceTask</item>
 			</content>
 
-			<content name="Workflow">
-				<title>Workflow</title>
+			<content name="Running">
+				<title>Threading</title>
 
-				<item>A serviceTask is triggered</item>
-				<item>by a Wave or a direct call</item>
+				<item>Each ServiceTask is called into JTP</item>
+				<item>or PHTP according to their priority</item>
+				<item>Defined by @Priority</item>
 				<item></item>
-				<item>Send a Wave that hold returned value</item>
-				<item>asynchronously</item>
+				<item>Follow Task progression:</item>
+				<item level="1">update progress bar into JAT</item>
+				<item level="1">update message into JAT</item>
+				<item></item>
+				<item>A ServiceTask is created in 3 steps</item>
 			</content>
 
+
+			<content name="ServiceTask1">
+				<title>ServiceTask 1/3</title>
+
+				<item>1) Define WaveTypes</item>
+				<item></item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#3f5fbf">/**&nbsp;The&nbsp;Wave&nbsp;Type&nbsp;DO_BUILD_TABLES.&nbsp;*/</font><br />
+<font color="#7f0055"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">WaveTypeBase&nbsp;DO_BUILD_TABLES&nbsp;=&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">WaveTypeBase.build</font><font color="#000000">(</font><font color="#2a00ff">&#34;BUILD_TABLES&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#3f5fbf">/**&nbsp;The&nbsp;Wave&nbsp;Type&nbsp;RE_TABLES_BUILT.&nbsp;*/</font><br />
+<font color="#7f0055"><b>public&nbsp;static&nbsp;final&nbsp;</b></font><font color="#000000">WaveTypeBase&nbsp;RE_TABLES_BUILT&nbsp;=&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">WaveTypeBase.build</font><font color="#000000">(</font><font color="#2a00ff">&#34;TABLES_BUILT&#34;</font><font color="#000000">)</font><font color="#000000">;</font></code>  
+   </td>
+   </tr>
+</table>
+				]]>
+
+				</item>
+			</content>
+
+			<content name="ServiceTask2">
+				<title>ServiceTask 2/3</title>
+
+				<item>2) Register WaveTypes</item>
+				<item></item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">ready</font><font color="#000000">()&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">CoreException&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>super</b></font><font color="#000000">.ready</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Define&nbsp;the&nbsp;service&nbsp;method</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">registerCallback</font><font color="#000000">(</font><font color="#000000">DO_BUILD_TABLES,&nbsp;RE_TABLES_BUILT</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font></code> 
+   </td>
+   </tr>
+</table>
+				]]>
+
+				</item>
+			</content>
+			<content name="ServiceTask3">
+				<title>ServiceTask 3/3</title>
+
+				<item>3) Do your job</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#646464">@Priority</font><font color="#000000">(</font><font color="#000000">RunnablePriority.Highest</font><font color="#000000">)</font><br />
+<font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">doBuildTables</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">InterruptedException&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">LOGGER.trace</font><font color="#000000">(</font><font color="#2a00ff">&#34;Build&nbsp;Tables.&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">allItems&nbsp;=&nbsp;</font><font color="#990000">12&nbsp;</font><font color="#000000">*&nbsp;</font><font color="#990000">12&nbsp;</font><font color="#000000">*&nbsp;</font><font color="#990000">3&nbsp;</font><font color="#000000">+&nbsp;</font><font color="#990000">12&nbsp;</font><font color="#000000">*&nbsp;</font><font color="#990000">13</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">counter&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">updateProgress</font><font color="#000000">(</font><font color="#000000">wave,&nbsp;</font><font color="#990000">0</font><font color="#000000">,&nbsp;allItems</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;12&nbsp;*&nbsp;12&nbsp;*&nbsp;3&nbsp;items&nbsp;(432)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">leftOperand&nbsp;=&nbsp;</font><font color="#990000">1</font><font color="#000000">;&nbsp;leftOperand&nbsp;&lt;=&nbsp;</font><font color="#990000">12</font><font color="#000000">;&nbsp;leftOperand++</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">rightOperand&nbsp;=&nbsp;</font><font color="#990000">1</font><font color="#000000">;&nbsp;rightOperand&nbsp;&lt;=&nbsp;</font><font color="#990000">12</font><font color="#000000">;&nbsp;rightOperand++</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.multiplicationTable.add</font><font color="#000000">(</font><font color="#000000">ExpressionBuilder.create</font><font color="#000000">()</font><font color="#000000">.left</font><font color="#000000">(</font><font color="#000000">leftOperand</font><font color="#000000">)</font><font color="#000000">.operator</font><font color="#000000">(</font><font color="#000000">Operator.multiplication</font><font color="#000000">)</font><font color="#000000">.right</font><font color="#000000">(</font><font color="#000000">rightOperand</font><font color="#000000">)</font><font color="#000000">.result</font><font color="#000000">(</font><font color="#000000">leftOperand&nbsp;*&nbsp;rightOperand</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Thread.sleep</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.additionTable.add</font><font color="#000000">(</font><font color="#000000">ExpressionBuilder.create</font><font color="#000000">()</font><font color="#000000">.left</font><font color="#000000">(</font><font color="#000000">leftOperand</font><font color="#000000">)</font><font color="#000000">.operator</font><font color="#000000">(</font><font color="#000000">Operator.addition</font><font color="#000000">)</font><font color="#000000">.right</font><font color="#000000">(</font><font color="#000000">rightOperand</font><font color="#000000">)</font><font color="#000000">.result</font><font color="#000000">(</font><font color="#000000">leftOperand&nbsp;+&nbsp;rightOperand</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Thread.sleep</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.divisionTable.add</font><font color="#000000">(</font><font color="#000000">ExpressionBuilder.create</font><font color="#000000">()</font><font color="#000000">.left</font><font color="#000000">(</font><font color="#000000">rightOperand&nbsp;*&nbsp;leftOperand</font><font color="#000000">)</font><font color="#000000">.operator</font><font color="#000000">(</font><font color="#000000">Operator.division</font><font color="#000000">)</font><font color="#000000">.right</font><font color="#000000">(</font><font color="#000000">leftOperand</font><font color="#000000">)</font><font color="#000000">.result</font><font color="#000000">(</font><font color="#000000">rightOperand</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Thread.sleep</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">counter&nbsp;+=&nbsp;</font><font color="#990000">3</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">updateProgress</font><font color="#000000">(</font><font color="#000000">wave,&nbsp;counter,&nbsp;allItems</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;12&nbsp;*&nbsp;13&nbsp;*&nbsp;1&nbsp;items&nbsp;(156)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">tableGap&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">rightOperand&nbsp;=&nbsp;</font><font color="#990000">0</font><font color="#000000">;&nbsp;rightOperand&nbsp;&lt;=&nbsp;</font><font color="#990000">11</font><font color="#000000">;&nbsp;rightOperand++</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>for&nbsp;</b></font><font color="#000000">(</font><font color="#7f0055"><b>int&nbsp;</b></font><font color="#000000">leftOperand&nbsp;=&nbsp;tableGap;&nbsp;leftOperand&nbsp;&lt;=&nbsp;tableGap&nbsp;+&nbsp;</font><font color="#990000">12</font><font color="#000000">;&nbsp;leftOperand++</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>this</b></font><font color="#000000">.subtractionTable.add</font><font color="#000000">(</font><font color="#000000">ExpressionBuilder.create</font><font color="#000000">()</font><font color="#000000">.left</font><font color="#000000">(</font><font color="#000000">leftOperand</font><font color="#000000">)</font><font color="#000000">.operator</font><font color="#000000">(</font><font color="#000000">Operator.subtraction</font><font color="#000000">)</font><font color="#000000">.right</font><font color="#000000">(</font><font color="#000000">rightOperand</font><font color="#000000">)</font><font color="#000000">.result</font><font color="#000000">(</font><font color="#000000">leftOperand&nbsp;-&nbsp;rightOperand</font><font color="#000000">)</font><font color="#000000">.build</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Thread.sleep</font><font color="#000000">(</font><font color="#990000">5</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">counter&nbsp;+=&nbsp;</font><font color="#990000">13</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">updateProgress</font><font color="#000000">(</font><font color="#000000">wave,&nbsp;counter,&nbsp;allItems</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">tableGap++;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">LOGGER.trace</font><font color="#000000">(</font><font color="#2a00ff">&#34;Tables&nbsp;are&nbsp;ready&nbsp;!&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#000000">}</font></code>  
+   </td>
+   </tr>
+</table>
+				]]>
+
+				</item>
+			</content>
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
@@ -201,7 +382,8 @@
 			<content name="Principle">
 				<title>Principle</title>
 
-				<item>Model is the JRebirth Component</item>
+				<item>Models are JRebirth Components</item>
+				<item></item>
 				<item>View &amp; Controller are optional</item>
 				<item>and are automatically built</item>
 			</content>
@@ -209,29 +391,64 @@
 			<content name="Model">
 				<title>Model</title>
 
-				<item>is a JRebirth Component</item>
+				<item>Model shall handle the Business logic</item>
+				<item></item>
 				<item>Can communicate with other Components</item>
-				<item>Automatically process Wave into JAT</item>
+				<item></item>
+				<item>Automatically process Wave received into JAT</item>
 			</content>
 
 			<content name="View">
 				<title>View</title>
 
-				<item>Used to populate the root node</item>
+				<item>View shall build &amp; populate the root node</item>
+				<item></item>
 				<item>Can call model method (use package modifier)</item>
-				<item>Can use annotation on field </item>
+				<item>Can use annotation on node fields</item>
 				<item>to attach Event Handler</item>
-				<item>Add Custom Component lifecycle</item>
-				<item level="1">Show</item>
-				<item level="1">Hide</item>
+				<item>Have Custom lifecycle</item>
+				<item level="1">start</item>
+				<item level="1">reload</item>
+				<item level="1">hide</item>
 			</content>
 
 			<content name="Controller">
 				<title>Controller</title>
-				<item>3 Kind of event handling:</item>
-				<item level="1">Adapter + Handler</item>
+				<item>Controller shall manage event handling</item>
+				<item></item>
+				<item>3 Ways:</item>
+				<item level="1">Adapter + Handler + package methods</item>
 				<item level="1">linkCommand, linkUi, linkService</item>
 				<item level="1">With View Annotation</item>
+			</content>
+
+		</slide>
+
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Wave</title>
+
+			<content name="Overview">
+				<title>Overview</title>
+				<item>A Wave is a message sent by a Component</item>
+				<item>to one or several (other) components</item>
+				<item></item>
+				<item></item>
+			</content>
+
+			<content name="WaveGroup">
+				<title>WaveGroup</title>
+				<item>4 Wave Group:</item>
+				<item level="1">CALL_COMMAND</item>
+				<item level="1">RETURN_DATA</item>
+				<item level="1">ATTACH_UI</item>
+				<item level="1">UNDEFINED</item>
+			</content>
+
+			<content name="Data">
+				<title>Data</title>
+				<item>Can Hold WaveData objects</item>
+				<item></item>
+				<item>Can hold a WaveBean</item>
 			</content>
 
 		</slide>
@@ -241,48 +458,69 @@
 
 			<content name="Types">
 				<title>Resource Types</title>
-
-				<item>Parameters</item>
 				<item>Fonts</item>
 				<item>Colors</item>
 				<item>Images</item>
 				<item>StyleSheets</item>
 				<item>FXML files</item>
+				<item>Parameters</item>
+				<item level="1">primitives values</item>
+				<item level="1">Complex Object</item>
+				<item level="1">ResourceParam Objects</item>
 			</content>
 
 			<content name="Benefits">
 				<title>Benefits</title>
 
 				<item>Only hold a lightweight object</item>
-				<item>Release heavy-weight resource if memory size is constrained</item>
+				<item level="1">named ResourceParam</item>
+				<item>Release heavy-weight resource</item>
+				<item level="1">if memory size is constrained</item>
 			</content>
 
 			<content name="Sample">
 				<title>Sample</title>
 
-				<item>Declaration</item>
-				<item></item>
-				<item>Usage</item>
-				<item></item>
+				<item>Declaration:</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+  <!-- start source code -->
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#3f5fbf">/**&nbsp;The&nbsp;logo&nbsp;displayed&nbsp;into&nbsp;each&nbsp;slide.&nbsp;*/</font><br />
+<font color="#000000">ImageItem&nbsp;JREBIRTH_LOGO&nbsp;=&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">create</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">LocalImage</font><font color="#000000">(</font><font color="#2a00ff">&#34;JRebirth_Title_Mini&#34;</font><font color="#000000">,&nbsp;ImageExtension.PNG</font><font color="#000000">))</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
+				<item>Usage:</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>this</b></font><font color="#000000">.logo&nbsp;=&nbsp;ImageViewBuilder.create</font><font color="#000000">()</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.layoutX</font><font color="#000000">(</font><font color="#990000">1200</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.layoutY</font><font color="#000000">(</font><font color="#990000">675</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.scaleX</font><font color="#000000">(</font><font color="#990000">0.6</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.scaleY</font><font color="#000000">(</font><font color="#990000">0.6</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.image</font><font color="#000000">(</font><font color="#000000">JpImages.JREBIRTH_LOGO.get</font><font color="#000000">())</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font></code>    
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
 
 			</content>
 
 		</slide>
 
-
-		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
-			<title>Previously On ...</title>
-			<content>
-				<item>EclipseDay</item>
-				<item level="1" link="true">www.jrebirth.org/eclipseday</item>
-				<item>Breizhcamp</item>
-				<item level="1" link="true">www.jrebirth.org/breizhcamp</item>
-				<item>ToulouseJUG Lightning Talk</item>
-				<item level="1" link="true">www.jrebirth.org/lightningtalk</item>
-				<item>EclipseCON JavaFX Workshop</item>
-				<item level="1" link="true">www.jrebirth.org/eclipsecon</item>
-			</content>
-		</slide>
 
 		<!-- Read source -->
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
@@ -291,7 +529,10 @@
 				<item>Source available on GitHub</item>
 				<item link="true">https://github.com/JRebirth</item>
 				<item></item>
-				<item>Built with Maven</item>
+				<item>Built with Maven / Jenkins CI</item>
+				<item>Inspected by Sonar</item>
+				<item>Released on OJO</item>
+				<item level="1">oss.jfrog.org</item>
 			</content>
 		</slide>
 
@@ -304,10 +545,24 @@
 				<item link="true">www.jrebirth.org</item>
 				<item></item>
 				<item>Software Factory</item>
-				<item level="1">Often offline</item>
+				<item level="1">Sometimes offline (energy savings)</item>
 				<item link="true">ci.jrebirth.org</item>
 				<item link="true">quality.jrebirth.org</item>
 				<item link="true">repo.jrebirth.org</item>
+			</content>
+		</slide>
+
+		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
+			<title>Previously On ...</title>
+			<content>
+				<item>EclipseDay</item>
+				<item level="1" link="true">www.jrebirth.org/eclipseday</item>
+				<item>Breizhcamp</item>
+				<item level="1" link="true">www.jrebirth.org/breizhcamp</item>
+				<item>ToulouseJUG Lightning Talk</item>
+				<item level="1" link="true">www.jrebirth.org/lightningtalk</item>
+				<item>EclipseCON JavaFX Workshop</item>
+				<item level="1" link="true">www.jrebirth.org/eclipsecon</item>
 			</content>
 		</slide>
 

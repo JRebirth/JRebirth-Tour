@@ -43,7 +43,7 @@ import org.jrebirth.presentation.ui.stack.StackModel;
  * @author Sébastien Bordes
  * 
  */
-public final class JRebirthPresentation extends DefaultApplication<StackPane> {
+public final class JRebirthTour extends DefaultApplication<StackPane> {
 
     /**
      * Application launcher.
@@ -51,8 +51,8 @@ public final class JRebirthPresentation extends DefaultApplication<StackPane> {
      * @param args the command line arguments
      */
     public static void main(final String... args) {
-        // preloadAndLaunch(args);
-        launchNow(args);
+        preloadAndLaunch(args);
+        // launchNow(args);
     }
 
     /**
