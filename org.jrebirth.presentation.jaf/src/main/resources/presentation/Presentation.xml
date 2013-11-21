@@ -12,19 +12,6 @@
 
 	<slides defaultModelClass="org.jrebirth.presentation.jaf.ui.slides.basic.BasicModel">
 
-		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
-			<title>Key Features</title>
-			<content>
-				<item>Provide excellent SoC</item>
-				<item>Avoid Memory Leak</item>
-				<item>Automagically manage thread &amp; Async tasks</item>
-				<item>Manage all resources</item>
-				<item>Lightweight (lower than 100kb with Pack200)</item>
-				<item>Free &amp; Open Source (Apache v2)
-				</item>
-			</content>
-		</slide>
-
 		<slide style="place" modelClass="org.jrebirth.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 		</slide>
 
