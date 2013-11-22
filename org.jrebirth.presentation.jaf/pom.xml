@@ -109,16 +109,20 @@
 							<JavaFX-Version>2.0</JavaFX-Version>
 							<Main-Class>${appClass}</Main-Class>
 							<JavaFX-Application-Class>${appClass}</JavaFX-Application-Class>
-							<implementation-vendor>JRebirth</implementation-vendor>
-							<implementation-title>JRebirth Presentation</implementation-title>
-							<implementation-version>1.0</implementation-version>
+							
 							<JavaFX-Class-Path>jaxb-api-2.2.1.jar
 								stax-api-1.0-2.jar activation-1.1.jar jaxb-impl-2.2.1.jar presentation-0.7.6-SNAPSHOT.jar core-0.7.6-SNAPSHOT.jar
-								logback-classic-1.0.6.jar logback-core-1.0.6.jar
-								slf4j-api-1.6.5.jar</JavaFX-Class-Path>
+								logback-classic-1.0.13.jar
+								logback-core-1.0.13.jar
+								slf4j-api-1.7.5.jar</JavaFX-Class-Path>
 
+							<Permissions>${permissions}</Permissions>
+							<Codebase>${deployUrl}</Codebase>
 						</manifestEntries>
+
 						<manifest>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
@@ -223,7 +227,7 @@
 			<artifactId>preloader</artifactId>
 			<version>0.7.6-SNAPSHOT</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.jrebirth</groupId>
 			<artifactId>presentation</artifactId>
