@@ -20,7 +20,6 @@ package org.jrebirth.presentation.jaf.ui.slides.intro;
 import org.jrebirth.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>IntroModel</strong>.
  * 
@@ -40,7 +39,7 @@ public final class IntroModel extends AbstractSlideModel<IntroModel, IntroView, 
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
+    public void showSlideStep(final SlideStep slideStep) {
         // Nothing to do yet
     }
 

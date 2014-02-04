@@ -55,7 +55,7 @@
 				<item level="1">Model View Controller</item>
 			</content>
 
-			<content name="Components">
+			<content name="Parts">
 				<title>JRebirth Parts</title>
 
 				<item>Application, GlobalFacade, Notifier</item>

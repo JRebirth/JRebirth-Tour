@@ -20,7 +20,6 @@ package org.jrebirth.presentation.jaf.ui.slides.basic;
 import org.jrebirth.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>BasicModel</strong>.
  * 
@@ -40,8 +39,8 @@ public class BasicModel extends AbstractSlideModel<BasicModel, BasicView, SlideS
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
-        getView().showSlideStep(slideStep, forward);
+    public void showSlideStep(final SlideStep slideStep) {
+        getView().showSlideStep(slideStep);
     }
 
     /**

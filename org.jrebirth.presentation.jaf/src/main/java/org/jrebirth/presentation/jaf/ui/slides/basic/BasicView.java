@@ -810,9 +810,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * Show the slide step store which match with xml file.
      * 
      * @param slideStep the slide step to show
-     * @param forward the flow direction
      */
-    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
+    public void showSlideStep(final SlideStep slideStep) {
 
         if (this.subSlides.size() >= getModel().getStepPosition() || this.subSlides.get(getModel().getStepPosition()) == null) {
             addSubSlide(buildDefaultContent(getModel().getContent(slideStep)));
@@ -820,7 +819,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
 
         if (this.currentSubSlide != null && nextSlide != null) {
-            performStepAnimation(nextSlide, forward);
+            performStepAnimation(nextSlide);
         } else {
             // No Animation
             this.currentSubSlide = nextSlide;
@@ -833,13 +832,13 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * 
      * @param node the node
      */
-    protected void showCustomSlideStep(final Node node, final boolean forward) {
+    protected void showCustomSlideStep(final Node node) {
 
         addSubSlide(node);
         final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
         if (this.currentSubSlide != null && nextSlide != null) {
 
-            performStepAnimation(nextSlide, forward);
+            performStepAnimation(nextSlide);
         } else {
             // No Animation
             this.currentSubSlide = nextSlide;
@@ -850,9 +849,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * TODO To complete.
      * 
      * @param nextSlide the next slide
-     * @param forward the flow direction
      */
-    private void performStepAnimation(final Node nextSlide, final boolean forward) {
+    private void performStepAnimation(final Node nextSlide) {
 
         setSlideLocked(true);
         this.subSlideTransition = ParallelTransitionBuilder.create()
@@ -872,8 +870,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                 .children(
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY((forward) ? 0 : 0)
-                                                .toY((forward) ? -700 : 700)
+                                                .fromY((getModel().isForwardFlow()) ? 0 : 0)
+                                                .toY((getModel().isForwardFlow()) ? -700 : 700)
                                                 // .fromZ(-10)
                                                 .build(),
                                         TimelineBuilder.create()
@@ -896,8 +894,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                 .build(),
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY((forward) ? 700 : -700)
-                                                .toY((forward) ? 0 : 0)
+                                                .fromY((getModel().isForwardFlow()) ? 700 : -700)
+                                                .toY((getModel().isForwardFlow()) ? 0 : 0)
                                                 // .fromZ(-10)
                                                 .build()
                                 )

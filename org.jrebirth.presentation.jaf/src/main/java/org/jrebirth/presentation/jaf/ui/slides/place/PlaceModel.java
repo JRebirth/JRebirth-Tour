@@ -20,7 +20,6 @@ package org.jrebirth.presentation.jaf.ui.slides.place;
 import org.jrebirth.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>PlaceModel</strong>.
  * 
@@ -40,7 +39,7 @@ public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, 
      * {@inheritDoc}
      */
     @Override
-    public void showSlideStep(final SlideStep slideStep, final boolean forward) {
+    public void showSlideStep(final SlideStep slideStep) {
         // Nothing to do yet
     }
 

@@ -20,13 +20,13 @@ package org.jrebirth.presentation.jaf.ui.slides.base;
 import org.jrebirth.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class <strong>BasicModel</strong>.
  * 
  * @param <M> the generic type
  * @param <V> the value type
  * @param <S> the generic type
+ * 
  * @author Sébastien Bordes
  */
 public abstract class AbstractBaseModel<M extends AbstractBaseModel<M, V, S>, V extends AbstractBaseView<?, ?, ?>, S extends SlideStep> extends AbstractSlideModel<M, V, S> {
