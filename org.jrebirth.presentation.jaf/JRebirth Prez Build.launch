@@ -5,11 +5,8 @@
 <booleanAttribute key="M2_NON_RECURSIVE" value="false"/>
 <booleanAttribute key="M2_OFFLINE" value="false"/>
 <stringAttribute key="M2_PROFILES" value=""/>
-<listAttribute key="M2_PROPERTIES">
-<listEntry value="storepass=lightme"/>
-<listEntry value="keypass=lightme"/>
-</listAttribute>
-<stringAttribute key="M2_RUNTIME" value="E:\JREBIRTH\TOOLS\apache-maven-3.1.0"/>
+<listAttribute key="M2_PROPERTIES"/>
+<stringAttribute key="M2_RUNTIME" value="E:\JREBIRTH\TOOLS\apache-maven-3.1.1"/>
 <booleanAttribute key="M2_SKIP_TESTS" value="false"/>
 <booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
 <booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>

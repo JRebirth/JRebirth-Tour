@@ -17,6 +17,5 @@
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.jrebirth.presentation.jaf.JRebirthTour"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="org.jrebirth.presentation.jaf"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${workspace_loc:org.jrebirth.presentation.jaf/src/main/resources}"/>
 <stringAttribute key="yk-options" value="&#13;&#10;additional-options2=onexit\=snapshot&#13;&#10;"/>
 </launchConfiguration>
