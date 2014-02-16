@@ -15,12 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.resources;
+package org.jrebirth.af.presentation.jaf.resources;
 
-import static org.jrebirth.core.resource.Resources.create;
+import org.jrebirth.af.core.resource.style.StyleSheet;
+import org.jrebirth.af.core.resource.style.StyleSheetItem;
 
-import org.jrebirth.core.resource.style.StyleSheet;
-import org.jrebirth.core.resource.style.StyleSheetItem;
+import static org.jrebirth.af.core.resource.Resources.create;
 
 /**
  * The JpStyles interface providing all style sheets.

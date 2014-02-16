@@ -15,28 +15,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.intro;
+package org.jrebirth.af.presentation.jaf.ui.slides.place;
 
-import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.ui.base.AbstractSlideController;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideModel;
+import org.jrebirth.af.presentation.ui.base.SlideStep;
 
-// TODO: Auto-generated Javadoc
 /**
- * The class <strong>IntroController</strong>.
+ * The class <strong>PlaceModel</strong>.
  * 
  * @author Sébastien Bordes
  */
-public final class IntroController extends AbstractSlideController<IntroModel, IntroView> {
+public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, SlideStep> {
 
     /**
-     * Default Constructor.
-     * 
-     * @param view the view to control
-     * 
-     * @throws CoreException if an error occurred while creating event handlers
+     * {@inheritDoc}
      */
-    public IntroController(final IntroView view) throws CoreException {
-        super(view);
+    @Override
+    protected SlideStep[] initializeSlideStep() {
+        return new SlideStep[0];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void showSlideStep(final SlideStep slideStep) {
+        // Nothing to do yet
     }
 
 }

@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.resources;
+package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.core.resource.font.FontName;
+import org.jrebirth.af.core.resource.font.FontName;
 
 /**
  * The Enum JpFontNames used to load font ttf file.

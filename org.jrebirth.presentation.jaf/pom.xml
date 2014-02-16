@@ -7,7 +7,7 @@
 		<version>1.0.0</version>
 	</parent>
 
-	<groupId>org.jrebirth.presentation</groupId>
+	<groupId>org.jrebirth.af.presentation</groupId>
 	<artifactId>jaf</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 
@@ -23,7 +23,7 @@
 		<deployPath>${project.artifactId}/${project.version}</deployPath><!-- ${project.artifactId}/${project.version} -->
 
 		<jnlpFilename>JRebirthTour.jnlp</jnlpFilename>
-		<appClass>org.jrebirth.presentation.jaf.JRebirthTour</appClass>
+		<appClass>org.jrebirth.af.presentation.jaf.JRebirthTour</appClass>
 
 		<appletWidth>1024</appletWidth>
 		<appletHeight>768</appletHeight>
@@ -63,15 +63,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.jrebirth</groupId>
+			<groupId>org.jrebirth.af</groupId>
 			<artifactId>preloader</artifactId>
-			<version>7.7.0-SNAPSHOT</version>
+			<version>7.7.0</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.jrebirth</groupId>
+			<groupId>org.jrebirth.af</groupId>
 			<artifactId>presentation</artifactId>
-			<version>7.7.0-SNAPSHOT</version>
+			<version>7.7.0</version>
 		</dependency>
 
 		<dependency>

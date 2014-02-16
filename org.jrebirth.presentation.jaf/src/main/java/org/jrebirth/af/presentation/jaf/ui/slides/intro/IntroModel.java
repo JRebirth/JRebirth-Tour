@@ -15,17 +15,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.place;
+package org.jrebirth.af.presentation.jaf.ui.slides.intro;
 
-import org.jrebirth.presentation.ui.base.AbstractSlideModel;
-import org.jrebirth.presentation.ui.base.SlideStep;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideModel;
+import org.jrebirth.af.presentation.ui.base.SlideStep;
 
 /**
- * The class <strong>PlaceModel</strong>.
+ * The class <strong>IntroModel</strong>.
  * 
  * @author Sébastien Bordes
  */
-public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, SlideStep> {
+public final class IntroModel extends AbstractSlideModel<IntroModel, IntroView, SlideStep> {
 
     /**
      * {@inheritDoc}

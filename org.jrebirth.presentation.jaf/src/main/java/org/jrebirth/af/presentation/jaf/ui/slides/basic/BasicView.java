@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.basic;
+package org.jrebirth.af.presentation.jaf.ui.slides.basic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,18 +77,18 @@ import javafx.scene.web.WebView;
 import javafx.scene.web.WebViewBuilder;
 import javafx.util.Duration;
 
-import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.resource.Resources;
-import org.jrebirth.core.resource.image.LocalImage;
-import org.jrebirth.presentation.jaf.resources.JpColors;
-import org.jrebirth.presentation.jaf.resources.JpFonts;
-import org.jrebirth.presentation.jaf.resources.JpImages;
+import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.core.resource.Resources;
+import org.jrebirth.af.core.resource.image.LocalImage;
+import org.jrebirth.af.presentation.jaf.resources.JpColors;
+import org.jrebirth.af.presentation.jaf.resources.JpFonts;
+import org.jrebirth.af.presentation.jaf.resources.JpImages;
+import org.jrebirth.af.presentation.resources.PrezColors;
+import org.jrebirth.af.presentation.resources.PrezFonts;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
+import org.jrebirth.af.presentation.ui.base.SlideStep;
 import org.jrebirth.presentation.model.SlideContent;
 import org.jrebirth.presentation.model.SlideItem;
-import org.jrebirth.presentation.resources.PrezColors;
-import org.jrebirth.presentation.resources.PrezFonts;
-import org.jrebirth.presentation.ui.base.AbstractSlideView;
-import org.jrebirth.presentation.ui.base.SlideStep;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -289,7 +289,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     @Override
     public void reload() {
 
-        primaryTitle.snapshot(null, null);
+        this.primaryTitle.snapshot(null, null);
         // MUST be refactored with property binding
 
         // this.pageLabel.setText(String.valueOf(getModel().getSlideNumber()));
@@ -380,7 +380,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                 FadeTransitionBuilder.create()
                         .delay(Duration.millis(600))
                         .duration(Duration.millis(1000))
-                        .node(prezTitle)
+                        .node(this.prezTitle)
                         .fromValue(0).toValue(1)
                         .build(),
 
@@ -527,7 +527,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         // .transforms(RotateBuilder.create().angle(200).axis(Rotate.Z_AXIS).build())
         // .build();
 
-        pl.setClip(revelator);
+        pl.setClip(this.revelator);
 
         // Group line = new Group();
         // line.setBlendMode(BlendMode.OVERLAY);
@@ -870,8 +870,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                 .children(
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY((getModel().isForwardFlow()) ? 0 : 0)
-                                                .toY((getModel().isForwardFlow()) ? -700 : 700)
+                                                .fromY(getModel().isForwardFlow() ? 0 : 0)
+                                                .toY(getModel().isForwardFlow() ? -700 : 700)
                                                 // .fromZ(-10)
                                                 .build(),
                                         TimelineBuilder.create()
@@ -894,8 +894,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                 .build(),
                                         TranslateTransitionBuilder.create()
                                                 .duration(Duration.millis(400))
-                                                .fromY((getModel().isForwardFlow()) ? 700 : -700)
-                                                .toY((getModel().isForwardFlow()) ? 0 : 0)
+                                                .fromY(getModel().isForwardFlow() ? 700 : -700)
+                                                .toY(getModel().isForwardFlow() ? 0 : 0)
                                                 // .fromZ(-10)
                                                 .build()
                                 )

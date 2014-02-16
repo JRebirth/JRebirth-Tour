@@ -15,12 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.resources;
+package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.core.resource.color.ColorItem;
-import org.jrebirth.core.resource.color.WebColor;
+import org.jrebirth.af.core.resource.color.ColorItem;
+import org.jrebirth.af.core.resource.color.WebColor;
 
-import static org.jrebirth.core.resource.Resources.create;
+import static org.jrebirth.af.core.resource.Resources.create;
 
 /**
  * The JpColors interface providing all colors.

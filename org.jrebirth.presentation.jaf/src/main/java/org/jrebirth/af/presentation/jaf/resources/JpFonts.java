@@ -15,13 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.resources;
+package org.jrebirth.af.presentation.jaf.resources;
 
-import static org.jrebirth.core.resource.Resources.create;
+import org.jrebirth.af.core.resource.font.FontItem;
+import org.jrebirth.af.core.resource.font.RealFont;
+import org.jrebirth.af.presentation.resources.PrezFontNames;
 
-import org.jrebirth.core.resource.font.FontItem;
-import org.jrebirth.core.resource.font.RealFont;
-import org.jrebirth.presentation.resources.PrezFontNames;
+import static org.jrebirth.af.core.resource.Resources.create;
 
 /**
  * The JpFonts interface providing all fonts.

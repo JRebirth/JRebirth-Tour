@@ -15,10 +15,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.base;
+package org.jrebirth.af.presentation.jaf.ui.slides.base;
 
-import org.jrebirth.presentation.ui.base.AbstractSlideModel;
-import org.jrebirth.presentation.ui.base.SlideStep;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideModel;
+import org.jrebirth.af.presentation.ui.base.SlideStep;
 
 /**
  * The class <strong>BasicModel</strong>.

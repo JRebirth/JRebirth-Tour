@@ -15,18 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.basic;
+package org.jrebirth.af.presentation.jaf.ui.slides.base;
 
-import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.presentation.ui.base.AbstractSlideController;
+import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideController;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class <strong>AbstractTemplateController</strong>.
  * 
+ * @param <M> the generic type
+ * @param <V> the value type
  * @author Sébastien Bordes
  */
-public class BasicController extends AbstractSlideController<BasicModel, BasicView> {
+public abstract class AbstractBaseController<M extends AbstractBaseModel<M, V, ?>, V extends AbstractBaseView<M, ?, ? extends AbstractBaseController<M, V>>>
+        extends AbstractSlideController<M, V> {
 
     /**
      * Default Constructor.
@@ -35,7 +38,7 @@ public class BasicController extends AbstractSlideController<BasicModel, BasicVi
      * 
      * @throws CoreException if an error occurred while creating event handlers
      */
-    public BasicController(final BasicView view) throws CoreException {
+    public AbstractBaseController(final V view) throws CoreException {
         super(view);
     }
 

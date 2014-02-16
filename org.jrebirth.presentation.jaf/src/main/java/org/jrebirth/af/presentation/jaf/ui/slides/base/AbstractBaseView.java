@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jrebirth.presentation.jaf.ui.slides.base;
+package org.jrebirth.af.presentation.jaf.ui.slides.base;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,17 +74,17 @@ import javafx.scene.web.WebView;
 import javafx.scene.web.WebViewBuilder;
 import javafx.util.Duration;
 
-import org.jrebirth.core.exception.CoreException;
-import org.jrebirth.core.resource.Resources;
-import org.jrebirth.core.resource.image.LocalImage;
-import org.jrebirth.presentation.jaf.resources.JpFonts;
-import org.jrebirth.presentation.jaf.resources.JpImages;
+import org.jrebirth.af.core.exception.CoreException;
+import org.jrebirth.af.core.resource.Resources;
+import org.jrebirth.af.core.resource.image.LocalImage;
+import org.jrebirth.af.presentation.jaf.resources.JpFonts;
+import org.jrebirth.af.presentation.jaf.resources.JpImages;
+import org.jrebirth.af.presentation.resources.PrezColors;
+import org.jrebirth.af.presentation.resources.PrezFonts;
+import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
+import org.jrebirth.af.presentation.ui.base.SlideStep;
 import org.jrebirth.presentation.model.SlideContent;
 import org.jrebirth.presentation.model.SlideItem;
-import org.jrebirth.presentation.resources.PrezColors;
-import org.jrebirth.presentation.resources.PrezFonts;
-import org.jrebirth.presentation.ui.base.AbstractSlideView;
-import org.jrebirth.presentation.ui.base.SlideStep;
 
 /**
  * The class <strong>AbstractTemplateView</strong>.

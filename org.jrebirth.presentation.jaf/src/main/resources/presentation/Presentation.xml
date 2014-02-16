@@ -10,20 +10,20 @@
 		<speaker firstName="Guruprasad" lastName="Shenoy" email="@jrebirth.org" />
 	</speakers>
 
-	<slides defaultModelClass="org.jrebirth.presentation.jaf.ui.slides.basic.BasicModel">
+	<slides defaultModelClass="org.jrebirth.af.presentation.jaf.ui.slides.basic.BasicModel">
 
-		<slide style="place" modelClass="org.jrebirth.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 		</slide>
 
-		<slide style="intro" modelClass="org.jrebirth.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
+		<slide style="intro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
 			<title>JRebirth\n\tApplication\n\t\tFramework</title>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
 			<title>Build efficiently\nJavaFX applications !</title>
 		</slide>
 
-		<slide style="dogfooding" modelClass="org.jrebirth.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide style="dogfooding" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>DogFooding.Mode = On</title>
 		</slide>
 
@@ -40,7 +40,7 @@
 			</content>
 		</slide>
 
-		<slide modelClass="org.jrebirth.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
 			<title>A custom-tailored\npattern</title>
 		</slide>
 
@@ -624,14 +624,14 @@
 		</slide>
 
 
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<content>
 				<item image="splash/Thanks.png" />
 			</content>
 		</slide>
 
 
-		<slide modelClass="org.jrebirth.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 
 			<content>
 				<item image="splash/Q_and_A.png" />
