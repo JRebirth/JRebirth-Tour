@@ -308,7 +308,7 @@
    <tr>
    <td nowrap="nowrap" valign="top" align="left">
     <code>
-<font color="#646464">@Priority</font><font color="#000000">(</font><font color="#000000">RunnablePriority.Highest</font><font color="#000000">)</font><br />
+<font color="#646464">@Priority</font><font color="#000000">(</font><font color="#000000">RunnablePriority.High</font><font color="#000000">)</font><br />
 <font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">doBuildTables</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">InterruptedException&nbsp;</font><font color="#000000">{</font><br />
 <font color="#ffffff"></font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">LOGGER.trace</font><font color="#000000">(</font><font color="#2a00ff">&#34;Build&nbsp;Tables.&#34;</font><font color="#000000">)</font><font color="#000000">;</font><br />
