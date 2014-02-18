@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/org.jrebirth.af.presentation.jaf/src/main/java/org/jrebirth/presentation/jaf/JRebirthTour.java"/>
+<listEntry value="/org.jrebirth.af.presentation.jaf/src/main/java/org/jrebirth/af/presentation/jaf/JRebirthTour.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>

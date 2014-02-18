@@ -286,8 +286,7 @@
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">ready</font><font color="#000000">()&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">CoreException&nbsp;</font><font color="#000000">{</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>super</b></font><font color="#000000">.ready</font><font color="#000000">()</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">initService</font><font color="#000000">()&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">CoreException&nbsp;</font><font color="#000000">{</font><br />
 <font color="#ffffff"></font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Define&nbsp;the&nbsp;service&nbsp;method</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">registerCallback</font><font color="#000000">(</font><font color="#000000">DO_BUILD_TABLES,&nbsp;RE_TABLES_BUILT</font><font color="#000000">)</font><font color="#000000">;</font><br />
@@ -588,8 +587,10 @@
 				<item></item>
 				<item>Built with Maven / Jenkins CI</item>
 				<item>Inspected by Sonar</item>
-				<item>Released on OJO</item>
+				<item>Released on OJO, Bintray &amp; Maven Central</item>
 				<item level="1">oss.jfrog.org</item>
+				<item level="1">bintray.com</item>
+				<item level="1">search.maven.org</item>
 			</content>
 		</slide>
 
@@ -613,13 +614,13 @@
 			<title>Previously On ...</title>
 			<content>
 				<item>EclipseDay</item>
-				<item level="1" link="true">www.jrebirth.org/eclipseday</item>
+				<item level="1" link="true">www.jrebirth.org/apps/EclipseDay.html</item>
 				<item>Breizhcamp</item>
-				<item level="1" link="true">www.jrebirth.org/breizhcamp</item>
+				<item level="1" link="true">www.jrebirth.org/apps/Breizhcamp.html</item>
 				<item>ToulouseJUG Lightning Talk</item>
-				<item level="1" link="true">www.jrebirth.org/lightningtalk</item>
+				<item level="1" link="true">http://www.jrebirth.org/apps/LightningTalk.html</item>
 				<item>EclipseCON JavaFX Workshop</item>
-				<item level="1" link="true">www.jrebirth.org/eclipsecon</item>
+				<item level="1" link="true">www.jrebirth.org/apps/EclipseCON.html</item>
 			</content>
 		</slide>
 
