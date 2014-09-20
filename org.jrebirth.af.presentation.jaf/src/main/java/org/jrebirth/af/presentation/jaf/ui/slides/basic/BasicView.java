@@ -79,7 +79,7 @@ import javafx.util.Duration;
 
 import org.jrebirth.af.core.exception.CoreException;
 import org.jrebirth.af.core.resource.Resources;
-import org.jrebirth.af.core.resource.image.LocalImage;
+import org.jrebirth.af.core.resource.image.RelImage;
 import org.jrebirth.af.presentation.jaf.resources.JpColors;
 import org.jrebirth.af.presentation.jaf.resources.JpFonts;
 import org.jrebirth.af.presentation.jaf.resources.JpImages;
@@ -776,7 +776,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
         } else if (item.getImage() != null) {
 
-            final Image image = Resources.create(new LocalImage(item.getImage())).get();
+            final Image image = Resources.create(new RelImage(item.getImage())).get();
             final ImageView imageViewer = ImageViewBuilder.create()
                     .styleClass(ITEM_CLASS_PREFIX + item.getLevel())
                     .image(image)
