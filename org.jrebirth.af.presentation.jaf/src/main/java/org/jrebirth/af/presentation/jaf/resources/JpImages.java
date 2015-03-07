@@ -17,11 +17,11 @@
  */
 package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.af.core.resource.image.ImageExtension;
-import org.jrebirth.af.core.resource.image.ImageItem;
-import org.jrebirth.af.core.resource.image.LocalImage;
-
 import static org.jrebirth.af.core.resource.Resources.create;
+
+import org.jrebirth.af.api.resource.image.ImageExtension;
+import org.jrebirth.af.api.resource.image.ImageItem;
+import org.jrebirth.af.core.resource.image.RelImage;
 
 /**
  * The JpImages interface providing all images.
@@ -29,9 +29,9 @@ import static org.jrebirth.af.core.resource.Resources.create;
 public interface JpImages {
 
     /** The background image used by place slide. */
-    ImageItem PLACE_BG = create(new LocalImage("intro", "Ramakrishna_Mutt_Chennai", ImageExtension.JPG));
+    ImageItem PLACE_BG = create(new RelImage("intro", "Ramakrishna_Mutt_Chennai", ImageExtension.JPG));
 
     /** The logo displayed into each slide. */
-    ImageItem JREBIRTH_LOGO = create(new LocalImage("JRebirth_Title_Mini", ImageExtension.PNG));
+    ImageItem JREBIRTH_LOGO = create(new RelImage("JRebirth_Title_Mini", ImageExtension.PNG));
 
 }

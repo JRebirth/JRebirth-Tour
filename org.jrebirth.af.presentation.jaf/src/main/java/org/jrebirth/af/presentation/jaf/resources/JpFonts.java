@@ -17,11 +17,11 @@
  */
 package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.af.core.resource.font.FontItem;
+import static org.jrebirth.af.core.resource.Resources.create;
+
+import org.jrebirth.af.api.resource.font.FontItem;
 import org.jrebirth.af.core.resource.font.RealFont;
 import org.jrebirth.af.presentation.resources.PrezFontNames;
-
-import static org.jrebirth.af.core.resource.Resources.create;
 
 /**
  * The JpFonts interface providing all fonts.

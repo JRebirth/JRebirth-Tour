@@ -17,10 +17,10 @@
  */
 package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.af.core.resource.color.ColorItem;
-import org.jrebirth.af.core.resource.color.WebColor;
-
 import static org.jrebirth.af.core.resource.Resources.create;
+
+import org.jrebirth.af.api.resource.color.ColorItem;
+import org.jrebirth.af.core.resource.color.WebColor;
 
 /**
  * The JpColors interface providing all colors.

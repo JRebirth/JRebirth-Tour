@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.jrebirth</groupId>
 		<artifactId>ria</artifactId>
-		<version>1.1.0-SNAPSHOT</version>
+		<version>2.0.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.jrebirth.af.presentation</groupId>
 	<artifactId>jaf</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>2.0.0-SNAPSHOT</version>
 
 	<name>JRebirth Application Framework Presentation</name>
 	<url>http://www.jrebirth.org/jaf</url>
@@ -54,30 +54,31 @@
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
-			<version>2.2.1</version>
+			<version>2.2.12</version>
 		</dependency>
+		
 		<dependency>
-			<groupId>com.sun.xml.bind</groupId>
+			<groupId>javax.xml</groupId>
 			<artifactId>jaxb-impl</artifactId>
-			<version>2.2.1</version>
+			<version>2.1</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>preloader</artifactId>
-			<version>8.0.0-SNAPSHOT</version>
+			<version>8.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>presentation</artifactId>
-			<version>8.0.0-SNAPSHOT</version>
+			<version>8.0.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.0.13</version>
+			<version>1.1.2</version>
 		</dependency>
 
 	</dependencies>

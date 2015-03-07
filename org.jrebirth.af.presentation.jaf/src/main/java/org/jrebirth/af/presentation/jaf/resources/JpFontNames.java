@@ -17,7 +17,7 @@
  */
 package org.jrebirth.af.presentation.jaf.resources;
 
-import org.jrebirth.af.core.resource.font.FontName;
+import org.jrebirth.af.api.resource.font.FontName;
 
 /**
  * The Enum JpFontNames used to load font ttf file.
