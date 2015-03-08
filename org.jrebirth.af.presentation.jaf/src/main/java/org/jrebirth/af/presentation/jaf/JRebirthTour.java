@@ -59,7 +59,6 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
     /**
      * {@inheritDoc}
      */
-    // @Override
     @Override
     public Class<? extends Model> getFirstModelClass() {
         return SlideStackModel.class;
