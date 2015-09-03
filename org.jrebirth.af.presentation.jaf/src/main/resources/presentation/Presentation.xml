@@ -20,6 +20,10 @@
 		</slide>
 
 		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
+			<title>Why do you need it?</title>
+		</slide>
+		 
+		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<title>Build efficiently\nJavaFX applications !</title>
 		</slide>
 

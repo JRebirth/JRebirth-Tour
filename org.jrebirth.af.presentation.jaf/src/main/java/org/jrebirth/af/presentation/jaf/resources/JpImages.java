@@ -29,7 +29,7 @@ import org.jrebirth.af.core.resource.image.RelImage;
 public interface JpImages {
 
     /** The background image used by place slide. */
-    ImageItem PLACE_BG = create(new RelImage("intro", "Ramakrishna_Mutt_Chennai", ImageExtension.JPG));
+    ImageItem PLACE_BG = create(new RelImage("intro", "Geneve_Lac_Leman", ImageExtension.JPG));
 
     /** The logo displayed into each slide. */
     ImageItem JREBIRTH_LOGO = create(new RelImage("JRebirth_Title_Mini", ImageExtension.PNG));
