@@ -139,7 +139,7 @@
 				<artifactId>webstart-maven-plugin</artifactId>
 			</plugin>
 			 -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>com.messapix.ftatr.jfxmobile</groupId>
 				<artifactId>jfxmobile-maven-plugin</artifactId>
 				<version>1.0.0-b1</version>
@@ -148,7 +148,7 @@
 				<configuration>
 					<mainClass>${appClass}</mainClass>
 					<android>
-						<!-- <manifest>lib/android/AndroidManifest.xml</manifest> -->
+						<manifest>lib/android/AndroidManifest.xml</manifest>
 
 
 						<androidSdk>D:\FXPort\android-sdk-windows</androidSdk>
@@ -206,7 +206,7 @@
                     </configuration>
                 </execution>
             </executions>
-        </plugin>
+        </plugin> -->
 			
 		</plugins>
 
