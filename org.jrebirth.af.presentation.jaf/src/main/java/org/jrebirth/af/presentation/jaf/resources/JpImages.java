@@ -34,4 +34,7 @@ public interface JpImages {
     /** The logo displayed into each slide. */
     ImageItem JREBIRTH_LOGO = create(new RelImage("JRebirth_Title_Mini", ImageExtension.PNG));
 
+    /** The logo displayed as application icon. */
+    ImageItem JR_LOGO = create(new RelImage("JRebirth_256x256", ImageExtension.PNG));
+
 }

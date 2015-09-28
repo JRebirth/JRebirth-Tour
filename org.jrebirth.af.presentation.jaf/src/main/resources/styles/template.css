@@ -5,6 +5,10 @@
     -fx-background: rgb(225, 228, 203);
 }*/
 
+StackPane.rootPane {
+	-fx-background-color:#000000;
+}
+
 #SlideStack{
 	
 	-fx-background-image : url("../images/background.jpg");
@@ -15,7 +19,17 @@
     -fx-fill : #A0DCFF ;
 }
 
-.intro .introTitle {
+Label.introTitle {
+	-fx-font : 260px "Gin Rai";
+	-fx-fill: #FF0000;
+}
+
+.intro .subintroTitle {
+	-fx-font : 80px "Gin Rai";
+	-fx-fill: #FF0000;
+}
+
+.qandaContainer {
 	-fx-font : 100px "mizike";
 	-fx-fill: #FF0000;
 }
@@ -104,13 +118,14 @@ VBox.content {
 	-fx-background-image : url("../images/intro/1280px-Toulouse_Capitole_Night_Wikimedia_Commons.jpg");
 }*/
 
+
 /**
  * Me Slide
  */
 VBox.me{
-	-fx-background-position: 700px 20px, 300px 40px, 300px 300px;	
-	-fx-background-repeat: no-repeat, no-repeat, no-repeat;
-	-fx-background-image : url("../images/me/seb.jpg"), url("../images/me/SudIngenierie_clear.png"), url("../images/me/JRebirth_128x128.png");
+	-fx-background-position: 700px 20px, 700px 260px;	
+	-fx-background-repeat: no-repeat, no-repeat;
+	-fx-background-image : url("../images/me/seb.jpg"), url("../images/me/JRebirth_128x128.png");
 }
 
 /**************************************/
@@ -159,4 +174,14 @@ VBox.me{
 BorderPane.raw Text {
 	-fx-fill : #FFFFFF;
 }
+
+
+/* Default ImageSlide. */
+.ImageSlide Label.ImageTitle {
+	-fx-font : 60px "Harabara";
+	-fx-background-color:white;
+	-fx-fill : #00CC00;
+}
+
+
 

@@ -33,6 +33,7 @@ import org.jrebirth.af.api.resource.font.FontItem;
 import org.jrebirth.af.api.ui.Model;
 import org.jrebirth.af.core.application.DefaultApplication;
 import org.jrebirth.af.presentation.jaf.resources.JpFonts;
+import org.jrebirth.af.presentation.jaf.resources.JpImages;
 import org.jrebirth.af.presentation.jaf.resources.JpStyles;
 import org.jrebirth.af.presentation.ui.stack.SlideStackModel;
 
@@ -70,8 +71,9 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
     @Override
     protected void customizeStage(final Stage stage) {
         stage.setFullScreen(false);
-        stage.setWidth(1040);
-        stage.setHeight(800);
+        stage.setWidth(1024);
+        stage.setHeight(768);
+        stage.getIcons().add(JpImages.JR_LOGO.get());
     }
 
     /**
@@ -82,6 +84,8 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
 
         addCSS(scene, JpStyles.TEMPLATE);
 
+        scene.getRoot().getStyleClass().add("rootPane");
+
         // Manage F11 button to switch full screen
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
 
@@ -90,24 +94,28 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
             public void handle(final KeyEvent event) {
                 if (event.isControlDown()) {
                     if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
+                        getScene().getRoot().scaleXProperty().set(getScene().getRoot().getScaleX() + 0.05);
+                        getScene().getRoot().scaleYProperty().set(getScene().getRoot().getScaleY() + 0.05);
+                        // getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
+                        // getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
-                        getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
-                        getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
+                        getScene().getRoot().scaleXProperty().set(getScene().getRoot().getScaleX() - 0.05);
+                        getScene().getRoot().scaleYProperty().set(getScene().getRoot().getScaleY() - 0.05);
+                        // getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
+                        // getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
                         getScene().getRoot().setScaleX(1.0);
-                        getScene().getRoot().setScaleY(1.0);
+                        // getScene().getRoot().setScaleY(1.0);
                         event.consume();
                     }
                 }
             }
         });
 
-        scene.getRoot().scaleXProperty().bind(Bindings.divide(getStage().widthProperty(), 1040));
-        scene.getRoot().scaleYProperty().bind(Bindings.divide(getStage().heightProperty(), 800));
+        scene.getRoot().scaleXProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
+        scene.getRoot().scaleYProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
 
     }
 
@@ -117,6 +125,7 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
     @Override
     protected List<? extends ResourceItem<?, ?, ?>> getResourceToPreload() {
         return Arrays.asList(new FontItem[] {
+                JpFonts.JR,
                 JpFonts.PAGE,
                 JpFonts.SPLASH,
                 JpFonts.TYPEWRITER,

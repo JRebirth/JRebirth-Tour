@@ -2,62 +2,95 @@
 <presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.jrebirth.org/Presentation" xsi:schemaLocation="http://www.jrebirth.org/Presentation Presentation.xsd">
 
 	<title>JRebirth Application Framework</title>
-	<date>28/11/2013</date>
-	<event>JUGChennay Event</event>
-	<place>Chennai</place>
+	<date>23/10/2015</date>
+	<event>SoftShake 2015</event>
+	<place>Geneva</place>
 
 	<speakers>
-		<speaker firstName="Guruprasad" lastName="Shenoy" email="@jrebirth.org" />
+		<speaker firstName="Sebastien" lastName="Bordes" email="seb@jrebirth.org" />
 	</speakers>
 
 	<slides defaultModelClass="org.jrebirth.af.presentation.jaf.ui.slides.basic.BasicModel">
 
+
 		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 		</slide>
 
+		<slide style="preintro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<title>JavaFX Unleashed</title>
+			<content>
+				<title>with</title>
+			</content>
+		</slide>
+		
 		<slide style="intro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
-			<title>JRebirth\n\tApplication\n\t\tFramework</title>
+			<title>JRebirth</title>
+			<content>
+				<title>Application Framework</title>
+			</content>
+		</slide>
+		
+		<slide modelClass="org.jrebirth.af.presentation.ui.qanda.QandAModel" showAnimation="MoveFromRight" hideAnimation="MoveToLeft">
+			<content name="q" index="0">
+				<title>What is it ?</title>
+			</content>
+			<content name="a" index="1">
+				<title>A set of libraries\ndedicated to JavaFX</title>
+			</content>
 		</slide>
 
-		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
-			<title>Why do you need it?</title>
-		</slide>
-		 
-		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
-			<title>Build efficiently\nJavaFX applications !</title>
+		<slide modelClass="org.jrebirth.af.presentation.ui.qanda.QandAModel" showAnimation="MoveFromRight" hideAnimation="FadeOut">
+			<content name="q" index="0">
+				<title>Why do you need it?</title>
+			</content>
+			<content name="a" index="1">
+				<title>Build\nCleanly\n&amp; Efficiently\nJavaFX Apps!</title>
+			</content>
 		</slide>
 
 		<slide style="dogfooding" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>DogFooding.Mode = On</title>
 		</slide>
 
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   KEY FEATURES                                   xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
 		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
 			<title>Key Features</title>
 			<content>
 				<item>Designed exclusively for JavaFX</item>
+				<item>KISS and DRY compliant</item>
 				<item>Provide excellent SoC</item>
-				<item>Kick away all form of complexities</item>
 				<item>Avoid Memory Leaks</item>
 				<item>Automagically manage Thread &amp; Async tasks</item>
 				<item>Manage all Resources</item>
-				<item>Lightweight (about 100kb with Pack200)</item>
+				<item>Lightweight (about 150kb with Pack200)</item>
 				<item>Free &amp; Open Source (Apache v2)
 				</item>
 			</content>
 		</slide>
-
-		<slide modelClass="org.jrebirth.af.presentation.ui.splash.SplashModel" showAnimation="FadeIn" hideAnimation="ScaleToMin">
-			<title>A custom-tailored\npattern</title>
-		</slide>
+	
+	
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   PATTERN                                        xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+		<slide style="Pattern" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>A Custom-Tailored Pattern</title>
+			<content>
+				<item image="splash/Pattern.jpg" />
+			</content>
+		</slide>		
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
-			<title>WB - CS - MVC pattern</title>
+			<title>w B CS Mvc pattern</title>
 
 			<content name="Overview">
 				<title>Overview</title>
 				<item image="slides/pattern/JRebirthPattern.png" />
-				<item level="1">Wave Behavior - Command Service</item>
+				<item level="1">Wave - Behavior - Command Service</item>
 				<item level="1">Model [View [Controller]]</item>
 			</content>
 
@@ -95,7 +128,7 @@
 				<item level="1">returnData</item>
 				<item level="1">attachUi</item>
 			</content>
-			
+
 			<content name="Links">
 
 				<title>Components Links</title>
@@ -130,6 +163,91 @@
 				<item level="1">Used to run long tasks</item>
 			</content>
 
+		</slide>
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   WAVE                                           xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+				
+		<slide style="Messaging" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>Messaging</title>
+			<content>
+				<item image="splash/Messaging.jpg" />
+			</content>
+		</slide>
+		
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Wave</title>
+
+			<content name="Overview">
+				<title>Overview</title>
+				<item>A Wave is a message sent by a Component</item>
+				<item>to one or several (other) components</item>
+				<item></item>
+				<item>It has 2 major properties:</item>
+				<item level="1">The destination class (JRebirth Component)</item>
+				<item level="1">a WaveType (optionally)</item>
+				<item level="2">that define the action type</item>
+			</content>
+
+			<content name="WaveGroup">
+				<title>WaveGroup</title>
+				<item>Each wave has one WaveGroup</item>
+				<item>4 possible WaveGroup:</item>
+				<item level="1">CALL_COMMAND</item>
+				<item level="2">Trigger a command</item>
+				<item level="1">RETURN_DATA</item>
+				<item level="2">Call a ServiceTask</item>
+				<item level="1">ATTACH_UI</item>
+				<item level="2">Build and attach a Model</item>
+				<item level="1">UNDEFINED</item>
+				<item level="2">Custom Waves</item>
+			</content>
+
+			<content name="Data">
+				<title>Data</title>
+				<item>Can Hold WaveData objects</item>
+				<item level="1">Use a WaveItem to define the data type</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#3f5fbf">/**&nbsp;The&nbsp;expression&nbsp;to&nbsp;ask&nbsp;to&nbsp;user.&nbsp;*/</font><br />
+<font color="#000000">WaveItem&lt;Expression&gt;&nbsp;EXPRESSION&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Expression&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#000000">}</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#3f5fbf">/**&nbsp;The&nbsp;game&nbsp;list.&nbsp;*/</font><br />
+<font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;&nbsp;GAME_LIST&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#000000">}</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#3f5fbf">/**&nbsp;The&nbsp;page&nbsp;to&nbsp;display.&nbsp;*/</font><br />
+<font color="#000000">WaveItem&lt;Page&gt;&nbsp;PAGE&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Page&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#000000">}</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
+				<item></item>
+				<item>Can hold a WaveBean</item>
+				<item level="1">it's a JavaBean carried by a wave</item>
+			</content>
+
+		</slide>
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   COMMAND                                        xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+		
+		<slide style="Command" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>Command</title>
+			<content>
+				<item image="splash/Commands.jpg" />
+			</content>
 		</slide>
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
@@ -222,12 +340,14 @@
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*&nbsp;{</font><font color="#7f9fbf">@inheritDoc</font><font color="#3f5fbf">}</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">*/</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">addSubCommand</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">addCommandClass</font><font color="#000000">(</font><font color="#000000">PrepareModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">addCommandClass</font><font color="#000000">(</font><font color="#000000">AttachModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#000000">List&lt;UniqueKey&lt;?&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">Command&gt;&gt;&nbsp;defineSubCommand</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>return&nbsp;</b></font><font color="#000000">Arrays.asList</font><font color="#000000">(</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">getCommandKey</font><font color="#000000">(</font><font color="#000000">PrepareModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><font color="#000000">,</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">getCommandKey</font><font color="#000000">(</font><font color="#000000">AttachModelCommand.</font><font color="#7f0055"><b>class</b></font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">)</font><font color="#000000">;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#ffffff"></font><br />
-<font color="#000000">}</font></code>  
+<font color="#000000">}</font></code>
    </td>
    </tr>
 </table>
@@ -238,7 +358,21 @@
 			</content>
 
 		</slide>
-
+		
+		
+				
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   SERVICE                                        xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+		
+		<slide style="Service" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn60k" hideAnimation="FadeOut">
+			<title>Service</title>
+			<content>
+				<item image="splash/Services.jpg" />
+			</content>
+		</slide>
+		
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
 			<title>Service Layer</title>
@@ -445,6 +579,18 @@
 			</content>
 		</slide>
 
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                       UI                                         xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+		<slide style="UserInterface" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>User Interface</title>
+			<content>
+				<item image="splash/UserInterface.png" />
+			</content>
+		</slide>
+
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
 			<title>Model Layer</title>
@@ -502,67 +648,18 @@
 
 		</slide>
 
-		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
-			<title>Wave</title>
-
-			<content name="Overview">
-				<title>Overview</title>
-				<item>A Wave is a message sent by a Component</item>
-				<item>to one or several (other) components</item>
-				<item></item>
-				<item>It has 2 major properties:</item>
-				<item level="1">The destination class (JRebirth Component)</item>
-				<item level="1">a WaveType (optionally)</item>
-				<item level="2">that define the action type</item>
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   RESOURCES                                      xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+		<slide style="Resources" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>Resources</title>
+			<content>
+				<item image="splash/Resources.jpg" />
 			</content>
-
-			<content name="WaveGroup">
-				<title>WaveGroup</title>
-				<item>Each wave has one WaveGroup</item>
-				<item>4 possible WaveGroup:</item>
-				<item level="1">CALL_COMMAND</item>
-				<item level="2">Trigger a command</item>
-				<item level="1">RETURN_DATA</item>
-				<item level="2">Call a ServiceTask</item>
-				<item level="1">ATTACH_UI</item>
-				<item level="2">Build and attach a Model</item>
-				<item level="1">UNDEFINED</item>
-				<item level="2">Custom Waves</item>
-			</content>
-
-			<content name="Data">
-				<title>Data</title>
-				<item>Can Hold WaveData objects</item>
-				<item level="1">Use a WaveItem to define the data type</item>
-				<item html="true">
-				<![CDATA[
-<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
-   <tr>
-   <td nowrap="nowrap" valign="top" align="left">
-    <code>
-<font color="#3f5fbf">/**&nbsp;The&nbsp;expression&nbsp;to&nbsp;ask&nbsp;to&nbsp;user.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;Expression&gt;&nbsp;EXPRESSION&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Expression&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font><br />
-<font color="#ffffff"></font><br />
-<font color="#3f5fbf">/**&nbsp;The&nbsp;game&nbsp;list.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;&nbsp;GAME_LIST&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font><br />
-<font color="#ffffff"></font><br />
-<font color="#3f5fbf">/**&nbsp;The&nbsp;page&nbsp;to&nbsp;display.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;Page&gt;&nbsp;PAGE&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Page&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font></code>
-   </td>
-   </tr>
-</table>
-				]]>
-				</item>
-				<item></item>
-				<item>Can hold a WaveBean</item>
-				<item level="1">it's a JavaBean carried by a wave</item>
-			</content>
-
 		</slide>
-
+		
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<title>Resources Management</title>
 
@@ -573,6 +670,7 @@
 				<item>Images</item>
 				<item>StyleSheets</item>
 				<item>FXML files</item>
+				<item>AudioClip and Media (soon)</item>
 				<item>Parameters</item>
 				<item level="1">primitives values</item>
 				<item level="1">Complex Object</item>
@@ -586,10 +684,12 @@
 				<item level="1">named ResourceParam</item>
 				<item>Release heavy-weight resource</item>
 				<item level="1">if memory size is constrained</item>
+				<item>Static resource declaration</item>
+				<item level="1">but also supports dynamic usage</item>
 			</content>
 
-			<content name="Sample">
-				<title>Sample</title>
+			<content name="InterfaceSample">
+				<title>Using Field</title>
 
 				<item>Declaration:</item>
 				<item html="true">
@@ -601,7 +701,7 @@
     <code>
 <font color="#3f5fbf">/**&nbsp;The&nbsp;logo&nbsp;displayed&nbsp;into&nbsp;each&nbsp;slide.&nbsp;*/</font><br />
 <font color="#000000">ImageItem&nbsp;JREBIRTH_LOGO&nbsp;=&nbsp;</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">create</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">LocalImage</font><font color="#000000">(</font><font color="#2a00ff">&#34;JRebirth_Title_Mini&#34;</font><font color="#000000">,&nbsp;ImageExtension.PNG</font><font color="#000000">))</font><font color="#000000">;</font></code>
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">create</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">LocalImage</font><font color="#000000">(</font><font color="#2a00ff">&#34;JRebirth_Title&#34;</font><font color="#000000">,&nbsp;ImageExtension.PNG</font><font color="#000000">))</font><font color="#000000">;</font></code>
    </td>
    </tr>
 </table>
@@ -629,21 +729,34 @@
 
 			</content>
 
+			<content name="DynamicSample">
+				<title>Dynamically</title>
 
-<content name="Sample">
-				<title>Enumeration Sample</title>
+				<item>Declaration &amp; Usage:</item>
+				<item html="true">
+				<![CDATA[
+			Image image = Resources.create(new RelImage("path/JRebirth_Title.png")).get();
+				]]>
+				</item>
+				<item>Will keep the image path into the cache</item>
+	
+			</content>
+
+			<content name="EnumSample">
+				<title>Using Enumeration</title>
 
 				<item>Declaration:</item>
 				<item html="true">
 				<![CDATA[
 <table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
    <tr>
-  <!-- start source code -->
    <td nowrap="nowrap" valign="top" align="left">
     <code>
-<font color="#3f5fbf">/**&nbsp;The&nbsp;logo&nbsp;displayed&nbsp;into&nbsp;each&nbsp;slide.&nbsp;*/</font><br />
-<font color="#000000">ImageItem&nbsp;JREBIRTH_LOGO&nbsp;=&nbsp;</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">create</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">LocalImage</font><font color="#000000">(</font><font color="#2a00ff">&#34;JRebirth_Title_Mini&#34;</font><font color="#000000">,&nbsp;ImageExtension.PNG</font><font color="#000000">))</font><font color="#000000">;</font></code>
+<font color="#7f0055"><b>public&nbsp;enum&nbsp;</b></font><font color="#000000">MTImages&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">ImageEnum&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f5fbf">/**&nbsp;The&nbsp;application&nbsp;main&nbsp;title&nbsp;image.&nbsp;*/</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">POWERED_BY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">{{&nbsp;&nbsp;</font><font color="#000000">rel</font><font color="#000000">(</font><font color="#2a00ff">&#34;PoweredBy&#34;</font><font color="#000000">,&nbsp;ImageExtension.PNG</font><font color="#000000">)</font><font color="#000000">;&nbsp;</font><font color="#000000">}}</font><br />
+<font color="#000000">}</font></code>
+    
    </td>
    </tr>
 </table>
@@ -656,13 +769,14 @@
    <tr>
    <td nowrap="nowrap" valign="top" align="left">
     <code>
-<font color="#7f0055"><b>this</b></font><font color="#000000">.logo&nbsp;=&nbsp;ImageViewBuilder.create</font><font color="#000000">()</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.layoutX</font><font color="#000000">(</font><font color="#990000">1200</font><font color="#000000">)</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.layoutY</font><font color="#000000">(</font><font color="#990000">675</font><font color="#000000">)</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.scaleX</font><font color="#000000">(</font><font color="#990000">0.6</font><font color="#000000">)</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.scaleY</font><font color="#000000">(</font><font color="#990000">0.6</font><font color="#000000">)</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.image</font><font color="#000000">(</font><font color="#000000">JpImages.JREBIRTH_LOGO.get</font><font color="#000000">())</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.build</font><font color="#000000">()</font><font color="#000000">;</font></code>    
+<font color="#646464">@RootNodeId</font><font color="#000000">(</font><font color="#2a00ff">&#34;SplashPanel&#34;</font><font color="#000000">)</font><br />
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">AdModel&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultSimpleModel&lt;ImageView&gt;&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">initSimpleView</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">getRootNode</font><font color="#000000">()</font><font color="#000000">.setImage</font><font color="#000000">(</font><font color="#000000">MTImages.POWERED_BY.get</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#000000">}</font></code>
    </td>
    </tr>
 </table>
@@ -673,35 +787,205 @@
 			
 		</slide>
 
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                      LABS                                        xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+		<slide style="Labs" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>JRebirth Labs</title>
+			
+			<content>
+				<item image="splash/Labs.jpg" />
+			</content>
+		</slide>
+
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   MODULARIZATION                                 xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+
+		<!-- Modularization -->
+		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
+			<title>Modularization</title>
+			<content name="Principle">
+				<item>All Components are interchangeable at runtime</item>
+				<item>At compile time a component map is created</item>
+				<item level="1">Stored into JRAF-INF\module.xml</item>
+				<item level="1">Using annotation processor</item>
+				<item>Annotations used:</item>
+				<item level="1">@RegistrationPoint</item>
+				<item level="1">@Register</item>
+				<item level="1">@WarmUp (being refactored)</item>
+			</content>
+						
+			<content name="ComponentRegistration">
+				<title>Component Registration</title>
+
+				<item>Interface:</item>
+				<item html="true">
+				<![CDATA[
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#646464">@RegistrationPoint</font><font color="#000000">(</font><font color="#000000">exclusive&nbsp;=&nbsp;</font><font color="#7f0055"><b>true</b></font><font color="#000000">)</font><br />
+<font color="#7f0055"><b>public&nbsp;interface&nbsp;</b></font><font color="#000000">ExpressionBuilderService&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">Service&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;&nbsp;ALL_EXPRESSIONS&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItemBase&lt;List&lt;Expression&gt;&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">String&nbsp;BUILD_TABLES&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;BUILD_TABLES&#34;</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">String&nbsp;TABLES_BUILT&nbsp;=&nbsp;</font><font color="#2a00ff">&#34;TABLES_BUILT&#34;</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">WaveType&nbsp;DO_BUILD_TABLES&nbsp;=&nbsp;Builders.waveType</font><font color="#000000">(</font><font color="#000000">BUILD_TABLES</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.returnAction</font><font color="#000000">(</font><font color="#000000">TABLES_BUILT</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">.returnItem</font><font color="#000000">(</font><font color="#000000">JRebirthItems.voidItem</font><font color="#000000">)</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@OnWave</font><font color="#000000">(</font><font color="#000000">BUILD_TABLES</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Priority</font><font color="#000000">(</font><font color="#000000">RunnablePriority.Highest</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">doBuildTables</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;</font><font color="#7f0055"><b>throws&nbsp;</b></font><font color="#000000">InterruptedException;&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
+<font color="#000000">}</font></code>
+    
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
+
+			</content>
+			
+			<content name="ComponentImplementation">
+				<title>Component Implementation</title>
+
+				<item>Interface:</item>
+				<item html="true">
+				<![CDATA[
+				
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#646464">@Register</font><font color="#000000">(</font><font color="#000000">value&nbsp;=&nbsp;ExpressionBuilderService.class,&nbsp;priority&nbsp;=&nbsp;RegistrationPriority.Normal</font><font color="#000000">)</font><br />
+<font color="#7f0055"><b>public&nbsp;final&nbsp;class&nbsp;</b></font><font color="#000000">ExpressionBuilderServiceImpl&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultService&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">ExpressionBuilderService&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">...</font><br />
+<font color="#000000">}</font></code>
+   </td>
+   </tr>
+</table>
+
+				]]>
+				</item>
+
+			</content>
+			
+			<content name="ModuleFile">
+				<title>ModuleFile</title>
+
+				<item>JRAF-INF/module.xml:</item>
+				<item html="true">
+				<![CDATA[
+				
+<module xmlns="http://www.jrebirth.org/Module">
+    <warmUp/>
+    <registrations>
+        <registration exclusive="true" 
+		class="org.jrebirth.demo.masteringtables.service.ExpressionBuilderService">
+            <registrationEntries>
+                <registrationEntry priority="Normal" 
+				class="org.jrebirth.demo.masteringtables.service.ExpressionBuilderServiceImpl" />
+            </registrationEntries>
+        </registration>
+    </registrations>
+</module>
+				]]>
+				</item>
+
+			</content>
+			
+			<content name="ModuleUsage">
+				<title>Component Usage</title>
+
+				<item>Use the interface class as key part:</item>
+				<item html="true">
+				<![CDATA[
+				
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">DisplayGameMenu&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultCommand&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">perform</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Call&nbsp;the&nbsp;right&nbsp;service&nbsp;to&nbsp;generate&nbsp;all&nbsp;tables</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Forward&nbsp;the&nbsp;progress&nbsp;bar&nbsp;attached&nbsp;to&nbsp;the&nbsp;upstream&nbsp;wave</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">returnData</font><font color="#000000">(</font><font color="#000000">ExpressionBuilderService.class,&nbsp;ExpressionBuilderService.DO_BUILD_TABLES,</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">wave.getData</font><font color="#000000">(</font><font color="#000000">JRebirthWaves.PROGRESS_BAR</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#ffffff"></font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@OnWave</font><font color="#000000">(</font><font color="#000000">ExpressionBuilderService.TABLES_BUILT</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@RunInto</font><font color="#000000">(</font><font color="#000000">value&nbsp;=&nbsp;RunType.JTP,&nbsp;priority&nbsp;=&nbsp;RunnablePriority.High</font><font color="#000000">)</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">doTablesBuilt</font><font color="#000000">(</font><font color="#7f0055"><b>final&nbsp;</b></font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;{</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;When&nbsp;tables&nbsp;are&nbsp;built,&nbsp;launch&nbsp;the&nbsp;wave&nbsp;that&nbsp;will&nbsp;display&nbsp;the&nbsp;game&nbsp;menu</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sendWave</font><font color="#000000">(</font><font color="#000000">MTWaves.SHOW_PAGE,&nbsp;Builders.waveData</font><font color="#000000">(</font><font color="#000000">MTWaves.PAGE,&nbsp;Page.GameMenu</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
+<font color="#000000">}</font></code>
+    
+   </td>
+   </tr>
+</table>
+				]]>
+				</item>
+
+			</content>
+			
+		</slide>
+
+				
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   BEHAVIOR                                       xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
 
 		<!-- Behavior -->
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 			<title>Behavior</title>
-			<content>
-				<item></item>
+			<content name="Overview">
+				<item>Share code for several components</item>
 			</content>
 		</slide>
+		
+	
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                 Keep In Touch                                    xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->	
 
+		
+		<slide style="SuperDupont" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>OUI NIDE IOU</title>
+			
+			<content>
+				<item image="splash/SuperDupont.jpg" />
+			</content>
+		</slide>
+		
 		<!-- Read source -->
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 			<title>Get Involved !</title>
-			<content>
+			<content  name="getinvolved">
 				<item>Source available on GitHub</item>
 				<item link="true">https://github.com/JRebirth</item>
 				<item></item>
 				<item>Built with Maven / Jenkins CI</item>
 				<item>Inspected by Sonar</item>
-				<item>Released on OJO, Bintray &amp; Maven Central</item>
-				<item level="1">oss.jfrog.org</item>
-				<item level="1">bintray.com</item>
-				<item level="1">search.maven.org</item>
+				<item>Released on OJO, JCenter@Bintray &amp; Maven Central</item>
+				<item level="1" link="true">oss.jfrog.org</item>
+				<item level="1" link="true">jcenter.bintray.com</item>
+				<item level="1" link="true">search.maven.org</item>
 			</content>
-		</slide>
-
-		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
-			<title>Useful links</title>
-
-			<content name="">
+			
+			
+			<content name="links">
+				<title>Useful links</title>
 				<item>All documentation</item>
 				<item link="true">blog.jrebirth.org</item>
 				<item link="true">www.jrebirth.org</item>
@@ -712,11 +996,10 @@
 				<item link="true">quality.jrebirth.org</item>
 				<item link="true">repo.jrebirth.org</item>
 			</content>
-		</slide>
-
-		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
-			<title>Previously On ...</title>
-			<content>
+			
+			
+			<content name="previously">
+				<title>Previously On ...</title>
 				<item>EclipseDay</item>
 				<item level="1" link="true">www.jrebirth.org/apps/EclipseDay.html</item>
 				<item>Breizhcamp</item>
@@ -726,9 +1009,31 @@
 				<item>EclipseCON JavaFX Workshop</item>
 				<item level="1" link="true">www.jrebirth.org/apps/EclipseCON.html</item>
 			</content>
+	
+		</slide>
+		
+		<!-- MOI -->
+		<slide style="me" showAnimation="MoveFromRight" hideAnimation="FadeOut">
+			<title>Sébastien Bordes</title>
+			<content>
+				<item>Developer</item>
+				<item level="1">Swing, JEE, Flash-Flex (AS3), Silverlight (C#)</item>
+				<item level="1">JavaFX, Eclipse RCP</item>
+				<item></item>
+				<item>@s8bordes</item>
+				<item>seb@jrebirth.org</item>
+				<item link="true">www.jrebirth.org</item>
+				<item link="true">blog.jrebirth.org</item>
+				<item>Artwork by</item>
+				<item level="1">xoxi@xoxi.fr</item>
+			</content>
 		</slide>
 
 
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                        Q&A                                       xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
 		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 			<content>
 				<item image="splash/Thanks.png" />

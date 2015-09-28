@@ -173,9 +173,9 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
     @Override
     protected void initView() {
 
-        // getRootNode().setPrefSize(1010, 750);
-        // getRootNode().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-        // getRootNode().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        getRootNode().setPrefSize(1024, 768);
+        getRootNode().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        getRootNode().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         this.slideContent = new StackPane();
         this.slideContent.setOpacity(0.9);

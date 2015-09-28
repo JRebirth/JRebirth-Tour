@@ -183,7 +183,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         // getRootNode().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         this.slideContent = new StackPane();
-        this.slideContent.setOpacity(0.9);
+        this.slideContent.setOpacity(0.95);
         this.slideContent.getStyleClass().add("content");
 
         this.slideContent.setMinSize(952, 642);
@@ -246,6 +246,12 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * @param defaultSubSlide the subslide node
      */
     private void addSubSlide(final Node defaultSubSlide) {
+
+        if (this.subSlides.size() < getModel().getStepPosition()) {
+            for (int i = getModel().getStepPosition(); i >= 0; i--) {
+                this.subSlides.add(null);
+            }
+        }
 
         this.subSlides.add(getModel().getStepPosition(), defaultSubSlide);
         this.slideContent.getChildren().add(defaultSubSlide);
@@ -815,7 +821,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      */
     public void showSlideStep(final SlideStep slideStep) {
 
-        if (this.subSlides.size() >= getModel().getStepPosition() || this.subSlides.get(getModel().getStepPosition()) == null) {
+        if (this.subSlides.size() >= getModel().getStepPosition()
+                || getModel().getStepPosition() > this.subSlides.size()
+                || this.subSlides.get(getModel().getStepPosition()) == null) {
             addSubSlide(buildDefaultContent(getModel().getContent(slideStep)));
         }
         final Node nextSlide = this.subSlides.get(getModel().getStepPosition());

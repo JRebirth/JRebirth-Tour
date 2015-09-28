@@ -25,6 +25,12 @@ import org.jrebirth.af.api.resource.font.FontName;
 public enum JpFontNames implements FontName {
 
     /** . */
+    Asimov,
+
+    /** . */
+    Gin_Rai,
+
+    /** . */
     DINk,
 
     bewildet,

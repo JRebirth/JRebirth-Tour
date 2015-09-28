@@ -19,6 +19,7 @@ package org.jrebirth.af.presentation.jaf.resources;
 
 import static org.jrebirth.af.core.resource.Resources.create;
 
+import org.jrebirth.af.api.resource.font.FontExtension;
 import org.jrebirth.af.api.resource.font.FontItem;
 import org.jrebirth.af.core.resource.font.RealFont;
 import org.jrebirth.af.presentation.resources.PrezFontNames;
@@ -28,25 +29,31 @@ import org.jrebirth.af.presentation.resources.PrezFontNames;
  */
 public interface JpFonts {
 
+    // /** The JRebirth title font. */
+    // FontItem JR = create(new RealFont(JpFontNames.Gin_Rai, 36, FontExtension.OTF));
+
+    /** The JRebirth title font. */
+    FontItem JR = create(new RealFont(JpFontNames.Gin_Rai, 36, FontExtension.TTF));
+
     /** The page number font. */
-    FontItem PAGE = create(new RealFont(PrezFontNames.BorisBlackBloxx, 36));
+    FontItem PAGE = create(new RealFont(PrezFontNames.BorisBlackBloxx, 36, FontExtension.TTF));
 
     /** The splash font. */
-    FontItem SPLASH = create(new RealFont(JpFontNames.bewildet, 32));
+    FontItem SPLASH = create(new RealFont(JpFontNames.bewildet, 32, FontExtension.TTF));
 
     /** The typewriter font. */
-    FontItem TYPEWRITER = create(new RealFont(JpFontNames.MIZIKE, 72));
+    FontItem TYPEWRITER = create(new RealFont(JpFontNames.MIZIKE, 72, FontExtension.TTF));
 
     /** The dog splash. */
-    FontItem DOG_SPLASH = create(new RealFont(JpFontNames.whiterabbit, 20));
+    FontItem DOG_SPLASH = create(new RealFont(JpFontNames.whiterabbit, 20, FontExtension.TTF));
 
     /** The slide title font. */
-    FontItem SLIDE_TITLE = create(new RealFont(JpFontNames.Harabara, 45));
+    FontItem SLIDE_TITLE = create(new RealFont(JpFontNames.Harabara, 45, FontExtension.TTF));
 
     /** The slide item. */
-    FontItem SLIDE_ITEM = create(new RealFont(JpFontNames.Neuton_Cursive, 10));
+    FontItem SLIDE_ITEM = create(new RealFont(JpFontNames.Neuton_Cursive, 10, FontExtension.TTF));
 
     /** The prez title. */
-    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 88));
+    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 88, FontExtension.TTF));
 
 }
