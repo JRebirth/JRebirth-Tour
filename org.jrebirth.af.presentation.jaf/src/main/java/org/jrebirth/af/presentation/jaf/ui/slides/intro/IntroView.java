@@ -2,13 +2,13 @@
  * Get more info at : www.jrebirth.org .
  * Copyright JRebirth.org © 2011-2013
  * Contact : sebastien.bordes@jrebirth.org
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -39,11 +39,11 @@ import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
 
 /**
- * 
+ *
  * The class <strong>IntroView</strong>.
- * 
+ *
  * The custom introduction slide.
- * 
+ *
  * @author Sébastien Bordes
  */
 public final class IntroView extends AbstractSlideView<IntroModel, StackPane, IntroController> {
@@ -60,9 +60,9 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
 
     /**
      * Default Constructor.
-     * 
+     *
      * @param model the IntroModel view model
-     * 
+     *
      * @throws CoreException if build fails
      */
     public IntroView(final IntroModel model) throws CoreException {
@@ -149,12 +149,12 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
         // "    -fx-spacing: 8;\r\n");
         // vbox.getChildren().addAll(label, sublabel);
 
-        getRootNode().getChildren().addAll(label, sublabel);
-        StackPane.setAlignment(label, Pos.CENTER);
-        StackPane.setAlignment(sublabel, Pos.CENTER);
+        getRootNode().getChildren().addAll(this.label, this.sublabel);
+        StackPane.setAlignment(this.label, Pos.CENTER);
+        StackPane.setAlignment(this.sublabel, Pos.CENTER);
 
-        StackPane.setMargin(label, new Insets(-100, 0, 0, 0));
-        StackPane.setMargin(sublabel, new Insets(150, 0, 0, 0));
+        StackPane.setMargin(this.label, new Insets(-100, 0, 0, 0));
+        StackPane.setMargin(this.sublabel, new Insets(150, 0, 0, 0));
 
         this.typeWriter = buildTypewriter(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"), this.label.textProperty(), 90, 130);
         this.typeWriter.setDelay(Duration.millis(300));
@@ -166,17 +166,17 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
             this.typeWriter2 = buildTypewriter(secondTitle, this.sublabel.textProperty(), 90, 70);
         }
 
-        globalTypewriter = new SequentialTransition();
-        globalTypewriter.getChildren().add(this.typeWriter);
+        this.globalTypewriter = new SequentialTransition();
+        this.globalTypewriter.getChildren().add(this.typeWriter);
         if (this.typeWriter2 != null) {
-            globalTypewriter.getChildren().add(this.typeWriter2);
+            this.globalTypewriter.getChildren().add(this.typeWriter2);
         }
     }
 
     /**
      * TODO To complete.
      */
-    private Timeline buildTypewriter(String text, StringProperty property, int min, int max) {
+    private Timeline buildTypewriter(final String text, final StringProperty property, final int min, final int max) {
         final Timeline typeWriter = new Timeline();
 
         String content = "";
@@ -207,7 +207,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
     @Override
     public void reload() {
 
-        globalTypewriter.play();
+        this.globalTypewriter.play();
     }
 
     /**
@@ -215,7 +215,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
      */
     @Override
     public void hide() {
-        globalTypewriter.jumpTo(Duration.ZERO);
+        this.globalTypewriter.jumpTo(Duration.ZERO);
 
     }
 

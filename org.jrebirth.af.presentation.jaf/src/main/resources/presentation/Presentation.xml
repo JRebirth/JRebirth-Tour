@@ -14,6 +14,7 @@
 
 
 		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<title>Soft-Shake 2015</title>
 		</slide>
 
 		<slide style="preintro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
@@ -31,6 +32,7 @@
 		</slide>
 		
 		<slide modelClass="org.jrebirth.af.presentation.ui.qanda.QandAModel" showAnimation="MoveFromRight" hideAnimation="MoveToLeft">
+			<title>What is it?</title>
 			<content name="q" index="0">
 				<title>What is it ?</title>
 			</content>
@@ -40,6 +42,7 @@
 		</slide>
 
 		<slide modelClass="org.jrebirth.af.presentation.ui.qanda.QandAModel" showAnimation="MoveFromRight" hideAnimation="FadeOut">
+			<title>Why do you need it?</title>
 			<content name="q" index="0">
 				<title>Why do you need it?</title>
 			</content>
@@ -148,6 +151,51 @@
 				<item level="1">Allow to dispose it after usage</item>
 			</content>
 
+		</slide>
+		
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		<!-- xx                                   BOOST                                           xx -->
+		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+		
+				
+		<slide style="Performances" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
+			<title>Performances</title>
+			<content>
+				<item image="splash/Performances.jpg" />
+			</content>
+		</slide>
+		
+		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Performances</title>
+
+			<content name="Axis">
+				<title>2 Axis</title>
+				<item>Memory</item>
+				<item level="1">Automagically release objects</item>
+				
+				<item/>
+				
+				<item>Multi-Threading</item>
+				<item level="1">Thread auto-selection</item>
+				
+			</content>
+			
+			<content name="Memory">
+				<title>Memory Savers</title>
+				<item>Facade</item>
+				<item level="1">Weakly store Components</item>
+				<item level="2">Synchronized WeakHashMap + WeakReferences</item>
+				<item level="1">Take care of your strong references</item>
+				<item level="2">ie: Notifier, injected components</item> 
+				
+				<item>ResourceBuilder</item>
+				<item level="1">Weakly store Resources</item>
+				<item level="2">Double WeakHashMap + WeakReferences</item>
+				<item level="1">A same resource will be load once</item>
+				<item level="1">will be released if no more used</item>
+
+			</content>
+			
 			<content name="Threads">
 				<title>JRebirth Threads</title>
 
@@ -162,8 +210,8 @@
 				<item level="1">JRebirth Thread Pool and High Priority Thread Pool</item>
 				<item level="1">Used to run long tasks</item>
 			</content>
-
 		</slide>
+		
 		
 		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 		<!-- xx                                   WAVE                                           xx -->
@@ -210,25 +258,24 @@
 				<item>Can Hold WaveData objects</item>
 				<item level="1">Use a WaveItem to define the data type</item>
 				<item html="true">
+				<!-- 
+/** The expression to ask to user. */
+WaveItem<Expression> EXPRESSION = new WaveItemBase<Expression>() {
+};
+
+/** The game list. */
+WaveItem<List<Expression>> GAME_LIST = new WaveItemBase<List<Expression>>() {
+};
+				 -->
 				<![CDATA[
-<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
-   <tr>
-   <td nowrap="nowrap" valign="top" align="left">
-    <code>
-<font color="#3f5fbf">/**&nbsp;The&nbsp;expression&nbsp;to&nbsp;ask&nbsp;to&nbsp;user.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;Expression&gt;&nbsp;EXPRESSION&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Expression&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font><br />
-<font color="#ffffff"></font><br />
-<font color="#3f5fbf">/**&nbsp;The&nbsp;game&nbsp;list.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;&nbsp;GAME_LIST&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font><br />
-<font color="#ffffff"></font><br />
-<font color="#3f5fbf">/**&nbsp;The&nbsp;page&nbsp;to&nbsp;display.&nbsp;*/</font><br />
-<font color="#000000">WaveItem&lt;Page&gt;&nbsp;PAGE&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItem&lt;Page&gt;</font><font color="#000000">()&nbsp;{</font><br />
-<font color="#000000">}</font><font color="#000000">;</font></code>
-   </td>
-   </tr>
-</table>
+<pre style='color:#000000;background:#ffffff;'><span style='color:#3f5fbf; '>/** The expression to ask to user. */</span>
+WaveItem&lt;Expression> EXPRESSION = new WaveItemBase&lt;Expression>() {
+};
+
+<span style='color:#3f5fbf; '>/** The game list. */</span>
+WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Expression>>() {
+};
+</pre>
 				]]>
 				</item>
 				<item></item>
@@ -275,17 +322,17 @@
 				<item></item>
 				<item>MultiCommand</item>
 				<item level="1">Can run several commands sequentially</item>
+				<item level="2">dispatched on several threads</item>
 				<item level="1">Can run several commands in parallel</item>
 			</content>
 
 			<content name="Runnable">
 				<title>How to run</title>
 
-				<item>Each command can be run in </item>
-				<item>a dedicated Thread:</item>
-				<item level="1">Into JAT to update the UI</item>
-				<item level="1">Into JIT to do some custom tasks related to JRebirth</item>
-				<item level="1">Into JTP to do all long tasks</item>
+				<item>Each command can be run:</item>
+				<item level="1">into JAT to update the UI</item>
+				<item level="1">into JIT to do some custom tasks related to JRebirth</item>
+				<item level="1">into JTP to do all long tasks</item>
 				<item></item>
 				<item>Running Thread is chosen according to:</item>
 				<item level="1">Command Class Hierarchy</item>
@@ -387,7 +434,7 @@
 				<item level="1">with or without any state</item>
 				<item></item>
 				<item>A service is composed by one</item>
-				<item>or several ServiceTask</item>
+				<item>or several ServiceTasks</item>
 			</content>
 
 			<content name="Running">
@@ -1035,6 +1082,7 @@
 		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 		
 		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>Thank You</title>
 			<content>
 				<item image="splash/Thanks.png" />
 			</content>
@@ -1042,7 +1090,7 @@
 
 
 		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
-
+			<title>Questions/Answers</title>
 			<content>
 				<item image="splash/Q_and_A.png" />
 			</content>

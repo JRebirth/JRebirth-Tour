@@ -9,6 +9,12 @@ StackPane.rootPane {
 	-fx-background-color:#000000;
 }
 
+#SlideMenu {
+	-fx-font : 3em "Neuton Cursive";
+	-fx-fill: #FF0000;
+	
+}
+
 #SlideStack{
 	
 	-fx-background-image : url("../images/background.jpg");
@@ -19,15 +25,30 @@ StackPane.rootPane {
     -fx-fill : #A0DCFF ;
 }
 
-Label.introTitle {
+.preintro Label.introTitle {
+	-fx-font : 110px "Gin Rai";
+	-fx-fill: #FF0000;
+
+}
+
+.preintro Label.subintroTitle {
+	-fx-font : 80px "Gin Rai";
+	-fx-fill: #FF0000;
+	-fx-alignment:center-right;
+	-fx-text-alignment:center;
+}
+
+.intro Label.introTitle {
 	-fx-font : 260px "Gin Rai";
 	-fx-fill: #FF0000;
 }
 
-.intro .subintroTitle {
+.intro Label.subintroTitle {
 	-fx-font : 80px "Gin Rai";
 	-fx-fill: #FF0000;
 }
+
+
 
 .qandaContainer {
 	-fx-font : 100px "mizike";

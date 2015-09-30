@@ -2,13 +2,13 @@
  * Get more info at : www.jrebirth.org .
  * Copyright JRebirth.org © 2011-2013
  * Contact : sebastien.bordes@jrebirth.org
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -92,11 +92,11 @@ import org.jrebirth.presentation.model.SlideItem;
 
 // TODO: Auto-generated Javadoc
 /**
- * 
+ *
  * The class <strong>AbstractTemplateView</strong>.
- * 
+ *
  * The view used to display a standard template slide.
- * 
+ *
  * @author Sébastien Bordes
  */
 public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicController> {
@@ -154,9 +154,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Default Constructor.
-     * 
+     *
      * @param model the controls view model
-     * 
+     *
      * @throws CoreException if build fails
      */
     public BasicView(final BasicModel model) throws CoreException {
@@ -165,7 +165,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Gets the sub title.
-     * 
+     *
      * @return Returns the subTitle.
      */
     protected Label getSubTitle() {
@@ -242,7 +242,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Add a subslide node.
-     * 
+     *
      * @param defaultSubSlide the subslide node
      */
     private void addSubSlide(final Node defaultSubSlide) {
@@ -449,7 +449,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Build and return the header panel.
-     * 
+     *
      * @return the header panel
      */
     protected Node getHeaderPanel() {
@@ -648,7 +648,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * TODO To complete.
-     * 
+     *
      * @param node the node
      */
     protected void bindNode(final Node node) {
@@ -658,7 +658,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * TODO To complete.
-     * 
+     *
      * @return the number binding
      */
     protected NumberBinding bindHeight() {
@@ -667,7 +667,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * TODO To complete.
-     * 
+     *
      * @return the number binding
      */
     protected NumberBinding bindWidth() {
@@ -676,7 +676,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Build and return the content panel.
-     * 
+     *
      * @return the content panel
      */
     protected Node getContentPanel() {
@@ -685,7 +685,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Build and return the footer panel.
-     * 
+     *
      * @return the footer panel
      */
     protected Node getFooterPanel() {
@@ -714,7 +714,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Build the default content slide.
-     * 
+     *
      * @param slideContent the slide content
      * @return the vbox with default content items
      */
@@ -744,7 +744,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Add a slide item by managing level.
-     * 
+     *
      * @param vbox the layout node
      * @param item the slide item to add
      */
@@ -816,7 +816,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Show the slide step store which match with xml file.
-     * 
+     *
      * @param slideStep the slide step to show
      */
     public void showSlideStep(final SlideStep slideStep) {
@@ -839,7 +839,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Show custom slide step.
-     * 
+     *
      * @param node the node
      */
     protected void showCustomSlideStep(final Node node) {
@@ -857,7 +857,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * TODO To complete.
-     * 
+     *
      * @param nextSlide the next slide
      */
     private void performStepAnimation(final Node nextSlide) {
@@ -924,7 +924,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
 
     /**
      * Gets the slide content.
-     * 
+     *
      * @return Returns the slideContent.
      */
     protected StackPane getSlideContent() {
