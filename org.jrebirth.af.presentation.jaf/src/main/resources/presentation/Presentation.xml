@@ -13,11 +13,11 @@
 	<slides defaultModelClass="org.jrebirth.af.presentation.jaf.ui.slides.basic.BasicModel">
 
 
-		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn">
 			<title>Soft-Shake 2015</title>
 		</slide>
 
-		<slide style="preintro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+		<slide style="preintro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" hideAnimation="FadeOut">
 			<title>JavaFX Unleashed</title>
 			<content>
 				<title>with</title>

@@ -25,6 +25,14 @@ StackPane.rootPane {
     -fx-fill : #A0DCFF ;
 }
 
+.preintro{
+
+    -fx-background-image : url("../images/intro/Geneve_Lac_Leman.jpg");
+    -fx-background-color: transparent;
+    -fx-background-position: center center;
+    -fx-background-size : stretch;
+}
+
 .preintro Label.introTitle {
 	-fx-font : 110px "Gin Rai";
 	-fx-fill: #FF0000;
