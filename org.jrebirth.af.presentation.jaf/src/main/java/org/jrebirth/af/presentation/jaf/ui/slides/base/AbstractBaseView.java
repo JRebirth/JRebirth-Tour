@@ -20,6 +20,7 @@ package org.jrebirth.af.presentation.jaf.ui.slides.base;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.ParallelTransition;
@@ -779,6 +780,18 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
 
     }
 
+    @Override
+    public boolean isReadyForSlidesStepUpdate(boolean isReverse) {
+
+        if (this.subSlideTransition != null && this.subSlideTransition.getStatus() == Animation.Status.RUNNING) {
+
+            this.subSlideTransition.setRate(isReverse ? -5 : 5);
+
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Show custom slide step.
      *
@@ -804,7 +817,6 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      */
     private void performStepAnimation(final Node nextSlide) {
 
-        setSlideLocked(true);
         this.subSlideTransition = ParallelTransitionBuilder.create()
 
                                                            .onFinished(new EventHandler<ActionEvent>() {
@@ -812,7 +824,6 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                @Override
                                                                public void handle(final ActionEvent event) {
                                                                    AbstractBaseView.this.currentSubSlide = nextSlide;
-                                                                   AbstractBaseView.this.setSlideLocked(false);
                                                                }
                                                            })
 

@@ -20,6 +20,7 @@ package org.jrebirth.af.presentation.jaf.ui.slides.basic;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.Animation;
 import javafx.animation.FadeTransitionBuilder;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -814,6 +815,18 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         vbox.getChildren().add(node);
     }
 
+    @Override
+    public boolean isReadyForSlidesStepUpdate(boolean isReverse) {
+
+        if (this.subSlideTransition != null && this.subSlideTransition.getStatus() == Animation.Status.RUNNING) {
+
+            this.subSlideTransition.setRate(isReverse ? -3 : 3);
+
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Show the slide step store which match with xml file.
      *
@@ -862,7 +875,6 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      */
     private void performStepAnimation(final Node nextSlide) {
 
-        setSlideLocked(true);
         this.subSlideTransition = ParallelTransitionBuilder.create()
 
                                                            .onFinished(new EventHandler<ActionEvent>() {
@@ -870,7 +882,6 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                @Override
                                                                public void handle(final ActionEvent event) {
                                                                    BasicView.this.currentSubSlide = nextSlide;
-                                                                   BasicView.this.setSlideLocked(false);
                                                                }
                                                            })
 
