@@ -25,6 +25,9 @@ import org.jrebirth.af.api.resource.font.FontName;
 public enum JpFontNames implements FontName {
 
     /** . */
+    DINProRegular,
+
+    /** . */
     Asimov,
 
     /** . */

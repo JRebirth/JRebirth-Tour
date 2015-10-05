@@ -17,20 +17,29 @@
  */
 package org.jrebirth.af.presentation.jaf.resources;
 
-import static org.jrebirth.af.core.resource.Resources.create;
-
-import org.jrebirth.af.api.resource.color.ColorItem;
-import org.jrebirth.af.core.resource.color.WebColor;
+import org.jrebirth.af.core.resource.color.ColorEnum;
 
 /**
  * The JpColors interface providing all colors.
  */
-public interface JpColors {
+public enum JpColors implements ColorEnum {
+
+    // @formatter:off
+    
+    /** The slide title color. */
+    SLIDE_TITLE {{ web("0088D3", 1.0) ; }},
 
     /** The slide title color. */
-    ColorItem SLIDE_TITLE = create(new WebColor("0088D3", 1.0));
-
-    /** The slide title color. */
-    ColorItem PREZ_TITLE = create(new WebColor("0088D3", 0.1));
+    PREZ_TITLE {{ web("F79508", 0.7); }},
+    
+    /** The soft blue color. */
+    SOFT_BLUE {{ web("0499C4", 1.0); }},
+    
+    /** The soft black color. */
+    SOFT_BLACK {{ web("000000", 1.0); }},
+    
+    /** The soft black color. */
+    SOFT_WHITE {{ web("C0BDC1", 0.8); }}
+    
 
 }

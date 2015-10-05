@@ -17,8 +17,11 @@
  */
 package org.jrebirth.af.presentation.jaf.ui.slides.place;
 
+import org.jrebirth.af.presentation.service.PresentationService;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.af.presentation.ui.base.SlideStep;
+import org.jrebirth.presentation.model.Presentation;
+import org.jrebirth.presentation.model.Speaker;
 
 /**
  * The class <strong>PlaceModel</strong>.
@@ -43,4 +46,22 @@ public final class PlaceModel extends AbstractSlideModel<PlaceModel, PlaceView, 
         // Nothing to do yet
     }
 
+    public Presentation getPresentation() {
+        return getService(PresentationService.class).getPresentation();
+    }
+
+    public String getSpeaker() {
+        final StringBuilder sb = new StringBuilder();
+        if (getPresentation().getSpeakers() != null && getPresentation().getSpeakers().getSpeaker() != null) {
+            for (final Speaker speaker : getPresentation().getSpeakers().getSpeaker()) {
+                sb.append(speaker.getFirstName()).
+                  append(" ").append(speaker.getLastName());
+            }
+        }
+        return sb.toString();
+    }
+
+    public String getEventTime() {
+        return getPresentation().getPlace() + " - " + getPresentation().getDate();
+    }
 }

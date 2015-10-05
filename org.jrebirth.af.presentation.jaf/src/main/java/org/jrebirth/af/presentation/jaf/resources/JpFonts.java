@@ -32,6 +32,12 @@ public interface JpFonts {
     // /** The JRebirth title font. */
     // FontItem JR = create(new RealFont(JpFontNames.Gin_Rai, 36, FontExtension.OTF));
 
+    /** The conf title font. */
+    FontItem CONF_TITLE = create(new RealFont(JpFontNames.DINProRegular, 56, FontExtension.TTF));
+
+    /** The conf title font. */
+    FontItem CONF_SUBTITLE = create(new RealFont(JpFontNames.DINProRegular, 36, FontExtension.TTF));
+
     /** The JRebirth title font. */
     FontItem JR = create(new RealFont(JpFontNames.Gin_Rai, 36, FontExtension.TTF));
 
@@ -54,6 +60,6 @@ public interface JpFonts {
     FontItem SLIDE_ITEM = create(new RealFont(JpFontNames.Neuton_Cursive, 10, FontExtension.TTF));
 
     /** The prez title. */
-    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 88, FontExtension.TTF));
+    FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 70, FontExtension.TTF));
 
 }

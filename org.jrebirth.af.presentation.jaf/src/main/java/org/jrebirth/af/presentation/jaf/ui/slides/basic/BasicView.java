@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.animation.Animation;
-import javafx.animation.FadeTransitionBuilder;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.ParallelTransition;
@@ -81,7 +80,6 @@ import javafx.util.Duration;
 import org.jrebirth.af.api.exception.CoreException;
 import org.jrebirth.af.core.resource.Resources;
 import org.jrebirth.af.core.resource.image.RelImage;
-import org.jrebirth.af.presentation.jaf.resources.JpColors;
 import org.jrebirth.af.presentation.jaf.resources.JpFonts;
 import org.jrebirth.af.presentation.jaf.resources.JpImages;
 import org.jrebirth.af.presentation.resources.PrezColors;
@@ -148,7 +146,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     private Label primaryTitle;
 
     /** The prez title. */
-    private Label prezTitle;
+    // private Label prezTitle;
 
     /** The place logo. */
     private ImageView logo;
@@ -386,12 +384,12 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                      )
                                                           )
                                                           .build(),
-                                           FadeTransitionBuilder.create()
-                                                                .delay(Duration.millis(600))
-                                                                .duration(Duration.millis(1000))
-                                                                .node(this.prezTitle)
-                                                                .fromValue(0).toValue(1)
-                                                                .build(),
+                                           // FadeTransitionBuilder.create()
+                                           // .delay(Duration.millis(600))
+                                           // .duration(Duration.millis(1000))
+                                           // .node(this.prezTitle)
+                                           // .fromValue(0).toValue(1)
+                                           // .build(),
 
                                            TranslateTransitionBuilder.create()
                                                                      .node(this.logo)
@@ -487,22 +485,10 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                           .textAlignment(TextAlignment.RIGHT)
                                           .build();
 
-        this.prezTitle = LabelBuilder.create()
-                                     // .styleClass("slideTitle")
-                                     .font(JpFonts.PREZ_TITLE.get())
-                                     .textFill(JpColors.PREZ_TITLE.get())
-                                     // .scaleX(1.5)
-                                     // .scaleY(1.5)
-                                     // .layoutX(545)
-                                     // .layoutY(711)
-                                     .layoutX(480)
-                                     .layoutY(14.0)
-                                     .minWidth(450)
-                                     .opacity(0.0)
-                                     // .style("-fx-background-color:#E53B20")
-                                     .alignment(Pos.CENTER_RIGHT)
-                                     .textAlignment(TextAlignment.RIGHT)
-                                     .build();
+        /*
+         * this.prezTitle = LabelBuilder.create() // .styleClass("slideTitle") .font(JpFonts.PREZ_TITLE.get()) .textFill(JpColors.PREZ_TITLE.get()) // .scaleX(1.5) // .scaleY(1.5) // .layoutX(545) //
+         * .layoutY(711) .layoutX(480) .layoutY(14.0) .minWidth(450) .opacity(0.0) // .style("-fx-background-color:#E53B20") .alignment(Pos.CENTER_RIGHT) .textAlignment(TextAlignment.RIGHT) .build();
+         */
 
         this.logo = ImageViewBuilder.create()
                                     .layoutX(1200)
@@ -628,8 +614,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         headerPane.getChildren().addAll(this.topRectangle,
                                         this.bigPokemon, this.smallPokemon,
                                         this.primaryTitle, this.logo, this.bottomRectangle, this.secondaryTitle,
-                                        pl, this.pageLabel,
-                                        this.prezTitle);
+                                        pl, this.pageLabel/*
+                                                           * , this.prezTitle
+                                                           */);
 
         // AnchorPane.setLeftAnchor(primaryTitle, 40.0);
         // AnchorPane.setTopAnchor(primaryTitle, 45.0);
@@ -725,7 +712,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
             this.secondaryTitle.setText(slideContent.getTitle());
         }
 
-        this.prezTitle.setText("JRebirth AF");
+        // this.prezTitle.setText("JRebirth AF");
 
         final VBox vbox = new VBox();
         // vbox.getStyleClass().add("content");

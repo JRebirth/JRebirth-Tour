@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <presentation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.jrebirth.org/Presentation" xsi:schemaLocation="http://www.jrebirth.org/Presentation Presentation.xsd">
 
-	<title>JRebirth Application Framework</title>
+	<title>JavaFX Unleashed with JRebirth</title>
 	<date>23/10/2015</date>
 	<event>SoftShake 2015</event>
 	<place>Geneva</place>
@@ -58,10 +58,19 @@
 		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 		<!-- xx                                   KEY FEATURES                                   xx -->
 		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-		
-		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
-			<title>Key Features</title>
+	
+		<slide style="Orientations" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<title>Orientations</title>
 			<content>
+				<item image="splash/Orientations.png" />
+			</content>
+		</slide>
+			
+		<slide showAnimation="MoveFromBottom" hideAnimation="FadeOut">
+			<title>Orientations</title>
+			<content name="KeyFeatures">
+				<title>Goals</title>
+				
 				<item>Designed exclusively for JavaFX</item>
 				<item>KISS and DRY compliant</item>
 				<item>Provide excellent SoC</item>
@@ -69,8 +78,18 @@
 				<item>Automagically manage Thread &amp; Async tasks</item>
 				<item>Manage all Resources</item>
 				<item>Lightweight (about 150kb with Pack200)</item>
-				<item>Free &amp; Open Source (Apache v2)
-				</item>
+				<item>Free &amp; Open Source (Apache v2)</item>
+			</content>
+
+			<content name="Choices">
+				<title>Choices</title>
+				
+				<item>No OSGI</item>
+				<item level="1">Runtime modularization</item>
+				<item>No external dependencies</item>
+				<item level="1">except slf4j</item>
+				<item>No forced Workbench</item>
+				<item level="1">Custom widget planned</item>
 			</content>
 		</slide>
 	
@@ -88,7 +107,7 @@
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
-			<title>w B CS Mvc pattern</title>
+			<title>wB-CS-Mvc pattern</title>
 
 			<content name="Overview">
 				<title>Overview</title>
@@ -170,13 +189,16 @@
 
 			<content name="Axis">
 				<title>2 Axis</title>
+				
 				<item>Memory</item>
 				<item level="1">Automagically release objects</item>
+				<item level="2">Let gc perform its job!</item>
 				
 				<item/>
 				
 				<item>Multi-Threading</item>
 				<item level="1">Thread auto-selection</item>
+				<item level="2">Never write new Thread() again</item>
 				
 			</content>
 			
@@ -233,10 +255,11 @@
 				<item>A Wave is a message sent by a Component</item>
 				<item>to one or several (other) components</item>
 				<item></item>
-				<item>It has 2 major properties:</item>
-				<item level="1">The destination class (JRebirth Component)</item>
-				<item level="1">a WaveType (optionally)</item>
-				<item level="2">that define the action type</item>
+				<item>It has 2 main properties:</item>
+				<item>JRebirth Component Class</item>
+				<item level="1">the destination</item>
+				<item>a WaveType</item>
+				<item level="1">define the action type</item>
 			</content>
 
 			<content name="WaveGroup">

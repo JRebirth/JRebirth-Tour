@@ -18,10 +18,14 @@
 package org.jrebirth.af.presentation.jaf.ui.slides.place;
 
 import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageViewBuilder;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextBuilder;
 
 import org.jrebirth.af.api.exception.CoreException;
+import org.jrebirth.af.presentation.jaf.resources.JpColors;
+import org.jrebirth.af.presentation.jaf.resources.JpFonts;
 import org.jrebirth.af.presentation.jaf.resources.JpImages;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
 
@@ -34,6 +38,9 @@ import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
  * @author Sébastien Bordes
  */
 public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceController> {
+
+    private Text eventTime;
+    private Text speaker;
 
     /**
      * Default Constructor.
@@ -52,15 +59,44 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     @Override
     protected void initView() {
 
-        final ImageView toulouse = ImageViewBuilder.create()
-                                                   .image(JpImages.PLACE_BG.get())
-                                                   // .fitHeight(Double.MAX_VALUE)
-                                                   // .fitWidth(Double.MAX_VALUE)
-                                                   .build();
+        final ImageView placeImage = new ImageView();
+        placeImage.setImage(JpImages.PLACE_BG.get());
+        // .fitHeight(Double.MAX_VALUE)
+        // .fitWidth(Double.MAX_VALUE)
 
-        getRootNode().getChildren().add(toulouse);
+        final HBox softshake = buildGroup();
+        softshake.setLayoutX(50);
+        softshake.setLayoutY(50);
+
+        eventTime = new Text();
+        eventTime.setFont(JpFonts.CONF_SUBTITLE.get());
+        eventTime.setFill(JpColors.SOFT_WHITE.get());
+        eventTime.setLayoutX(600);
+        eventTime.setLayoutY(700);
+
+        speaker = new Text();
+        speaker.setFont(JpFonts.CONF_SUBTITLE.get());
+        speaker.setFill(JpColors.SOFT_WHITE.get());
+        speaker.setLayoutX(50);
+        speaker.setLayoutY(700);
+
+        getRootNode().getChildren().addAll(placeImage, softshake, eventTime, speaker);
 
         getRootNode().getStyleClass().add(getModel().getSlide().getStyle());
+    }
+
+    private HBox buildGroup() {
+        final HBox group = new HBox();
+
+        group.getChildren().addAll(
+                                   TextBuilder.create().text("{{").font(JpFonts.CONF_TITLE.get()).fill(JpColors.SOFT_BLUE.get()).build(),
+                                   TextBuilder.create().text("soft").font(JpFonts.CONF_TITLE.get()).fill(JpColors.SOFT_BLACK.get()).build(),
+                                   TextBuilder.create().text("shake").font(JpFonts.CONF_TITLE.get()).fill(JpColors.SOFT_BLUE.get()).build(),
+                                   TextBuilder.create().text("}}").font(JpFonts.CONF_TITLE.get()).fill(JpColors.SOFT_BLACK.get()).build()
+
+             );
+
+        return group;
     }
 
     /**
@@ -68,7 +104,9 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
      */
     @Override
     public void start() {
-        // Nothing to do yet
+
+        speaker.setText(getModel().getSpeaker());
+        eventTime.setText(getModel().getEventTime());
     }
 
     /**
