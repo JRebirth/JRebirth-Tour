@@ -62,6 +62,7 @@
 		<slide style="Orientations" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
 			<title>Orientations</title>
 			<content>
+				<title>Orientations</title>
 				<item image="splash/Orientations.png" />
 			</content>
 		</slide>
@@ -86,10 +87,12 @@
 				
 				<item>No OSGI</item>
 				<item level="1">Runtime modularization</item>
+				<item level="1" link="true">blog.jrebirth.org/javafx/jrebirth-running-on-equinox</item>
 				<item>No external dependencies</item>
 				<item level="1">except slf4j</item>
 				<item>No forced Workbench</item>
-				<item level="1">Custom widget planned</item>
+				<item level="1" >Custom widget planned</item>
+				<item level="1" link="true">blog.jrebirth.org/javafx/jrebirth-workbench-first-step</item>
 			</content>
 		</slide>
 	
@@ -101,6 +104,7 @@
 		<slide style="Pattern" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>A Custom-Tailored Pattern</title>
 			<content>
+				<title>A Custom-Tailored Pattern</title>
 				<item image="splash/Pattern.jpg" />
 			</content>
 		</slide>		
@@ -180,6 +184,7 @@
 		<slide style="Performances" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>Performances</title>
 			<content>
+				<title>Performances</title>
 				<item image="splash/Performances.jpg" />
 			</content>
 		</slide>
@@ -243,6 +248,7 @@
 		<slide style="Messaging" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>Messaging</title>
 			<content>
+				<title>Messaging</title>
 				<item image="splash/Messaging.jpg" />
 			</content>
 		</slide>
@@ -316,6 +322,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 		<slide style="Command" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>Command</title>
 			<content>
+				<title>Command</title>
 				<item image="splash/Commands.jpg" />
 			</content>
 		</slide>
@@ -439,6 +446,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 		<slide style="Service" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn60k" hideAnimation="FadeOut">
 			<title>Service</title>
 			<content>
+				<title>Service</title>
 				<item image="splash/Services.jpg" />
 			</content>
 		</slide>
@@ -657,6 +665,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 		<slide style="UserInterface" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>User Interface</title>
 			<content>
+				<title>User Interface</title>
 				<item image="splash/UserInterface.png" />
 			</content>
 		</slide>
@@ -726,6 +735,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 		<slide style="Resources" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="TileIn" hideAnimation="FadeOut">
 			<title>Resources</title>
 			<content>
+				<title>Resources</title>
 				<item image="splash/Resources.jpg" />
 			</content>
 		</slide>
@@ -865,6 +875,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 			<title>JRebirth Labs</title>
 			
 			<content>
+				<title>JRebirth Labs</title>
 				<item image="splash/Labs.jpg" />
 			</content>
 		</slide>
@@ -1034,39 +1045,38 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 			<title>OUI NIDE IOU</title>
 			
 			<content>
+				<title>OUI NIDE IOU</title>
 				<item image="splash/SuperDupont.jpg" />
 			</content>
 		</slide>
 		
 		<!-- Read source -->
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
-			<title>Get Involved !</title>
-			<content  name="getinvolved">
-				<item>Source available on GitHub</item>
-				<item link="true">https://github.com/JRebirth</item>
-				<item></item>
-				<item>Built with Maven / Jenkins CI</item>
-				<item>Inspected by Sonar</item>
-				<item>Released on OJO, JCenter@Bintray &amp; Maven Central</item>
-				<item level="1" link="true">oss.jfrog.org</item>
-				<item level="1" link="true">jcenter.bintray.com</item>
-				<item level="1" link="true">search.maven.org</item>
-			</content>
-			
+			<title>Learn &amp; Contribute</title>
+
 			
 			<content name="links">
 				<title>Useful links</title>
 				<item>All documentation</item>
 				<item link="true">blog.jrebirth.org</item>
 				<item link="true">www.jrebirth.org</item>
-				<item></item>
-				<item>Software Factory</item>
-				<item level="1">Sometimes offline (energy savings)</item>
-				<item link="true">ci.jrebirth.org</item>
-				<item link="true">quality.jrebirth.org</item>
-				<item link="true">repo.jrebirth.org</item>
+				<item link="true">api.jrebirth.org</item>
+				<item link="true">sites.jrebirth.org</item>
 			</content>
-			
+
+			<content  name="getinvolved">
+				<item>Source available on GitHub</item>
+				<item link="true">https://github.com/JRebirth</item>
+				<item>Built with Maven / Jenkins CI</item>
+				<item level="1" link="true">ci.jrebirth.org</item>
+				<item>Inspected by SonarQube</item>
+				<item level="1" link="true">quality.jrebirth.org</item>
+				<item>Released on OJO, JCenter@Bintray &amp; Maven Central</item>
+				<item level="1" link="true">oss.jfrog.org</item>
+				<item level="1" link="true">jcenter.bintray.com</item>
+				<item level="1" link="true">search.maven.org</item>
+				<item level="1" link="true">repo.jrebirth.org</item>
+			</content>
 			
 			<content name="previously">
 				<title>Previously On ...</title>
@@ -1075,7 +1085,7 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item>Breizhcamp</item>
 				<item level="1" link="true">www.jrebirth.org/apps/Breizhcamp.html</item>
 				<item>ToulouseJUG Lightning Talk</item>
-				<item level="1" link="true">http://www.jrebirth.org/apps/LightningTalk.html</item>
+				<item level="1" link="true">www.jrebirth.org/apps/LightningTalk.html</item>
 				<item>EclipseCON JavaFX Workshop</item>
 				<item level="1" link="true">www.jrebirth.org/apps/EclipseCON.html</item>
 			</content>
