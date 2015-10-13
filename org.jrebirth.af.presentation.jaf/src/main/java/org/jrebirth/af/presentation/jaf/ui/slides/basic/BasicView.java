@@ -82,12 +82,12 @@ import org.jrebirth.af.core.resource.Resources;
 import org.jrebirth.af.core.resource.image.RelImage;
 import org.jrebirth.af.presentation.jaf.resources.JpFonts;
 import org.jrebirth.af.presentation.jaf.resources.JpImages;
+import org.jrebirth.af.presentation.model.SlideContent;
+import org.jrebirth.af.presentation.model.SlideItem;
 import org.jrebirth.af.presentation.resources.PrezColors;
 import org.jrebirth.af.presentation.resources.PrezFonts;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideView;
 import org.jrebirth.af.presentation.ui.base.SlideStep;
-import org.jrebirth.presentation.model.SlideContent;
-import org.jrebirth.presentation.model.SlideItem;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -17,11 +17,11 @@
  */
 package org.jrebirth.af.presentation.jaf.ui.slides.place;
 
+import org.jrebirth.af.presentation.model.Presentation;
+import org.jrebirth.af.presentation.model.Speaker;
 import org.jrebirth.af.presentation.service.PresentationService;
 import org.jrebirth.af.presentation.ui.base.AbstractSlideModel;
 import org.jrebirth.af.presentation.ui.base.SlideStep;
-import org.jrebirth.presentation.model.Presentation;
-import org.jrebirth.presentation.model.Speaker;
 
 /**
  * The class <strong>PlaceModel</strong>.

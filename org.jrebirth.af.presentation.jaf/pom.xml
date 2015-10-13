@@ -46,6 +46,41 @@
 				- - > <phase>package</phase> < ! - - bind to the packaging phase - - > <goals> <goal>single</goal> </goals> </execution> </executions> </plugin> -->
 
 			<plugin>
+				<groupId>com.github.wvengen</groupId>
+				<artifactId>proguard-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>proguard</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<options>
+						<option>-keepclasseswithmembers public class * {
+							public static void main(java.lang.String[]);
+							}
+						</option>
+						<option>-allowaccessmodification</option>
+						<option>-keepattributes Signature</option>
+						<option>-keepattributes *Annotation*</option>
+
+						<option>-dontoptimize</option>
+						<option>-dontshrink</option>
+
+						<!-- Custom Option for JRebirth Presentation Engine -->
+						<option>-keep public class * implements org.jrebirth.af.api.ui.Model</option>
+
+					</options>
+					<libs>
+						<lib>${java.home}/lib/rt.jar</lib>
+						<lib>${java.home}/lib/ext/jfxrt.jar</lib>
+					</libs>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>1.7.1</version>

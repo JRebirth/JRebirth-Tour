@@ -217,7 +217,7 @@
 				
 				<item>ResourceBuilder</item>
 				<item level="1">Weakly store Resources</item>
-				<item level="2">Double WeakHashMap + WeakReferences</item>
+				<item level="2">Double WeakHashMap + SoftReferences</item>
 				<item level="1">A same resource will be load once</item>
 				<item level="1">will be released if no more used</item>
 
