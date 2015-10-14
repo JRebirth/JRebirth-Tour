@@ -228,6 +228,7 @@
 
 				<item>JAT</item>
 				<item level="1">JavaFX Application Thread</item>
+				<item level="1">Graphical Thread</item>
 				<item></item>
 				<item>JIT</item>
 				<item level="1">JRebirth Internal Thread</item>
@@ -288,23 +289,38 @@
 				<item level="1">Use a WaveItem to define the data type</item>
 				<item html="true">
 				<!-- 
-/** The expression to ask to user. */
 WaveItem<Expression> EXPRESSION = new WaveItemBase<Expression>() {
 };
 
-/** The game list. */
 WaveItem<List<Expression>> GAME_LIST = new WaveItemBase<List<Expression>>() {
 };
+
+WaveData<Expression> expr = Builders.waveData(EXPRESSION, new Expression());
+
+WaveData<List<Expression>> exprList = 
+		Builders.waveData(GAME_LIST, new ArrayList<Expression>());
+
 				 -->
 				<![CDATA[
-<pre style='color:#000000;background:#ffffff;'><span style='color:#3f5fbf; '>/** The expression to ask to user. */</span>
-WaveItem&lt;Expression> EXPRESSION = new WaveItemBase&lt;Expression>() {
-};
+<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#000000">WaveItem&lt;Expression&gt;&nbsp;EXPRESSION&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItemBase&lt;Expression&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#000000">}</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">WaveItem&lt;List&lt;Expression&gt;&gt;&nbsp;GAME_LIST&nbsp;=&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">WaveItemBase&lt;List&lt;Expression&gt;&gt;</font><font color="#000000">()&nbsp;{</font><br />
+<font color="#000000">}</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">WaveData&lt;Expression&gt;&nbsp;expr&nbsp;=&nbsp;Builders.waveData</font><font color="#000000">(</font><font color="#000000">EXPRESSION,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">Expression</font><font color="#000000">())</font><font color="#000000">;</font><br />
+<font color="#ffffff"></font><br />
+<font color="#000000">WaveData&lt;List&lt;Expression&gt;&gt;&nbsp;exprList&nbsp;=&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Builders.waveData</font><font color="#000000">(</font><font color="#000000">GAME_LIST,&nbsp;</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">ArrayList&lt;Expression&gt;</font><font color="#000000">())</font><font color="#000000">;</font></code>
+    
+   </td>
+   </tr>
 
-<span style='color:#3f5fbf; '>/** The game list. */</span>
-WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Expression>>() {
-};
-</pre>
+</table>
 				]]>
 				</item>
 				<item></item>
@@ -339,21 +355,8 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item>... and disposable</item>
 				<item></item>
 				<item>Can be Stateless (by defaults)</item>
-				<item>... or Stateful (according to your usage)</item>
-			</content>
-
-			<content name="Command Type">
-				<title>Type</title>
-
-				<item>There are 2 command types:</item>
-				<item></item>
-				<item>SimpleCommand</item>
-				<item level="1">Run atomically</item>
-				<item></item>
-				<item>MultiCommand</item>
-				<item level="1">Can run several commands sequentially</item>
-				<item level="2">dispatched on several threads</item>
-				<item level="1">Can run several commands in parallel</item>
+				<item>... or Stateful</item>
+				<item level="1">               you're the boss:)</item>
 			</content>
 
 			<content name="Runnable">
@@ -367,6 +370,19 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item>Running Thread is chosen according to:</item>
 				<item level="1">Command Class Hierarchy</item>
 				<item level="1">@RunInto annotation used</item>
+			</content>
+			
+			<content name="Command Type">
+				<title>Type</title>
+
+				<item>There are 2 command types:</item>
+				<item></item>
+				<item>SimpleCommand</item>
+				<item level="1">Run atomically</item>
+				<item></item>
+				<item>MultiCommand</item>
+				<item level="1">Can run several commands sequentially or in parallel</item>
+				<item level="2">dispatched on several threads</item>
 			</content>
 
 			<content name="Simple">
@@ -464,8 +480,8 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item level="1">with asynchronous callback</item>
 				<item level="1">with or without any state</item>
 				<item></item>
-				<item>A service is composed by one</item>
-				<item>or several ServiceTasks</item>
+				<item>A service is composed by 0..* ServiceTasks</item>
+				<item level="1">materialized as methods taking at least a Wave as parameter</item>
 			</content>
 
 			<content name="Running">
@@ -619,34 +635,57 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 
 				<item>4) Call your Service Task</item>
 				<item html="true">
+				<!-- 
+ public class DisplayGameMenu extends DefaultCommand {
+
+    @Override
+    protected void perform(Wave wave) {
+
+        // Call the right service to generate all tables
+        // Forward the progress bar attached to the upstream wave
+        returnData(ExpressionBuilderService.class, 
+        		ExpressionBuilderService.DO_BUILD_TABLES,
+                wave.getData(JRebirthWaves.PROGRESS_BAR));
+    }
+
+    @OnWave(ExpressionBuilderService.TABLES_BUILT)
+    @RunInto(value = RunType.JTP, priority = RunnablePriority.High)
+    public void doTablesBuilt(Wave wave) {
+        // When tables are built, launch the wave that will display the game menu
+        sendWave(MTWaves.SHOW_PAGE,
+					Builders.waveData(MTWaves.PAGE, Page.GameMenu));
+    }
+    
+}
+				 -->
 				<![CDATA[
 <table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
    <tr>
-  <!-- start source code -->
    <td nowrap="nowrap" valign="top" align="left">
     <code>
-<font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">DisplayGameMenu&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultCommand&nbsp;</font><font color="#000000">{</font><br />
+<font color="#ffffff">&nbsp;</font><font color="#7f0055"><b>public&nbsp;class&nbsp;</b></font><font color="#000000">DisplayGameMenu&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultCommand&nbsp;</font><font color="#000000">{</font><br />
 <font color="#ffffff"></font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@Override</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>protected&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">perform</font><font color="#000000">(</font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;{</font><br />
 <font color="#ffffff"></font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Call&nbsp;the&nbsp;right&nbsp;service&nbsp;to&nbsp;generate&nbsp;all&nbsp;tables</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;Forward&nbsp;the&nbsp;progress&nbsp;bar&nbsp;attached&nbsp;to&nbsp;the&nbsp;upstream&nbsp;wave</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">returnData</font><font color="#000000">(</font><font color="#000000">ExpressionBuilderService.class,&nbsp;ExpressionBuilderService.DO_BUILD_TABLES,</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">wave.getData</font><font color="#000000">(</font><font color="#000000">JRebirthWaves.PROGRESS_BAR</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">returnData</font><font color="#000000">(</font><font color="#000000">ExpressionBuilderService.class,&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">ExpressionBuilderService.DO_BUILD_TABLES,</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">wave.getData</font><font color="#000000">(</font><font color="#000000">JRebirthWaves.PROGRESS_BAR</font><font color="#000000">))</font><font color="#000000">;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#ffffff"></font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@OnWave</font><font color="#000000">(</font><font color="#000000">ExpressionBuilderService.TABLES_BUILT</font><font color="#000000">)</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#646464">@RunInto</font><font color="#000000">(</font><font color="#000000">value&nbsp;=&nbsp;RunType.JTP,&nbsp;priority&nbsp;=&nbsp;RunnablePriority.High</font><font color="#000000">)</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#7f0055"><b>public&nbsp;</b></font><font color="#7f0055"><b>void&nbsp;</b></font><font color="#000000">doTablesBuilt</font><font color="#000000">(</font><font color="#000000">Wave&nbsp;wave</font><font color="#000000">)&nbsp;{</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#3f7f5f">//&nbsp;When&nbsp;tables&nbsp;are&nbsp;built,&nbsp;launch&nbsp;the&nbsp;wave&nbsp;that&nbsp;will&nbsp;display&nbsp;the&nbsp;game&nbsp;menu</font><br />
-<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sendWave</font><font color="#000000">(</font><font color="#000000">MTWaves.SHOW_PAGE,&nbsp;Builders.waveData</font><font color="#000000">(</font><font color="#000000">MTWaves.PAGE,&nbsp;Page.GameMenu</font><font color="#000000">))</font><font color="#000000">;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">sendWave</font><font color="#000000">(</font><font color="#000000">MTWaves.SHOW_PAGE,</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">Builders.waveData</font><font color="#000000">(</font><font color="#000000">MTWaves.PAGE,&nbsp;Page.GameMenu</font><font color="#000000">))</font><font color="#000000">;</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">}</font><br />
 <font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><br />
 <font color="#000000">}</font></code>
     
    </td>
-  <!-- end source code -->
    </tr>
 </table>
 				]]>
@@ -682,12 +721,15 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item>View &amp; Controller are optional</item>
 				<item>and are automatically built</item>
 				<item level="1">no injection required</item>
+				<item></item>
+				<item>No Access restriction</item>
+				<item level="1">Model&lt;--&gt;View&lt;--&gt;Controller&lt;--&gt;Model</item>
 			</content>
 
 			<content name="Model">
 				<title>Model</title>
 
-				<item>Model shall manage the interface Business logic</item>
+				<item>Model shall manage the Business logic</item>
 				<item></item>
 				<item>Can communicate with other Components</item>
 				<item level="1">Call Command</item>
@@ -814,8 +856,18 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 
 				<item>Declaration &amp; Usage:</item>
 				<item html="true">
+				<!-- 
+				Image image = Resources.create(new RelImage("path/JRebirth_Title.png")).get();
+				 -->
 				<![CDATA[
-			Image image = Resources.create(new RelImage("path/JRebirth_Title.png")).get();
+			<table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
+   <tr>
+   <td nowrap="nowrap" valign="top" align="left">
+    <code>
+<font color="#000000">Image&nbsp;image&nbsp;=&nbsp;Resources.create</font><font color="#000000">(</font><font color="#7f0055"><b>new&nbsp;</b></font><font color="#000000">RelImage</font><font color="#000000">(</font><font color="#2a00ff">&#34;path/JRebirth_Title.png&#34;</font><font color="#000000">))</font><font color="#000000">.get</font><font color="#000000">()</font><font color="#000000">;</font></code>
+   </td>
+   </tr>
+</table>
 				]]>
 				</item>
 				<item>Will keep the image path into the cache</item>
@@ -939,16 +991,27 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 
 				<item>Interface:</item>
 				<item html="true">
+				<!-- 
+				@Register(value = ExpressionBuilderService.class,
+	  priority = RegistrationPriority.Normal)
+public final class ExpressionBuilderServiceImpl 
+	extends DefaultService implements ExpressionBuilderService {
+...
+}
+				 -->
 				<![CDATA[
 				
 <table border="0" cellpadding="3" cellspacing="0" bgcolor="#ffffff">
    <tr>
    <td nowrap="nowrap" valign="top" align="left">
     <code>
-<font color="#646464">@Register</font><font color="#000000">(</font><font color="#000000">value&nbsp;=&nbsp;ExpressionBuilderService.class,&nbsp;priority&nbsp;=&nbsp;RegistrationPriority.Normal</font><font color="#000000">)</font><br />
-<font color="#7f0055"><b>public&nbsp;final&nbsp;class&nbsp;</b></font><font color="#000000">ExpressionBuilderServiceImpl&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultService&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">ExpressionBuilderService&nbsp;</font><font color="#000000">{</font><br />
-<font color="#ffffff">&nbsp;&nbsp;</font><font color="#000000">...</font><br />
+<font color="#646464">@Register</font><font color="#000000">(</font><font color="#000000">value&nbsp;=&nbsp;ExpressionBuilderService.class,</font><br />
+<font color="#ffffff">&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#000000">priority&nbsp;=&nbsp;RegistrationPriority.Normal</font><font color="#000000">)</font><br />
+<font color="#7f0055"><b>public&nbsp;final&nbsp;class&nbsp;</b></font><font color="#000000">ExpressionBuilderServiceImpl&nbsp;</font><br />
+<font color="#ffffff">&nbsp;&nbsp;</font><font color="#7f0055"><b>extends&nbsp;</b></font><font color="#000000">DefaultService&nbsp;</font><font color="#7f0055"><b>implements&nbsp;</b></font><font color="#000000">ExpressionBuilderService&nbsp;</font><font color="#000000">{</font><br />
+<font color="#000000">...</font><br />
 <font color="#000000">}</font></code>
+    
    </td>
    </tr>
 </table>
@@ -964,19 +1027,20 @@ WaveItem&lt;List&lt;Expression>> GAME_LIST = new WaveItemBase&lt;List&lt;Express
 				<item>JRAF-INF/module.xml:</item>
 				<item html="true">
 				<![CDATA[
-				
-<module xmlns="http://www.jrebirth.org/Module">
-    <warmUp/>
-    <registrations>
-        <registration exclusive="true" 
-		class="org.jrebirth.demo.masteringtables.service.ExpressionBuilderService">
-            <registrationEntries>
-                <registrationEntry priority="Normal" 
-				class="org.jrebirth.demo.masteringtables.service.ExpressionBuilderServiceImpl" />
-            </registrationEntries>
-        </registration>
-    </registrations>
-</module>
+<pre>				
+&lt;module xmlns=&quot;http://www.jrebirth.org/Module&quot;&gt;
+    &lt;warmUp/&gt;
+    &lt;registrations&gt;
+        &lt;registration exclusive=&quot;true&quot; 
+		class=&quot;org.jrebirth.demo.masteringtables.service.ExpressionBuilderService&quot;&gt;
+            &lt;registrationEntries&gt;
+                &lt;registrationEntry priority=&quot;Normal&quot; 
+				class=&quot;org.jrebirth.demo.masteringtables.service.ExpressionBuilderServiceImpl&quot; /&gt;
+            &lt;/registrationEntries&gt;
+        &lt;/registration&gt;
+    &lt;/registrations&gt;
+&lt;/module&gt;
+</pre>
 				]]>
 				</item>
 
