@@ -70,6 +70,7 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
      */
     @Override
     protected void customizeStage(final Stage stage) {
+        stage.setFullScreenExitHint("");
         stage.setFullScreen(false);
         stage.setWidth(1024);
         stage.setHeight(768);
@@ -114,6 +115,8 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
             }
         });
 
+        // scene.addEventHandler(ZoomEvent.ZOOM, (zoomEvent) -> getStage().setFullScreen(getStage().isFullScreen()));
+
         scene.getRoot().scaleXProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
         scene.getRoot().scaleYProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
 
@@ -132,7 +135,8 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
                 JpFonts.DOG_SPLASH,
                 JpFonts.SLIDE_TITLE,
                 JpFonts.SLIDE_ITEM,
-                JpFonts.PREZ_TITLE
+                JpFonts.PREZ_TITLE,
+                JpFonts.PREINTRO
         });
     }
 

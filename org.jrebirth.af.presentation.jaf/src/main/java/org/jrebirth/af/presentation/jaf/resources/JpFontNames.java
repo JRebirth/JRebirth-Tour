@@ -60,6 +60,8 @@ public enum JpFontNames implements FontName {
     BorisBlackBloxx,
 
     /** . */
-    Neuton_Cursive;
+    Neuton_Cursive,
+
+    Twisted_Stallions;
 
 }

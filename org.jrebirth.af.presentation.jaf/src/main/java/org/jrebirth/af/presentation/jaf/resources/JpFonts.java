@@ -62,4 +62,12 @@ public interface JpFonts {
     /** The prez title. */
     FontItem PREZ_TITLE = create(new RealFont(JpFontNames.Harabara, 70, FontExtension.TTF));
 
+    /** The pattern. */
+    FontItem BIG_PATTERN = create(new RealFont(JpFontNames.Harabara, 36, FontExtension.TTF));
+
+    /** The pattern. */
+    FontItem SMALL_PATTERN = create(new RealFont(JpFontNames.Harabara, 24, FontExtension.TTF));
+
+    FontItem PREINTRO = create(new RealFont(JpFontNames.Twisted_Stallions, 110, FontExtension.TTF));
+
 }

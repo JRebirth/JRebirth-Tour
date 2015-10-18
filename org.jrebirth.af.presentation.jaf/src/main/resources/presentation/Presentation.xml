@@ -11,8 +11,7 @@
 	</speakers>
 
 	<slides defaultModelClass="org.jrebirth.af.presentation.jaf.ui.slides.basic.BasicModel">
-
-
+		
 		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn">
 			<title>Soft-Shake 2015</title>
 		</slide>
@@ -24,10 +23,17 @@
 			</content>
 		</slide>
 		
-		<slide style="intro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
+<!-- 		<slide style="intro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" showAnimation="FadeIn" hideAnimation="MoveToLeft">
 			<title>JRebirth</title>
 			<content>
 				<title>Application Framework</title>
+			</content>
+		</slide> -->
+		
+				<slide style="Orientations" modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" showAnimation="FadeIn" hideAnimation="FadeOut">
+			<title>JRebirth AF</title>
+			<content>
+				<item image="splash/JRebirthAF.png" />
 			</content>
 		</slide>
 		
@@ -80,6 +86,7 @@
 				<item>Manage all Resources</item>
 				<item>Lightweight (about 150kb with Pack200)</item>
 				<item>Free &amp; Open Source (Apache v2)</item>
+				
 			</content>
 
 			<content name="Choices">
@@ -93,6 +100,8 @@
 				<item>No forced Workbench</item>
 				<item level="1" >Custom widget planned</item>
 				<item level="1" link="true">blog.jrebirth.org/javafx/jrebirth-workbench-first-step</item>
+				<item>Provides its own API</item>
+				<item level="1">No dependency to another JSR</item>
 			</content>
 		</slide>
 	
@@ -107,18 +116,24 @@
 				<title>A Custom-Tailored Pattern</title>
 				<item image="splash/Pattern.jpg" />
 			</content>
+		</slide>
+		
+		<slide style="CustomPattern" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.pattern.PatternModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
+			<title>wB-CS-Mvc pattern</title>
 		</slide>		
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
 			<title>wB-CS-Mvc pattern</title>
 
+			<!--
 			<content name="Overview">
 				<title>Overview</title>
 				<item image="slides/pattern/JRebirthPattern.png" />
 				<item level="1">Wave - Behavior - Command Service</item>
 				<item level="1">Model [View [Controller]]</item>
 			</content>
+			-->
 
 			<content name="Parts">
 				<title>JRebirth Parts</title>
@@ -799,6 +814,16 @@ WaveData<List<Expression>> exprList =
 				<item level="1">ResourceParam Objects</item>
 			</content>
 
+			<content name="PluggableClass">
+				<title>Pluggable Class</title>
+
+				<item>Parameter allow to use custom class:</item>
+				<item level="1">componentFactory</item>
+				<item level="1">fxmlControllerFactory</item>
+				<item level="1">unprocessedWaveHandler</item>
+
+			</content>
+			
 			<content name="Benefits">
 				<title>Benefits</title>
 
@@ -1046,6 +1071,38 @@ public final class ExpressionBuilderServiceImpl
 
 			</content>
 			
+			<content name="PomFile">
+				<title>How activate</title>
+				<item>Use these 2 properties</item>
+				<item level="2">parseModuleConfigFile=true</item>
+				<item level="2">componentFactory=org.jrebirth.af.core.component.factory.AnnotatedComponentFactory</item>
+				
+				<item>Dependencies required:</item>
+				<item html="true">
+				<![CDATA[
+			<pre>
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
+			&lt;artifactId&gt;core&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
+			&lt;artifactId&gt;modular&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
+			&lt;artifactId&gt;processor&lt;/artifactId&gt;
+			&lt;scope&gt;provided&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;			
+			</pre>
+				]]>
+				</item>
+
+			</content>
+			
+			
 			<content name="ModuleUsage">
 				<title>Component Usage</title>
 
@@ -1095,10 +1152,50 @@ public final class ExpressionBuilderServiceImpl
 		<slide showAnimation="SlidingTopBottomProgressive" hideAnimation="FadeOut">
 			<title>Behavior</title>
 			<content name="Overview">
+				<title>Overview</title>
 				<item>Share code for several components</item>
+				<item></item>
+				<item>A Behavior has one BehaviorData</item>
+				<item>A Behavior is applied to one BehavioredComponent</item>
+				<item>A Component can have several Behaviors applied</item>
+				<item></item>
+				<item>Behavior are also Component</item>
+				<item level="1">Can Send/Receive Wave</item>
+				<item level="1">Can access to other Components</item>
+				<item level="1">initBehavior method</item>
+				
+			</content>
+			
+			<content name="BehaviorData">
+				<title>BehaviorData</title>
+				<item>Used to configure the Behavior</item>
+				<item></item>
+				<item>Each BehaviorData shall list its supported Behaviors</item>
+				<item level="1">using @BehaviorDataFor(MyBehavior.class)</item>
+				<item level="1">overriding Class&lt;Behavior&gt; getCustomBehaviors()</item>
+			</content>
+			
+			<content name="Usage">
+				<title>Usage</title>
+				<item>BehavioredComponent API</item>
+				<item level="1">for Command, Service, Model</item>
+				
+				<item>Check Behavior presence</item>
+				<item level="1">boolean hasBehavior(Class behaviorClass);</item>
+				
+				<item>Add a Behavior to a Component</item>
+				<item level="1">Component addBehavior(Class behaviorClass);</item>
+				<item level="1">Component addBehavior(final BehaviorData data);</item>
+				
+				<item>Retrieve Behavior|BehaviorData from a Component</item>
+				<item level="1">Behavior getBehavior(Class behaviorClass);</item>
+				<item level="1">BehaviorData getBehaviorData(Class behaviorClass);</item>
+				
 			</content>
 		</slide>
 		
+		
+
 	
 		<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 		<!-- xx                                 Keep In Touch                                    xx -->

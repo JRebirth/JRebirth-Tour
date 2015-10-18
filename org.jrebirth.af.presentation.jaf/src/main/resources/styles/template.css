@@ -34,13 +34,13 @@ StackPane.rootPane {
 }
 
 .preintro Label.introTitle {
-	-fx-font : 110px "Gin Rai";
+	-fx-font : 120px "Gin Rai";
 	-fx-fill: #FF0000;
 
 }
 
 .preintro Label.subintroTitle {
-	-fx-font : 80px "Gin Rai";
+	-fx-font : 70px "Twisted Stallions";
 	-fx-fill: #FF0000;
 	-fx-alignment:center-right;
 	-fx-text-alignment:center;
@@ -61,6 +61,10 @@ StackPane.rootPane {
 .qandaContainer {
 	-fx-font : 100px "mizike";
 	-fx-fill: #FF0000;
+}
+
+.CustomPattern{
+	
 }
 
 .header{
