@@ -11,9 +11,16 @@
 	</speakers>
 
 	<slides defaultModelClass="org.jrebirth.af.presentation.jaf.ui.slides.basic.BasicModel">
+
+		<slide modelClass="org.jrebirth.af.presentation.ui.image.ImageSlideModel" hideAnimation="FadeOut">
+			<title>Soft-Shake 2015</title>
+			<content>
+				<item image="splash/1softshake.png" />
+			</content>
+		</slide>
 		
 		<slide style="place" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.place.PlaceModel" showAnimation="FadeIn">
-			<title>Soft-Shake 2015</title>
+			<title>Genève</title>
 		</slide>
 
 		<slide style="preintro" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.intro.IntroModel" hideAnimation="FadeOut">
@@ -119,7 +126,7 @@
 		</slide>
 		
 		<slide style="CustomPattern" modelClass="org.jrebirth.af.presentation.jaf.ui.slides.pattern.PatternModel" showAnimation="ScaleFromMax" hideAnimation="FadeOut">
-			<title>wB-CS-Mvc pattern</title>
+			<title>The Pattern</title>
 		</slide>		
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
@@ -360,7 +367,7 @@ WaveData<List<Expression>> exprList =
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
-			<title>Command Layer</title>
+			<title>Command Area</title>
 
 			<content name="Overview">
 				<title>Principle</title>
@@ -484,7 +491,7 @@ WaveData<List<Expression>> exprList =
 		
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
-			<title>Service Layer</title>
+			<title>Service Area</title>
 
 			<content name="Principle">
 				<title>Principle</title>
@@ -726,7 +733,7 @@ WaveData<List<Expression>> exprList =
 
 		<slide showAnimation="ScaleFromMax" hideAnimation="FadeOut">
 
-			<title>Model Layer</title>
+			<title>Model Area</title>
 
 			<content name="Principle">
 				<title>Principle</title>
@@ -1159,7 +1166,7 @@ public final class ExpressionBuilderServiceImpl
 				<item>A Behavior is applied to one BehavioredComponent</item>
 				<item>A Component can have several Behaviors applied</item>
 				<item></item>
-				<item>Behavior are also Component</item>
+				<item>Behaviors are also Components</item>
 				<item level="1">Can Send/Receive Wave</item>
 				<item level="1">Can access to other Components</item>
 				<item level="1">initBehavior method</item>

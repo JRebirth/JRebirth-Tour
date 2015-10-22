@@ -153,11 +153,11 @@ public final class PatternView extends AbstractSlideView<PatternModel, Pane, Pat
         final Node sf = buildBall("SF", BallColors.SERVICE_FACADE.get(), sfPoint, true);
         final Node sfLink = buildLink(sf, gf, true, true);
 
-        final Node s1 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, -Math.PI * 2 / 3), false);
+        final Node s1 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, Math.PI), false);
         final Node s1Link = buildLink(s1, sf, false, true);
-        final Node s2 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, Math.PI), false);
+        final Node s2 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, Math.PI * 2 / 3), false);
         final Node s2Link = buildLink(s2, sf, false, true);
-        final Node s3 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, Math.PI * 2 / 3), false);
+        final Node s3 = buildBall("S", BallColors.SERVICE.get(), getNextPoint(sfPoint, 100, Math.PI / 3), false);
         final Node s3Link = buildLink(s3, sf, false, true);
 
         // Commands
@@ -166,17 +166,17 @@ public final class PatternView extends AbstractSlideView<PatternModel, Pane, Pat
         final Node cfLink = buildLink(cf, gf, true, true);
 
         final Point2D mcPoint = getNextPoint(cfPoint, 100, -Math.PI * 2 / 3);
-        final Node c2 = buildBall("MC", BallColors.COMMAND.get(), mcPoint, false);
+        final Node c2 = buildBall("MC", BallColors.MULTI_COMMAND.get(), mcPoint, false);
         final Node c2Link = buildLink(c2, cf, false, true);
         final Node mc1 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(mcPoint, 80, -Math.PI * 7 / 8), false);
         final Node mc1Link = buildLink(mc1, c2, false, false);
-        final Node mc2 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(mcPoint, 80, Math.PI * 7 / 8), false);
+        final Node mc2 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(mcPoint, 80, -Math.PI * 3 / 8), false);
         final Node mc2Link = buildLink(mc2, c2, false, false);
 
         final Node c1 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(cfPoint, 100, -Math.PI), false);
         final Node c1Link = buildLink(c1, cf, false, true);
 
-        final Node c3 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(cfPoint, 100, Math.PI * 2 / 3), false);
+        final Node c3 = buildBall("C", BallColors.COMMAND.get(), getNextPoint(cfPoint, 100, -Math.PI / 3), false);
         final Node c3Link = buildLink(c3, cf, false, true);
 
         // Models
@@ -185,47 +185,47 @@ public final class PatternView extends AbstractSlideView<PatternModel, Pane, Pat
         final Node ufLink = buildLink(uf, gf, true, true);
 
         final Point2D m1Point = getNextPoint(ufPoint, 100, -Math.PI / 3);
-        final Node m1 = buildBall("M", BallColors.COMMAND.get(), m1Point, false);
+        final Node m1 = buildBall("M", BallColors.MODEL.get(), m1Point, false);
         final Node m1Link = buildLink(m1, uf, false, true);
 
-        final Node v1 = buildBall("V", BallColors.COMMAND.get(), getNextPoint(m1Point, 80, -Math.PI * 2 / 3), false);
+        final Node v1 = buildBall("V", BallColors.VIEW.get(), getNextPoint(m1Point, 80, -Math.PI * 2 / 3), false);
         final Node v1Link = buildLink(v1, m1, false, false);
-        final Node ct = buildBall("C", BallColors.COMMAND.get(), getNextPoint(m1Point, 80, -Math.PI / 3), false);
+        final Node ct = buildBall("C", BallColors.CONTROLLER.get(), getNextPoint(m1Point, 80, -Math.PI / 3), false);
         final Node ctLink1 = buildLink(ct, m1, false, false);
         final Node ctLink2 = buildLink(ct, v1, false, false);
 
         final Point2D m2Point = getNextPoint(ufPoint, 100, 2 * Math.PI);
-        final Node m2 = buildBall("M", BallColors.COMMAND.get(), m2Point, false);
+        final Node m2 = buildBall("M", BallColors.MODEL.get(), m2Point, false);
         final Node m2Link = buildLink(m2, uf, false, true);
-        final Node v2 = buildBall("V", BallColors.COMMAND.get(), getNextPoint(m2Point, 80, 2 * Math.PI), false);
+        final Node v2 = buildBall("V", BallColors.VIEW.get(), getNextPoint(m2Point, 80, 2 * Math.PI), false);
         final Node v2Link = buildLink(v2, m2, false, false);
 
         final Point2D m3Point = getNextPoint(ufPoint, 100, Math.PI / 3);
-        final Node m3 = buildBall("M", BallColors.COMMAND.get(), m3Point, false);
+        final Node m3 = buildBall("M", BallColors.MODEL.get(), m3Point, false);
         final Node m3Link = buildLink(m3, uf, false, true);
 
-        final Node fx = buildBall("F", BallColors.COMMAND.get(), getNextPoint(m3Point, 80, Math.PI * 2 / 3), false);
+        final Node fx = buildBall("F", BallColors.VIEW.get(), getNextPoint(m3Point, 80, Math.PI * 2 / 3), false);
         final Node fxLink = buildLink(fx, m3, false, false);
-        final Node fxc = buildBall("FC", BallColors.COMMAND.get(), getNextPoint(m3Point, 80, Math.PI / 3), false);
+        final Node fxc = buildBall("FC", BallColors.CONTROLLER.get(), getNextPoint(m3Point, 80, Math.PI / 3), false);
         final Node fxcLink1 = buildLink(fxc, fx, false, false);
         final Node fxcLink2 = buildLink(fxc, m3, false, false);
 
         // Behaviors
         final Point2D bfPoint = getNextPoint(gfPoint, 260, Math.PI);
-        final Node bf = buildBall("BF", BallColors.UI_FACADE.get(), bfPoint, true);
+        final Node bf = buildBall("BF", BallColors.BEHAVIOR_FACADE.get(), bfPoint, true);
         final Node bfLink = buildLink(bf, gf, true, true);
 
-        final Node b1 = buildBall("B", BallColors.COMMAND.get(), getNextPoint(bfPoint, 100, -Math.PI * 2 / 3), false);
+        final Node b1 = buildBall("B", BallColors.BEHAVIOR.get(), getNextPoint(bfPoint, 100, -Math.PI * 2 / 3), false);
         final Node b1Link = buildLink(b1, bf, false, true);
-        final Node b2 = buildBall("B", BallColors.COMMAND.get(), getNextPoint(bfPoint, 100, Math.PI), false);
+        final Node b2 = buildBall("B", BallColors.BEHAVIOR.get(), getNextPoint(bfPoint, 100, Math.PI), false);
         final Node b2Link = buildLink(b2, bf, false, true);
-        final Node b3 = buildBall("B", BallColors.COMMAND.get(), getNextPoint(bfPoint, 100, Math.PI * 2 / 3), false);
+        final Node b3 = buildBall("B", BallColors.BEHAVIOR.get(), getNextPoint(bfPoint, 100, Math.PI * 2 / 3), false);
         final Node b3Link = buildLink(b3, bf, false, true);
 
         // Waves
         final Point2D wPoint = getNextPoint(nPoint, 220, -Math.PI / 2);
         final Node w = buildBall("W", BallColors.UI_FACADE.get(), wPoint, false);
-        final Node wLink = buildArc(nPoint, mc1, v1, true, true);
+        final Node wLink = buildArc(nPoint, c3, v1, true, true);
 
         // Application Animation
         stepAnimations.put(PatternSlideStep.Application, buildFade(a));

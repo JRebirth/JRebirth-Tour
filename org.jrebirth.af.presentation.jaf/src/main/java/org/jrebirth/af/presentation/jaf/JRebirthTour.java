@@ -71,7 +71,7 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
     @Override
     protected void customizeStage(final Stage stage) {
         stage.setFullScreenExitHint("");
-        stage.setFullScreen(false);
+        stage.setFullScreen(true);
         stage.setWidth(1024);
         stage.setHeight(768);
         stage.getIcons().add(JpImages.JR_LOGO.get());

@@ -35,6 +35,9 @@ public enum BallColors implements ColorItemReal {
     UI_FACADE(new WebColor("FD2C33")),
 
     /** The Command ball background color. */
+    MULTI_COMMAND(new WebColor("B7BC2B")),
+
+    /** The Command ball background color. */
     COMMAND(new WebColor("D9E032")),
 
     /** The Service ball background color. */
@@ -44,7 +47,16 @@ public enum BallColors implements ColorItemReal {
     MODEL(new WebColor("F1693A")),
 
     /** The View ball background color. */
-    VIEW(new WebColor("4AACF2"));
+    VIEW(new WebColor("4AACF2")),
+
+    /** The controller ball background color. */
+    CONTROLLER(new WebColor("827FEF")),
+
+    /** The Behavior Facade ball background color. */
+    BEHAVIOR_FACADE(new WebColor("ED8C25")),
+
+    /** The Behavior ball background color. */
+    BEHAVIOR(new WebColor("EAC598"));
 
     /**
      * Private Constructor.
