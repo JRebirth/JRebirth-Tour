@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import org.jrebirth.af.api.resource.ResourceItem;
@@ -85,6 +86,7 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
 
         addCSS(scene, JpStyles.TEMPLATE);
 
+        scene.setFill(Color.BLACK);
         scene.getRoot().getStyleClass().add("rootPane");
 
         // Manage F11 button to switch full screen
