@@ -2,6 +2,7 @@ JRebirth-Tour
 =====================
 
 Presentation of JRebirth Application Framework in Dog Fooding way
+
 Latest slides are available on [Slideshare](http://fr.slideshare.net/SbastienBordes/javafx-unleashed-with-jrebirth-application-framework)
 
 Download Binaries
