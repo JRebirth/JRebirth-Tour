@@ -11,7 +11,7 @@
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -42,35 +42,35 @@ public final class PatternModel extends AbstractSlideModel<PatternModel, Pattern
         switch (slideStep) {
 
         // case Application:
-        // getView().showApp(slideStep.name(), isForwardFlow());
+        // view().showApp(slideStep.name(), isForwardFlow());
         // break;
         // case GlobalFacade:
-        // getView().showGlobalFacade(slideStep.name(), isForwardFlow());
+        // view().showGlobalFacade(slideStep.name(), isForwardFlow());
         // break;
         // case Notifier:
-        // getView().showNotifier(slideStep.name(), isForwardFlow());
+        // view().showNotifier(slideStep.name(), isForwardFlow());
         // break;
         // case Facades:
-        // getView().showFacades(slideStep.name(), isForwardFlow());
+        // view().showFacades(slideStep.name(), isForwardFlow());
         // break;
         // case Commands:
-        // getView().showCommands(slideStep.name(), isForwardFlow());
+        // view().showCommands(slideStep.name(), isForwardFlow());
         // break;
         // case Services:
-        // getView().showServices(slideStep.name(), isForwardFlow());
+        // view().showServices(slideStep.name(), isForwardFlow());
         // break;
         // case Models:
-        // getView().showModels(slideStep.name(), isForwardFlow());
+        // view().showModels(slideStep.name(), isForwardFlow());
         // break;
         // case Wave:
-        // getView().showWave(slideStep.name(), isForwardFlow());
+        // view().showWave(slideStep.name(), isForwardFlow());
         // break;
         // case Behaviors:
-        // getView().showBehaviors(slideStep.name(), isForwardFlow());
+        // view().showBehaviors(slideStep.name(), isForwardFlow());
         // break;
 
             default:
-                getView().show(slideStep, isForwardFlow());
+                view().show(slideStep, isForwardFlow());
         }
     }
 
@@ -79,7 +79,7 @@ public final class PatternModel extends AbstractSlideModel<PatternModel, Pattern
      */
     @Override
     protected void showView() {
-        getView().initStep();
+        view().initStep();
         super.showView();
     }
 

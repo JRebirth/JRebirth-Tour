@@ -11,7 +11,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -62,7 +62,7 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
      * {@inheritDoc}
      */
     @Override
-    public Class<? extends Model> getFirstModelClass() {
+    public Class<? extends Model> firstModelClass() {
         return SlideStackModel.class;
     }
 
@@ -97,30 +97,30 @@ public final class JRebirthTour extends DefaultApplication<StackPane> {
             public void handle(final KeyEvent event) {
                 if (event.isControlDown()) {
                     if (event.getCode() == KeyCode.ADD || event.getCode() == KeyCode.PLUS) {
-                        getScene().getRoot().scaleXProperty().set(getScene().getRoot().getScaleX() + 0.05);
-                        getScene().getRoot().scaleYProperty().set(getScene().getRoot().getScaleY() + 0.05);
-                        // getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() + 0.05);
-                        // getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() + 0.05);
+                        scene().getRoot().scaleXProperty().set(scene().getRoot().getScaleX() + 0.05);
+                        scene().getRoot().scaleYProperty().set(scene().getRoot().getScaleY() + 0.05);
+                        // scene().getRoot().setScaleX(scene().getRoot().getScaleX() + 0.05);
+                        // scene().getRoot().setScaleY(scene().getRoot().getScaleY() + 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.SUBTRACT || event.getCode() == KeyCode.MINUS) {
-                        getScene().getRoot().scaleXProperty().set(getScene().getRoot().getScaleX() - 0.05);
-                        getScene().getRoot().scaleYProperty().set(getScene().getRoot().getScaleY() - 0.05);
-                        // getScene().getRoot().setScaleX(getScene().getRoot().getScaleX() - 0.05);
-                        // getScene().getRoot().setScaleY(getScene().getRoot().getScaleY() - 0.05);
+                        scene().getRoot().scaleXProperty().set(scene().getRoot().getScaleX() - 0.05);
+                        scene().getRoot().scaleYProperty().set(scene().getRoot().getScaleY() - 0.05);
+                        // scene().getRoot().setScaleX(scene().getRoot().getScaleX() - 0.05);
+                        // scene().getRoot().setScaleY(scene().getRoot().getScaleY() - 0.05);
                         event.consume();
                     } else if (event.getCode() == KeyCode.DIGIT0 || event.getCode() == KeyCode.NUMPAD0) {
-                        getScene().getRoot().setScaleX(1.0);
-                        // getScene().getRoot().setScaleY(1.0);
+                        scene().getRoot().setScaleX(1.0);
+                        // scene().getRoot().setScaleY(1.0);
                         event.consume();
                     }
                 }
             }
         });
 
-        // scene.addEventHandler(ZoomEvent.ZOOM, (zoomEvent) -> getStage().setFullScreen(getStage().isFullScreen()));
+        // scene.addEventHandler(ZoomEvent.ZOOM, (zoomEvent) -> stage().setFullScreen(stage().isFullScreen()));
 
-        scene.getRoot().scaleXProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
-        scene.getRoot().scaleYProperty().bind(Bindings.min(Bindings.divide(getStage().widthProperty(), 1024), Bindings.divide(getStage().heightProperty(), 768)));
+        scene.getRoot().scaleXProperty().bind(Bindings.min(Bindings.divide(stage().widthProperty(), 1024), Bindings.divide(stage().heightProperty(), 768)));
+        scene.getRoot().scaleYProperty().bind(Bindings.min(Bindings.divide(stage().widthProperty(), 1024), Bindings.divide(stage().heightProperty(), 768)));
 
     }
 

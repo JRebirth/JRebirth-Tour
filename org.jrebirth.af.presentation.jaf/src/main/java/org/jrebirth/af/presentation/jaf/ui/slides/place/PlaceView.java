@@ -11,7 +11,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -80,9 +80,9 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
         speaker.setLayoutX(50);
         speaker.setLayoutY(700);
 
-        getRootNode().getChildren().addAll(placeImage, softshake, eventTime, speaker);
+        node().getChildren().addAll(placeImage, softshake, eventTime, speaker);
 
-        getRootNode().getStyleClass().add(getModel().getSlide().getStyle());
+        node().getStyleClass().add(model().getSlide().getStyle());
     }
 
     private HBox buildGroup() {
@@ -105,8 +105,8 @@ public final class PlaceView extends AbstractSlideView<PlaceModel, Pane, PlaceCo
     @Override
     public void start() {
 
-        speaker.setText(getModel().getSpeaker());
-        eventTime.setText(getModel().getEventTime());
+        speaker.setText(model().getSpeaker());
+        eventTime.setText(model().getEventTime());
     }
 
     /**

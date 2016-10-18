@@ -11,7 +11,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -177,9 +177,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     @Override
     protected void initView() {
 
-        // getRootNode().setPrefSize(1010, 750);
-        // getRootNode().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-        // getRootNode().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        // node().setPrefSize(1010, 750);
+        // node().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        // node().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         this.slideContent = new StackPane();
         this.slideContent.setOpacity(0.95);
@@ -213,7 +213,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         // bp.setMinHeight(642);
         final Node header = getHeaderPanel();
 
-        if (!getModel().hasStep()) {
+        if (!model().hasStep()) {
             addSubSlide(getContentPanel());
         }
 
@@ -229,14 +229,14 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         AnchorPane.setLeftAnchor(this.slideContent, 48.0);
         // AnchorPane.setBottomAnchor(footer, 95.0);
 
-        getRootNode().getChildren().addAll(/* footer, */this.slideContent, header);
+        node().getChildren().addAll(/* footer, */this.slideContent, header);
     }
 
     /**
      * Show en aempty slide.
      */
     protected void showEmptySlide() {
-        this.subSlides.add(getModel().getStepPosition(), null);
+        this.subSlides.add(model().getStepPosition(), null);
     }
 
     /**
@@ -246,13 +246,13 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      */
     private void addSubSlide(final Node defaultSubSlide) {
 
-        if (this.subSlides.size() < getModel().getStepPosition()) {
-            for (int i = getModel().getStepPosition(); i >= 0; i--) {
+        if (this.subSlides.size() < model().getStepPosition()) {
+            for (int i = model().getStepPosition(); i >= 0; i--) {
                 this.subSlides.add(null);
             }
         }
 
-        this.subSlides.add(getModel().getStepPosition(), defaultSubSlide);
+        this.subSlides.add(model().getStepPosition(), defaultSubSlide);
         this.slideContent.getChildren().add(defaultSubSlide);
 
         StackPane.setAlignment(defaultSubSlide, Pos.CENTER);
@@ -297,16 +297,16 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         this.primaryTitle.snapshot(null, null);
         // MUST be refactored with property binding
 
-        // this.pageLabel.setText(String.valueOf(getModel().getSlideNumber()));
+        // this.pageLabel.setText(String.valueOf(model().getSlideNumber()));
 
         // FadeTransitionBuilder.create()
-        // .node(getRootNode().getTop())
+        // .node(node().getTop())
         // .duration(Duration.millis(600))
         // .fromValue(0).toValue(0.7)
         // .build().play();
 
         // FadeTransitionBuilder.create()
-        // .node(getRootNode().getCenter())
+        // .node(node().getCenter())
         // .duration(Duration.millis(600))
         // .fromValue(0)
         // .toValue(0.4)
@@ -356,8 +356,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                           .keyFrames(
                                                                      new KeyFrame(Duration.millis(0), new KeyValue(this.topRectangle.widthProperty(), 0)),
                                                                      new KeyFrame(Duration.millis(600), new KeyValue(this.topRectangle.widthProperty(), 50 + this.primaryTitle.getLayoutBounds()
-                                                                                                                                                                              .getWidth()))
-                                                          )
+                                                                                                                                                                              .getWidth())))
                                                           .build(),
 
                                            TimelineBuilder.create()
@@ -365,24 +364,18 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                           .keyFrames(
                                                                      new KeyFrame(Duration.millis(0),
                                                                                   new KeyValue(this.bottomRectangle.widthProperty(), 0),
-                                                                                  new KeyValue(this.bottomRectangle.xProperty(), 1000)
-                                                                     ),
+                                                                                  new KeyValue(this.bottomRectangle.xProperty(), 1000)),
                                                                      new KeyFrame(Duration.millis(300),
                                                                                   new KeyValue(this.bottomRectangle.widthProperty(), 300),
-                                                                                  new KeyValue(this.bottomRectangle.xProperty(), 700)
-                                                                     )
-                                                          )
+                                                                                  new KeyValue(this.bottomRectangle.xProperty(), 700)))
                                                           .build(),
                                            TimelineBuilder.create()
                                                           .delay(Duration.millis(600))
                                                           .keyFrames(
                                                                      new KeyFrame(Duration.millis(0),
-                                                                                  new KeyValue(this.revelator.widthProperty(), 0)
-                                                                     ),
+                                                                                  new KeyValue(this.revelator.widthProperty(), 0)),
                                                                      new KeyFrame(Duration.millis(1000),
-                                                                                  new KeyValue(this.revelator.widthProperty(), 400)
-                                                                     )
-                                                          )
+                                                                                  new KeyValue(this.revelator.widthProperty(), 400)))
                                                           .build(),
                                            // FadeTransitionBuilder.create()
                                            // .delay(Duration.millis(600))
@@ -410,8 +403,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                      new KeyFrame(Duration.millis(100), new KeyValue(mb.radiusProperty(), 50)),
                                                                      new KeyFrame(Duration.millis(200), new KeyValue(mb.radiusProperty(), 63)),
                                                                      new KeyFrame(Duration.millis(300), new KeyValue(mb.radiusProperty(), 50)),
-                                                                     new KeyFrame(Duration.millis(400), new KeyValue(mb.radiusProperty(), 0))
-                                                          )
+                                                                     new KeyFrame(Duration.millis(400), new KeyValue(mb.radiusProperty(), 0)))
                                                           .build(),
                                            // ).build()
                                            ParallelTransitionBuilder
@@ -438,11 +430,9 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                                                     .fromY(0)
                                                                                                     .toX(1)
                                                                                                     .toY(1)
-                                                                                                    .build()
-                                                                    )
+                                                                                                    .build())
                                                                     .node(this.slideContent)
-                                                                    .build()
-                                 )
+                                                                    .build())
                                  .build().play();
     }
 
@@ -465,7 +455,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                         // .styleClass("slideTitle")
                                         .font(JpFonts.SLIDE_TITLE.get())
                                         .textFill(PrezColors.SLIDE_TITLE.get())
-                                        .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+                                        .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
                                         .layoutX(3000) // 40
                                         .layoutY(45)
                                         // .style("-fx-background-color:#CCCB20")
@@ -552,24 +542,22 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         // .radius(54)
         // .fill(Color.web("444442"))
         // .build();
-        final Effect smallPokemonEffect =
-                InnerShadowBuilder.create()
-                                  .offsetX(1)
-                                  .offsetY(1)
-                                  .color(Color.LIGHTGRAY)
-                                  .input(GlowBuilder.create()
-                                                    .level(0.6)
-                                                    .build())
-                                  .build();
+        final Effect smallPokemonEffect = InnerShadowBuilder.create()
+                                                            .offsetX(1)
+                                                            .offsetY(1)
+                                                            .color(Color.LIGHTGRAY)
+                                                            .input(GlowBuilder.create()
+                                                                              .level(0.6)
+                                                                              .build())
+                                                            .build();
 
-        final Effect bigPokemonEffect =
-                DropShadowBuilder.create()
-                                 .offsetX(2)
-                                 .offsetY(2)
-                                 .input(GlowBuilder.create()
-                                                   .level(0.6)
-                                                   .build())
-                                 .build();
+        final Effect bigPokemonEffect = DropShadowBuilder.create()
+                                                         .offsetX(2)
+                                                         .offsetY(2)
+                                                         .input(GlowBuilder.create()
+                                                                           .level(0.6)
+                                                                           .build())
+                                                         .build();
 
         this.smallPokemon = SVGPathBuilder
                                           .create()
@@ -598,7 +586,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         this.pageLabel = LabelBuilder.create()
                                      .layoutX(970)
                                      .layoutY(18.0)
-                                     .text(String.valueOf(getModel().getSlide().getPage()))
+                                     .text(String.valueOf(model().getSlide().getPage()))
                                      .font(JpFonts.PAGE.get())
                                      .textFill(Color.WHITE)
                                      .rotate(90.0)
@@ -650,7 +638,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * @return the number binding
      */
     protected NumberBinding bindHeight() {
-        return Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768);
+        return Bindings.divide(model().localFacade().getGlobalFacade().application().stage().heightProperty(), 768);
     }
 
     /**
@@ -659,7 +647,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * @return the number binding
      */
     protected NumberBinding bindWidth() {
-        return Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024);
+        return Bindings.divide(model().localFacade().getGlobalFacade().application().stage().widthProperty(), 1024);
     }
 
     /**
@@ -668,7 +656,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      * @return the content panel
      */
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -678,7 +666,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      */
     protected Node getFooterPanel() {
         this.pageLabel = LabelBuilder.create()
-                                     .text(String.valueOf(getModel().getSlide().getPage()))
+                                     .text(String.valueOf(model().getSlide().getPage()))
                                      .font(PrezFonts.PAGE.get())
                                      .build();
 
@@ -717,8 +705,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
         final VBox vbox = new VBox();
         // vbox.getStyleClass().add("content");
 
-        if (getModel().getSlide().getStyle() != null) {
-            vbox.getStyleClass().add(getModel().getSlide().getStyle());
+        if (model().getSlide().getStyle() != null) {
+            vbox.getStyleClass().add(model().getSlide().getStyle());
         }
 
         if (slideContent != null) {
@@ -821,12 +809,12 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
      */
     public void showSlideStep(final SlideStep slideStep) {
 
-        if (this.subSlides.size() >= getModel().getStepPosition()
-                || getModel().getStepPosition() > this.subSlides.size()
-                || this.subSlides.get(getModel().getStepPosition()) == null) {
-            addSubSlide(buildDefaultContent(getModel().getContent(slideStep)));
+        if (this.subSlides.size() >= model().getStepPosition()
+                || model().getStepPosition() > this.subSlides.size()
+                || this.subSlides.get(model().getStepPosition()) == null) {
+            addSubSlide(buildDefaultContent(model().getContent(slideStep)));
         }
-        final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
+        final Node nextSlide = this.subSlides.get(model().getStepPosition());
 
         if (this.currentSubSlide != null && nextSlide != null) {
             performStepAnimation(nextSlide);
@@ -845,7 +833,7 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
     protected void showCustomSlideStep(final Node node) {
 
         addSubSlide(node);
-        final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
+        final Node nextSlide = this.subSlides.get(model().getStepPosition());
         if (this.currentSubSlide != null && nextSlide != null) {
 
             performStepAnimation(nextSlide);
@@ -878,8 +866,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                                                 .children(
                                                                                                           TranslateTransitionBuilder.create()
                                                                                                                                     .duration(Duration.millis(400))
-                                                                                                                                    .fromY(getModel().isForwardFlow() ? 0 : 0)
-                                                                                                                                    .toY(getModel().isForwardFlow() ? -700 : 700)
+                                                                                                                                    .fromY(model().isForwardFlow() ? 0 : 0)
+                                                                                                                                    .toY(model().isForwardFlow() ? -700 : 700)
                                                                                                                                     // .fromZ(-10)
                                                                                                                                     .build(),
                                                                                                           TimelineBuilder.create()
@@ -889,10 +877,8 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                                                                                                               true)),
                                                                                                                                     new KeyFrame(Duration.millis(1),
                                                                                                                                                  new KeyValue(this.currentSubSlide.visibleProperty(),
-                                                                                                                                                              false))
-                                                                                                                         )
-                                                                                                                         .build()
-                                                                                                )
+                                                                                                                                                              false)))
+                                                                                                                         .build())
 
                                                                                                 .build(),
                                                                      SequentialTransitionBuilder.create()
@@ -903,18 +889,15 @@ public class BasicView extends AbstractSlideView<BasicModel, AnchorPane, BasicCo
                                                                                                                                     new KeyFrame(Duration.millis(0),
                                                                                                                                                  new KeyValue(nextSlide.visibleProperty(), false)),
                                                                                                                                     new KeyFrame(Duration.millis(1),
-                                                                                                                                                 new KeyValue(nextSlide.visibleProperty(), true))
-                                                                                                                         )
+                                                                                                                                                 new KeyValue(nextSlide.visibleProperty(), true)))
                                                                                                                          .build(),
                                                                                                           TranslateTransitionBuilder.create()
                                                                                                                                     .duration(Duration.millis(400))
-                                                                                                                                    .fromY(getModel().isForwardFlow() ? 700 : -700)
-                                                                                                                                    .toY(getModel().isForwardFlow() ? 0 : 0)
+                                                                                                                                    .fromY(model().isForwardFlow() ? 700 : -700)
+                                                                                                                                    .toY(model().isForwardFlow() ? 0 : 0)
                                                                                                                                     // .fromZ(-10)
-                                                                                                                                    .build()
-                                                                                                )
-                                                                                                .build()
-                                                           )
+                                                                                                                                    .build())
+                                                                                                .build())
                                                            .build();
         this.subSlideTransition.play();
 

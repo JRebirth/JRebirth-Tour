@@ -11,7 +11,7 @@
  * 
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -121,9 +121,9 @@ public final class PatternView extends AbstractSlideView<PatternModel, Pane, Pat
     }
 
     public void initStep() {
-        getRootNode().setPrefSize(1024, 768);
-        getRootNode().setMaxSize(1024, 768);
-        getRootNode().setMinSize(1024, 768);
+        node().setPrefSize(1024, 768);
+        node().setMaxSize(1024, 768);
+        node().setMinSize(1024, 768);
 
         linkLayer.setPrefSize(1024, 768);
         linkLayer.setMaxSize(1024, 768);
@@ -133,10 +133,10 @@ public final class PatternView extends AbstractSlideView<PatternModel, Pane, Pat
         ballLayer.setMaxSize(1024, 768);
         ballLayer.setMinSize(1024, 768);
 
-        getRootNode().getChildren().addAll(linkLayer, ballLayer);
+        node().getChildren().addAll(linkLayer, ballLayer);
 
         // Application
-        final Point2D gfPoint = new Point2D(getRootNode().getPrefWidth() / 2, getRootNode().getPrefHeight() / 2);
+        final Point2D gfPoint = new Point2D(node().getPrefWidth() / 2, node().getPrefHeight() / 2);
         final Node a = buildBall("A", BallColors.APPLICATION.get(), gfPoint.add(75, 75), true);
 
         // GlobalFacade

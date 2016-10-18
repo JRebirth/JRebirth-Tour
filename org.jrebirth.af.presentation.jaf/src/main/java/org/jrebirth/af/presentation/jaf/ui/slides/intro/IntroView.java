@@ -11,7 +11,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -77,7 +77,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
 
         this.label = LabelBuilder
                                  .create()
-                                 // .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+                                 // .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
                                  // .styleClass("label", "introTitle")
                                  // .font(PrezFonts.TYPEWRITER.get())
                                  // .textFill(Color.BLACK) // web("7F0055")
@@ -106,7 +106,7 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
 
         this.sublabel = LabelBuilder
                                     .create()
-                                    // .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+                                    // .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
                                     // .styleClass("label", "introTitle")
                                     // .font(PrezFonts.TYPEWRITER.get())
                                     // .textFill(Color.BLACK) // web("7F0055")
@@ -133,11 +133,11 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
 
         this.sublabel.getStyleClass().add("subintroTitle");
 
-        // label.scaleXProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024));
-        // label.scaleYProperty().bind(Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768));
+        // label.scaleXProperty().bind(Bindings.divide(model().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024));
+        // label.scaleYProperty().bind(Bindings.divide(model().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768));
 
-        getRootNode().getStyleClass().clear();
-        getRootNode().getStyleClass().add(getModel().getSlide().getStyle());
+        node().getStyleClass().clear();
+        node().getStyleClass().add(model().getSlide().getStyle());
 
         // final VBox vbox = new VBox();
         // vbox.setPadding(new Insets(50));
@@ -149,20 +149,20 @@ public final class IntroView extends AbstractSlideView<IntroModel, StackPane, In
         // "    -fx-spacing: 8;\r\n");
         // vbox.getChildren().addAll(label, sublabel);
 
-        getRootNode().getChildren().addAll(this.label, this.sublabel);
+        node().getChildren().addAll(this.label, this.sublabel);
         StackPane.setAlignment(this.label, Pos.CENTER);
         StackPane.setAlignment(this.sublabel, Pos.CENTER);
 
         StackPane.setMargin(this.label, new Insets(-100, 0, 0, 0));
         StackPane.setMargin(this.sublabel, new Insets(150, 0, 0, 0));
 
-        this.typeWriter = buildTypewriter(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"), this.label.textProperty(), 90, 130);
+        this.typeWriter = buildTypewriter(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"), this.label.textProperty(), 90, 130);
         this.typeWriter.setDelay(Duration.millis(300));
 
         String secondTitle = null;
 
-        if (getModel().getSlide().getContent().size() > 0 && getModel().getSlide().getContent().get(0).getTitle() != null) {
-            secondTitle = getModel().getSlide().getContent().get(0).getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t");
+        if (model().getSlide().getContent().size() > 0 && model().getSlide().getContent().get(0).getTitle() != null) {
+            secondTitle = model().getSlide().getContent().get(0).getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t");
             this.typeWriter2 = buildTypewriter(secondTitle, this.sublabel.textProperty(), 90, 70);
         }
 

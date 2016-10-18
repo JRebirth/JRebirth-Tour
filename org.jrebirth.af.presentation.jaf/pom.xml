@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.jrebirth</groupId>
 		<artifactId>ria</artifactId>
-		<version>2.1.0-SNAPSHOT</version>
+		<version>3.0.0</version>
 	</parent>
 
 	<groupId>org.jrebirth.af.presentation</groupId>
 	<artifactId>jaf</artifactId>
-	<version>2.2.0-SNAPSHOT</version>
+	<version>3.0.0</version>
 
 	<name>JRebirth Application Framework Presentation</name>
 	<url>http://www.jrebirth.org/jaf</url>
@@ -19,10 +19,10 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<deployUrl>http://apps.jrebirth.org</deployUrl><!-- http://apps.jrebirth.org -->
-		<deployPath>${project.artifactId}/${project.version}</deployPath><!-- ${project.artifactId}/${project.version} -->
+		<jrebirth.version>8.5.0</jrebirth.version>
 
-		<jnlpFilename>JRebirthTour.jnlp</jnlpFilename>
+		<archiveName>JRebirthTour</archiveName>
+		<exeIcon>src/main/resources/images/JRebirthTour.ico</exeIcon>
 		<appClass>org.jrebirth.af.presentation.jaf.JRebirthTour</appClass>
 
 		<appletWidth>1024</appletWidth>
@@ -37,129 +37,6 @@
 		<developerConnection>scm:git:ssh://git@github.com/JRebirth/JRebirth-Presentation.git</developerConnection>
 		<url>https://github.com/JRebirth/JRebirth-Presentation</url>
 	</scm>
-
-	<build>
-
-		<plugins>
-			<!-- <plugin> <artifactId>maven-assembly-plugin</artifactId> <configuration> <archive> <manifest> <mainClass>${appClass}</mainClass> </manifest> </archive> <descriptorRefs> <descriptorRef>jar-with-dependencies</descriptorRef> 
-				</descriptorRefs> <finalName>JRebirthTour</finalName> <appendAssemblyId>false</appendAssemblyId> </configuration> <executions> <execution> <id>make-assembly</id> < ! - - this is used for inheritance merges 
-				- - > <phase>package</phase> < ! - - bind to the packaging phase - - > <goals> <goal>single</goal> </goals> </execution> </executions> </plugin> -->
-
-			<plugin>
-				<groupId>com.github.wvengen</groupId>
-				<artifactId>proguard-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>proguard</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<options>
-						<option>-keepclasseswithmembers public class * {
-							public static void main(java.lang.String[]);
-							}
-						</option>
-						<option>-allowaccessmodification</option>
-						<option>-keepattributes Signature</option>
-						<option>-keepattributes *Annotation*</option>
-
-						<option>-dontoptimize</option>
-						<option>-dontshrink</option>
-
-						<!-- Custom Option for JRebirth Presentation Engine -->
-						<option>-keep public class * implements org.jrebirth.af.api.ui.Model</option>
-
-					</options>
-					<libs>
-						<lib>${java.home}/lib/rt.jar</lib>
-						<lib>${java.home}/lib/ext/jfxrt.jar</lib>
-					</libs>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>1.7.1</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<shadedArtifactAttached>false</shadedArtifactAttached>
-					<shadedClassifierName>shaded</shadedClassifierName>
-					<transformers>
-						<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-							<mainClass>${appClass}</mainClass>
-							<manifestEntries>
-								<Class-Path>.</Class-Path>
-							</manifestEntries>
-						</transformer>
-					</transformers>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.akathist.maven.plugins.launch4j</groupId>
-				<artifactId>launch4j-maven-plugin</artifactId>
-				<version>1.5.1</version>
-				<executions>
-					<execution>
-						<id>l4j-clui</id>
-						<phase>package</phase>
-						<goals>
-							<goal>launch4j</goal>
-						</goals>
-						<configuration>
-							<headerType>gui</headerType>
-							<jar>${project.build.directory}/${artifactId}-${version}.jar</jar>
-							<outfile>${project.build.directory}/JRebirthTour.exe</outfile>
-							<downloadUrl>http://java.com/download</downloadUrl>
-							<classPath>
-								<mainClass>${appClass}</mainClass>
-								<addDependencies>false</addDependencies>
-								<preCp>.</preCp>
-							</classPath>
-							<icon>src/main/resources/images/JRebirthTour.ico</icon>
-							<jre>
-								<minVersion>1.8.0</minVersion>
-								<jdkPreference>preferJre</jdkPreference>
-							</jre>
-							<versionInfo>
-								<fileVersion>1.0.0.0</fileVersion>
-								<txtFileVersion>${project.version}</txtFileVersion>
-								<fileDescription>${project.name}</fileDescription>
-								<copyright>JRebirth 2015</copyright>
-								<productVersion>1.0.0.0</productVersion>
-								<txtProductVersion>1.0.0.0</txtProductVersion>
-								<productName>${project.name}</productName>
-								<companyName>JRebirth</companyName>
-								<internalName>JRebirthTour</internalName>
-								<originalFilename>JRebirthTour.exe</originalFilename>
-							</versionInfo>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>webstart-maven-plugin</artifactId> </plugin> -->
-			<!-- <plugin> <groupId>com.messapix.ftatr.jfxmobile</groupId> <artifactId>jfxmobile-maven-plugin</artifactId> <version>1.0.0-b1</version> <extensions>true</extensions> <configuration> <mainClass>${appClass}</mainClass> 
-				<android> <manifest>lib/android/AndroidManifest.xml</manifest> <androidSdk>D:\FXPort\android-sdk-windows</androidSdk> <dalvikSdk>D:\FXPort\dalvik-sdk</dalvikSdk> <processJava8Dependencies>true</processJava8Dependencies> 
-				<dependencies> <dependency> <groupId>com.gluonhq</groupId> <artifactId>charm-down-android</artifactId> <version>0.0.3</version> <scope>runtime</scope> </dependency> </dependencies> </android> <desktop> 
-				<dependencies> <dependency> <groupId>com.gluonhq</groupId> <artifactId>charm-down-desktop</artifactId> <version>0.0.3</version> <scope>runtime</scope> </dependency> </dependencies> </desktop> <ios> <dependencies> 
-				<dependency> <groupId>com.gluonhq</groupId> <artifactId>charm-down-ios</artifactId> <version>0.0.3</version> <scope>runtime</scope> </dependency> </dependencies> </ios> </configuration> </plugin> <plugin> 
-				<groupId>org.sonatype.install4j</groupId> <artifactId>install4j-maven-plugin</artifactId> <executions> <execution> <id>compile-installers</id> <phase>package</phase> <goals> <goal>compile</goal> </goals> 
-				<configuration> <projectFile>${project.basedir}/src/main/installer/jaf.install4j</projectFile> </configuration> </execution> </executions> </plugin> -->
-
-		</plugins>
-
-	</build>
 
 	<dependencies>
 
@@ -178,30 +55,21 @@
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>preloader</artifactId>
-			<version>8.0.5-SNAPSHOT</version>
+			<version>${jrebirth.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>presentation</artifactId>
-			<version>8.0.5-SNAPSHOT</version>
+			<version>${jrebirth.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.2</version>
+			<version>1.1.5</version>
 		</dependency>
 
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>INSTALLER</id>
-			<properties>
-				<install4j.home>C:\Program Files\install4j6</install4j.home>
-			</properties>
-		</profile>
-	</profiles>
 
 </project>

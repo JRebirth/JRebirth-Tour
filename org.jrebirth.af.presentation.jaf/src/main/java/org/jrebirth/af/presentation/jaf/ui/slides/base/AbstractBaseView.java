@@ -11,7 +11,7 @@
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * WITHOUT WARRANTIES OR CONDITIONS OF Any KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
@@ -174,9 +174,9 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
     @Override
     protected void initView() {
 
-        getRootNode().setPrefSize(1024, 768);
-        getRootNode().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
-        getRootNode().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        node().setPrefSize(1024, 768);
+        node().setMinSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
+        node().setMaxSize(Region.USE_PREF_SIZE, Region.USE_PREF_SIZE);
 
         this.slideContent = new StackPane();
         this.slideContent.setOpacity(0.9);
@@ -210,7 +210,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
         // bp.setMinHeight(642);
         final Node header = getHeaderPanel();
 
-        if (!getModel().hasStep()) {
+        if (!model().hasStep()) {
             addSubSlide(getContentPanel());
         }
 
@@ -226,14 +226,14 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
         AnchorPane.setLeftAnchor(this.slideContent, 48.0);
         // AnchorPane.setBottomAnchor(footer, 95.0);
 
-        getRootNode().getChildren().addAll(/* footer, */this.slideContent, header);
+        node().getChildren().addAll(/* footer, */this.slideContent, header);
     }
 
     /**
      * Show en aempty slide.
      */
     protected void showEmptySlide() {
-        this.subSlides.add(getModel().getStepPosition(), null);
+        this.subSlides.add(model().getStepPosition(), null);
     }
 
     /**
@@ -243,7 +243,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      */
     private void addSubSlide(final Node defaultSubSlide) {
 
-        this.subSlides.add(getModel().getStepPosition(), defaultSubSlide);
+        this.subSlides.add(model().getStepPosition(), defaultSubSlide);
         this.slideContent.getChildren().add(defaultSubSlide);
 
         StackPane.setAlignment(defaultSubSlide, Pos.CENTER);
@@ -287,16 +287,16 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
 
         // MUST be refactored with property binding
 
-        // this.pageLabel.setText(String.valueOf(getModel().getSlideNumber()));
+        // this.pageLabel.setText(String.valueOf(model().getSlideNumber()));
 
         // FadeTransitionBuilder.create()
-        // .node(getRootNode().getTop())
+        // .node(node().getTop())
         // .duration(Duration.millis(600))
         // .fromValue(0).toValue(0.7)
         // .build().play();
 
         // FadeTransitionBuilder.create()
-        // .node(getRootNode().getCenter())
+        // .node(node().getCenter())
         // .duration(Duration.millis(600))
         // .fromValue(0)
         // .toValue(0.4)
@@ -344,8 +344,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                    .delay(Duration.millis(200))
                                                                    .keyFrames(
                                                                               new KeyFrame(Duration.millis(0), new KeyValue(this.topRectangle.widthProperty(), 0)),
-                                                                              new KeyFrame(Duration.millis(600), new KeyValue(this.topRectangle.widthProperty(), 300))
-                                                                   )
+                                                                              new KeyFrame(Duration.millis(600), new KeyValue(this.topRectangle.widthProperty(), 300)))
                                                                    .build(),
 
                                                     TimelineBuilder.create()
@@ -353,13 +352,10 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                    .keyFrames(
                                                                               new KeyFrame(Duration.millis(0),
                                                                                            new KeyValue(this.bottomRectangle.widthProperty(), 0),
-                                                                                           new KeyValue(this.bottomRectangle.xProperty(), 1000)
-                                                                              ),
+                                                                                           new KeyValue(this.bottomRectangle.xProperty(), 1000)),
                                                                               new KeyFrame(Duration.millis(300),
                                                                                            new KeyValue(this.bottomRectangle.widthProperty(), 300),
-                                                                                           new KeyValue(this.bottomRectangle.xProperty(), 700)
-                                                                              )
-                                                                   )
+                                                                                           new KeyValue(this.bottomRectangle.xProperty(), 700)))
                                                                    .build(),
                                                     TranslateTransitionBuilder.create()
                                                                               .node(this.placeLogo)
@@ -380,8 +376,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                               new KeyFrame(Duration.millis(100), new KeyValue(mb.radiusProperty(), 50)),
                                                                               new KeyFrame(Duration.millis(200), new KeyValue(mb.radiusProperty(), 63)),
                                                                               new KeyFrame(Duration.millis(300), new KeyValue(mb.radiusProperty(), 50)),
-                                                                              new KeyFrame(Duration.millis(400), new KeyValue(mb.radiusProperty(), 0))
-                                                                   )
+                                                                              new KeyFrame(Duration.millis(400), new KeyValue(mb.radiusProperty(), 0)))
                                                                    .build(),
                                                     // ).build()
                                                     ParallelTransitionBuilder
@@ -408,11 +403,9 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                                                              .fromY(0)
                                                                                                              .toX(1)
                                                                                                              .toY(1)
-                                                                                                             .build()
-                                                                             )
+                                                                                                             .build())
                                                                              .node(this.slideContent)
-                                                                             .build()
-                                 )
+                                                                             .build())
                                  .build().play();
     }
 
@@ -435,7 +428,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                         // .styleClass("slideTitle")
                                         .font(JpFonts.SLIDE_TITLE.get())
                                         .textFill(PrezColors.SLIDE_TITLE.get())
-                                        .text(getModel().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
+                                        .text(model().getSlide().getTitle().replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"))
                                         .layoutX(3000) // 40
                                         .layoutY(45)
                                         // .style("-fx-background-color:#CCCB20")
@@ -510,24 +503,22 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
         // .radius(54)
         // .fill(Color.web("444442"))
         // .build();
-        final Effect smallPokemonEffect =
-                InnerShadowBuilder.create()
-                                  .offsetX(1)
-                                  .offsetY(1)
-                                  .color(Color.LIGHTGRAY)
-                                  .input(GlowBuilder.create()
-                                                    .level(0.6)
-                                                    .build())
-                                  .build();
+        final Effect smallPokemonEffect = InnerShadowBuilder.create()
+                                                            .offsetX(1)
+                                                            .offsetY(1)
+                                                            .color(Color.LIGHTGRAY)
+                                                            .input(GlowBuilder.create()
+                                                                              .level(0.6)
+                                                                              .build())
+                                                            .build();
 
-        final Effect bigPokemonEffect =
-                DropShadowBuilder.create()
-                                 .offsetX(2)
-                                 .offsetY(2)
-                                 .input(GlowBuilder.create()
-                                                   .level(0.6)
-                                                   .build())
-                                 .build();
+        final Effect bigPokemonEffect = DropShadowBuilder.create()
+                                                         .offsetX(2)
+                                                         .offsetY(2)
+                                                         .input(GlowBuilder.create()
+                                                                           .level(0.6)
+                                                                           .build())
+                                                         .build();
 
         this.smallPokemon = SVGPathBuilder
                                           .create()
@@ -556,7 +547,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
         this.pageLabel = LabelBuilder.create()
                                      .layoutX(970)
                                      .layoutY(18.0)
-                                     .text(String.valueOf(getModel().getSlide().getPage()))
+                                     .text(String.valueOf(model().getSlide().getPage()))
                                      .font(PrezFonts.PAGE.get())
                                      .textFill(Color.WHITE)
                                      .rotate(90.0)
@@ -607,7 +598,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      * @return the number binding
      */
     protected NumberBinding bindHeight() {
-        return Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().heightProperty(), 768);
+        return Bindings.divide(model().localFacade().getGlobalFacade().application().stage().heightProperty(), 768);
     }
 
     /**
@@ -616,7 +607,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      * @return the number binding
      */
     protected NumberBinding bindWidth() {
-        return Bindings.divide(getModel().getLocalFacade().getGlobalFacade().getApplication().getStage().widthProperty(), 1024);
+        return Bindings.divide(model().localFacade().getGlobalFacade().application().stage().widthProperty(), 1024);
     }
 
     /**
@@ -625,7 +616,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      * @return the content panel
      */
     protected Node getContentPanel() {
-        return buildDefaultContent(getModel().getDefaultContent());
+        return buildDefaultContent(model().getDefaultContent());
     }
 
     /**
@@ -635,7 +626,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      */
     protected Node getFooterPanel() {
         this.pageLabel = LabelBuilder.create()
-                                     .text(String.valueOf(getModel().getSlide().getPage()))
+                                     .text(String.valueOf(model().getSlide().getPage()))
                                      .font(PrezFonts.PAGE.get())
                                      .build();
 
@@ -674,8 +665,8 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
         final VBox vbox = new VBox();
         // vbox.getStyleClass().add("content");
 
-        if (getModel().getSlide().getStyle() != null) {
-            vbox.getStyleClass().add(getModel().getSlide().getStyle());
+        if (model().getSlide().getStyle() != null) {
+            vbox.getStyleClass().add(model().getSlide().getStyle());
         }
 
         if (slideContent != null) {
@@ -766,10 +757,10 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
      */
     public void showSlideStep(final SlideStep slideStep) {
 
-        if (this.subSlides.size() >= getModel().getStepPosition() || this.subSlides.get(getModel().getStepPosition()) == null) {
-            addSubSlide(buildDefaultContent(getModel().getContent(slideStep)));
+        if (this.subSlides.size() >= model().getStepPosition() || this.subSlides.get(model().getStepPosition()) == null) {
+            addSubSlide(buildDefaultContent(model().getContent(slideStep)));
         }
-        final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
+        final Node nextSlide = this.subSlides.get(model().getStepPosition());
 
         if (this.currentSubSlide != null && nextSlide != null) {
             performStepAnimation(nextSlide);
@@ -800,7 +791,7 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
     protected void showCustomSlideStep(final Node node) {
 
         addSubSlide(node);
-        final Node nextSlide = this.subSlides.get(getModel().getStepPosition());
+        final Node nextSlide = this.subSlides.get(model().getStepPosition());
         if (this.currentSubSlide != null && nextSlide != null) {
 
             performStepAnimation(nextSlide);
@@ -844,10 +835,8 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                                                                                                               true)),
                                                                                                                                     new KeyFrame(Duration.millis(1),
                                                                                                                                                  new KeyValue(this.currentSubSlide.visibleProperty(),
-                                                                                                                                                              false))
-                                                                                                                         )
-                                                                                                                         .build()
-                                                                                                )
+                                                                                                                                                              false)))
+                                                                                                                         .build())
 
                                                                                                 .build(),
                                                                      SequentialTransitionBuilder.create()
@@ -858,18 +847,15 @@ public abstract class AbstractBaseView<M extends AbstractBaseModel<?, ?, ?>, N e
                                                                                                                                     new KeyFrame(Duration.millis(0),
                                                                                                                                                  new KeyValue(nextSlide.visibleProperty(), false)),
                                                                                                                                     new KeyFrame(Duration.millis(1),
-                                                                                                                                                 new KeyValue(nextSlide.visibleProperty(), true))
-                                                                                                                         )
+                                                                                                                                                 new KeyValue(nextSlide.visibleProperty(), true)))
                                                                                                                          .build(),
                                                                                                           TranslateTransitionBuilder.create()
                                                                                                                                     .duration(Duration.millis(400))
                                                                                                                                     .fromY(700)
                                                                                                                                     .toY(0)
                                                                                                                                     // .fromZ(-10)
-                                                                                                                                    .build()
-                                                                                                )
-                                                                                                .build()
-                                                           )
+                                                                                                                                    .build())
+                                                                                                .build())
                                                            .build();
         this.subSlideTransition.play();
 
