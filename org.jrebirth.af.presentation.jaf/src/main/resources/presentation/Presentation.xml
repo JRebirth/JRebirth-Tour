@@ -974,13 +974,14 @@ WaveData<List<Expression>> exprList =
 			<title>Modularization</title>
 			<content name="Principle">
 				<item>All Components are interchangeable at runtime</item>
-				<item>At compile time a component map is created</item>
-				<item level="1">Stored into JRAF-INF\module.xml</item>
+				<item>At compile time a ModuleStarter class is created</item>
+				<item level="1">Run at bootup to manage component registrations</item>
 				<item level="1">Using annotation processor</item>
 				<item>Annotations used:</item>
 				<item level="1">@RegistrationPoint</item>
 				<item level="1">@Register</item>
-				<item level="1">@WarmUp (being refactored)</item>
+				<item level="1">@BootComponent</item>
+				<item level="1">@Preload</item>
 			</content>
 						
 			<content name="ComponentRegistration">
@@ -1021,7 +1022,7 @@ WaveData<List<Expression>> exprList =
 			<content name="ComponentImplementation">
 				<title>Component Implementation</title>
 
-				<item>Interface:</item>
+				<item>Implementation:</item>
 				<item html="true">
 				<!-- 
 				@Register(value = ExpressionBuilderService.class,
@@ -1054,24 +1055,21 @@ public final class ExpressionBuilderServiceImpl
 			</content>
 			
 			<content name="ModuleFile">
-				<title>ModuleFile</title>
+				<title>ModuleStarter</title>
 
-				<item>JRAF-INF/module.xml:</item>
+				<item>&lt;base_package&gt;/&lt;module_name&gt;ModuleStarter.java:</item>
 				<item html="true">
 				<![CDATA[
 <pre>				
-&lt;module xmlns=&quot;http://www.jrebirth.org/Module&quot;&gt;
-    &lt;warmUp/&gt;
-    &lt;registrations&gt;
-        &lt;registration exclusive=&quot;true&quot; 
-		class=&quot;org.jrebirth.demo.masteringtables.service.ExpressionBuilderService&quot;&gt;
-            &lt;registrationEntries&gt;
-                &lt;registrationEntry priority=&quot;Normal&quot; 
-				class=&quot;org.jrebirth.demo.masteringtables.service.ExpressionBuilderServiceImpl&quot; /&gt;
-            &lt;/registrationEntries&gt;
-        &lt;/registration&gt;
-    &lt;/registrations&gt;
-&lt;/module&gt;
+public class MasteringtablesModuleStarter extends AbstractModuleStarter {
+
+	@Override
+	public void start() {
+		register(ExpressionBuilderService.class,
+				ExpressionBuilderServiceImpl.class, PriorityLevel.Normal, 0);
+		preloadClass(MTWaves.class);
+	}
+}
 </pre>
 				]]>
 				</item>
@@ -1080,30 +1078,22 @@ public final class ExpressionBuilderServiceImpl
 			
 			<content name="PomFile">
 				<title>How activate</title>
-				<item>Use these 2 properties</item>
-				<item level="2">parseModuleConfigFile=true</item>
-				<item level="2">componentFactory=org.jrebirth.af.core.component.factory.AnnotatedComponentFactory</item>
-				
-				<item>Dependencies required:</item>
+				<item>Simply add processor dependency:</item>
 				<item html="true">
 				<![CDATA[
-			<pre>
-	&lt;dependencies&gt;
-		&lt;dependency&gt;
-			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
-			&lt;artifactId&gt;core&lt;/artifactId&gt;
-		&lt;/dependency&gt;
-		&lt;dependency&gt;
-			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
-			&lt;artifactId&gt;modular&lt;/artifactId&gt;
-		&lt;/dependency&gt;
-		&lt;dependency&gt;
-			&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
-			&lt;artifactId&gt;processor&lt;/artifactId&gt;
-			&lt;scope&gt;provided&lt;/scope&gt;
-		&lt;/dependency&gt;
-	&lt;/dependencies&gt;			
-			</pre>
+<pre>
+&lt;dependencies&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
+		&lt;artifactId&gt;core&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+	&lt;dependency&gt;
+		&lt;groupId&gt;org.jrebirth.af&lt;/groupId&gt;
+		&lt;artifactId&gt;processor&lt;/artifactId&gt;
+		&lt;scope&gt;provided&lt;/scope&gt;
+	&lt;/dependency&gt;
+&lt;/dependencies&gt;			
+</pre>
 				]]>
 				</item>
 
