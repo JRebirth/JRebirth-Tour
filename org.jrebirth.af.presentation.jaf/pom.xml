@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.jrebirth</groupId>
 		<artifactId>ria</artifactId>
-		<version>3.0.0</version>
+		<version>4.0.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.jrebirth.af.presentation</groupId>
 	<artifactId>jaf</artifactId>
-	<version>3.0.0</version>
+	<version>4.0.0-SNAPSHOT</version>
 
 	<name>JRebirth Application Framework Presentation</name>
 	<url>http://www.jrebirth.org/jaf</url>
@@ -19,14 +19,17 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<jrebirth.version>8.5.0</jrebirth.version>
+		<resources.base.path>org/jrebirth/af/tour</resources.base.path>
+		<jrebirth.version>12.0.0-SNAPSHOT</jrebirth.version>
 
+		<resources.base.path>org/jrebirth/af/tour</resources.base.path>
+		<vendor>JRebirth</vendor>		
+		<appName>JRebirth Tour</appName>
 		<archiveName>JRebirthTour</archiveName>
 		<exeIcon>src/main/resources/images/JRebirthTour.ico</exeIcon>
-		<appClass>org.jrebirth.af.presentation.jaf.JRebirthTour</appClass>
-
-		<appletWidth>1024</appletWidth>
-		<appletHeight>768</appletHeight>
+		<mainModule>org.jrebirth.af.tour</mainModule>
+		<appClass>org.jrebirth.af.tour.JRebirthTour</appClass>
+		<appVersion>4.0.0</appVersion>
 
 		<ciJob>JRebirth-Presentation-master</ciJob>
 
@@ -40,18 +43,19 @@
 
 	<dependencies>
 
-		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.2.12</version>
+<!--		<dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>4.0.5</version>
+            <scope>runtime</scope>
+        </dependency>-->
+        
+        <dependency>
+		    <groupId>org.glassfish.jaxb</groupId>
+		    <artifactId>jaxb-runtime</artifactId>
+		    <version>4.0.5</version>
 		</dependency>
-
-		<dependency>
-			<groupId>javax.xml</groupId>
-			<artifactId>jaxb-impl</artifactId>
-			<version>2.1</version>
-		</dependency>
-
+            
 		<dependency>
 			<groupId>org.jrebirth.af</groupId>
 			<artifactId>preloader</artifactId>
@@ -67,9 +71,23 @@
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
-			<version>1.1.5</version>
+			<version>1.4.14</version>
 		</dependency>
 
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>github-packages</id>
+			<properties>
+				<repositoryId>github</repositoryId>
+				<repositoryName>GitHub Packages Releases</repositoryName>
+				<repositoryUrl>https://maven.pkg.github.com/JRebirth/JRebirth-Tour</repositoryUrl>
+				<snapshotRepositoryId>github</snapshotRepositoryId>
+				<snapshotRepositoryName>GitHub Packages Snapshots</snapshotRepositoryName>
+				<snapshotRepositoryUrl>https://maven.pkg.github.com/JRebirth/JRebirth-Tour</snapshotRepositoryUrl>
+			</properties>
+		</profile>
+	</profiles>
 
 </project>
